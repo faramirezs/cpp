@@ -36,8 +36,16 @@ class contact
     std::string getLname() { return lname; }
     std::string getPhone() { return phone; }
     std::string getNname() { return nname; }
-    void displayContact() { 
-        std::cout << phone << " " << nname << " " << secret << "\n";}
+    void displayContact() 
+    { 
+        std::cout << "\n";
+        std::cout << "First name: " << fname << "\n" 
+            << "Last name: " << lname << "\n" 
+            << "Phone: " << phone << "\n" 
+            << "Nickname: " << nname << "\n"
+            << "Darkest secret: " << secret << "\n";
+        std::cout << "\n";
+    }
 };
 
 class phonebook
@@ -93,7 +101,7 @@ class phonebook
             std::string fname;
             std::string lname;
             std::string nname;
-            std::string command;
+            int command;
 
             i = 0;
             if (*id == 0)
@@ -101,6 +109,8 @@ class phonebook
                 std::cout << "Empty phoneBook";
                 return;
             }
+            std::cout << "\n";
+            std::cout << "--------------------------------------------\n";
             std::cout << "|" << std::left << std::setw(10) << "index" << "|" 
                 << std::setw(10) << "first name" << "|" 
                 << std::setw(10) << "last name" << "|" 
@@ -123,11 +133,19 @@ class phonebook
                     << std::setw(10) << fname << "|" 
                     << std::setw(10) << lname << "|" 
                     << std::setw(10) << nname << "|" << std::endl;
-                //std::cout << "|" << contacts[i].getID() << std::setw(10) << "|" << fname << std::setw(10) << "|" << lname << std::setw(10) << "|" << nname << std::setw(10) <<"|\n";
                 i++;
             }
-            std::cout << "Enter the index of the contact you want to see\n";
+            std::cout << "--------------------------------------------\n";
+            std::cout << "\n";
+            std::cout << "Enter the index of the contact you want to see: ";
             std::cin >> command;
+            if (command >= 0 && command < *id)
+                contacts[command].displayContact();
+            else
+            {
+                std::cout << "Invalid index\n";
+                searchContact(id);
+            }
         }
 };
 
