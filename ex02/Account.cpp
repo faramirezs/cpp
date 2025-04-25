@@ -15,7 +15,7 @@ void Account::displayAccountsInfos (void)
         << "withdrawls" << Account::getNbWithdrawals;
 };
 
-Account(int initial_deposit)
+Account::Account(int initial_deposit)
 {
     Account
 }
