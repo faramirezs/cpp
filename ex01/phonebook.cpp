@@ -78,7 +78,7 @@ class phonebook
             {
                 std::cout << "Memory full! ovewritting oldest contact...\n";
                 memory_full(contacts);
-                id--;
+                (*id)--;
                 std::cout << "Contacts: " << *id << "\n";
             }
             std::cout << "Enter first name: ";
@@ -110,13 +110,13 @@ class phonebook
                 return;
             }
             std::cout << "\n";
-            std::cout << "--------------------------------------------\n";
+            //std::cout << "--------------------------------------------\n";
             std::cout << "|" << std::left << std::setw(10) << "index" << "|" 
                 << std::setw(10) << "first name" << "|" 
                 << std::setw(10) << "last name" << "|" 
                 << std::setw(10) << "nickname" << "|" << std::endl;
             //std::cout << "|" << "index" << std::setw(10) << "|" << "first name" << std::setw(10) << "|" << "last name" << std::setw(10) << "|" << "nickname" << std::setw(10) << "|\n";
-            std::cout << "--------------------------------------------\n";
+            std::cout << "|----------|----------|----------|----------|\n";
             while(i < *id)
             {
                 fname = contacts[i].getFname();
@@ -135,15 +135,23 @@ class phonebook
                     << std::setw(10) << nname << "|" << std::endl;
                 i++;
             }
-            std::cout << "--------------------------------------------\n";
+            //std::cout << "--------------------------------------------\n";
             std::cout << "\n";
             std::cout << "Enter the index of the contact you want to see: ";
-            std::cin >> command;
+            if (!(std::cin >> command)) {
+                // Input was not a valid integer
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Invalid input. Please enter a numeric index.\n";
+                searchContact(id);
+                return; // Or handle the error differently
+            }
+            //std::cin >> command;
             if (command >= 0 && command < *id)
                 contacts[command].displayContact();
             else
             {
-                std::cout << "Invalid index\n";
+                std::cout << "Invalid index. Please enter a valid index from the table below.\n";
                 searchContact(id);
             }
         }
