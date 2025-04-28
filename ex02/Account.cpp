@@ -21,14 +21,14 @@ int Account::_totalNbWithdrawals = 0;
 void Account::_displayTimestamp (void)
 {
     time_t timestamp;
-    char output[17];
+    char output[19];
     struct tm * datetime;
 
     time(&timestamp);
     datetime = localtime(&timestamp);
 
-    strftime(output, 17, "[%Y%m%d_%H%M%S] ", datetime);
-    std::cout << output << "\n";
+    strftime(output, 19, "[%Y%m%d_%H%M%S] ", datetime);
+    std::cout << output;
 }
 
 void Account::displayAccountsInfos (void)
@@ -37,7 +37,8 @@ void Account::displayAccountsInfos (void)
     std::cout << "accounts:" << Account::_nbAccounts 
         << ";total:" << Account::_totalAmount
         << ";deposits:" << Account::_totalNbDeposits
-        << ";withdrawls" << Account::_totalNbWithdrawals;
+        << ";withdrawls:" << Account::_totalNbWithdrawals
+        << "\n";
 };
 
 void Account::makeDeposit(int deposit)
@@ -68,7 +69,8 @@ Account::Account(int initial_deposit)
     Account::_displayTimestamp();
     std::cout << "index:" << Account::_accountIndex
         << ";amount" << Account::_amount
-        << ";created";
+        << ";created"
+        << "\n";
 }
 
 void Account::displayStatus( void ) const
@@ -77,7 +79,8 @@ void Account::displayStatus( void ) const
     std::cout << "index:" << Account::_accountIndex 
         << ";amount:" << Account::_amount
         << ";deposits:" << Account::_nbDeposits
-        << ";withdrawls" << Account::_nbDeposits;
+        << ";withdrawls:" << Account::_nbDeposits
+        << "\n";
 };
 
 Account::~Account( void )
@@ -85,7 +88,8 @@ Account::~Account( void )
     Account::_displayTimestamp();
     std::cout << "index:" << Account::_accountIndex
         << ";amount" << Account::_amount
-        << ";closed";
+        << ";closed"
+        << "\n";
 }
 
 /* int	Account::getNbAccounts( void )
