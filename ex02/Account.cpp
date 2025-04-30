@@ -43,18 +43,43 @@ void Account::displayAccountsInfos (void)
 
 void Account::makeDeposit(int deposit)
 {
+    Account::_totalAmount = Account::_totalAmount + deposit;
     Account::_amount = Account::_amount + deposit;
     Account::_nbDeposits++;
+    Account::_totalNbDeposits++;
+    Account::_displayTimestamp();
+    std::cout << "index:" << Account::_accountIndex 
+        << ";p_amount:" << Account::_amount - deposit
+        << ";deposit:" << deposit
+        << ";amount:" << Account::_amount
+        << ";nb_deposits:" << Account::_nbDeposits
+        << "\n";
 }
 
 bool Account::makeWithdrawal(int withdrawal)
 {
+    //[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
     if(withdrawal <= Account::_amount)
     {
+        Account::_totalAmount = Account::_totalAmount - withdrawal;
         Account::_amount = Account::_amount - withdrawal;
         Account::_nbWithdrawals++;
+        Account::_totalNbWithdrawals++;
+        Account::_displayTimestamp();
+        std::cout << "index:" << Account::_accountIndex 
+            << ";p_amount:" << Account::_amount + withdrawal
+            << ";withdrawal:" << withdrawal
+            << ";amount:" << Account::_amount
+            << ";nb_withdrawals:" << Account::_nbWithdrawals
+            << "\n";
         return (true);
     }
+    //[19920104_091532] index:0;p_amount:47;withdrawal:refused
+    Account::_displayTimestamp();
+    std::cout << "index:" << Account::_accountIndex 
+            << ";p_amount:" << Account::_amount
+            << ";withdrawal:" << "refused"
+            << "\n";
     return (false);
 }
 
@@ -79,7 +104,7 @@ void Account::displayStatus( void ) const
     std::cout << "index:" << Account::_accountIndex 
         << ";amount:" << Account::_amount
         << ";deposits:" << Account::_nbDeposits
-        << ";withdrawls:" << Account::_nbDeposits
+        << ";withdrawls:" << Account::_nbWithdrawals
         << "\n";
 };
 
@@ -87,7 +112,7 @@ Account::~Account( void )
 {
     Account::_displayTimestamp();
     std::cout << "index:" << Account::_accountIndex
-        << ";amount" << Account::_amount
+        << ";amount:" << Account::_amount
         << ";closed"
         << "\n";
 }
