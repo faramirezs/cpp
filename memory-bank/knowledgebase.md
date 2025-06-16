@@ -280,6 +280,48 @@ delete[] zombies;                 // Must use delete[] not delete
 **Prerequisites:** Understanding of constructors/destructors and basic pointers
 **Leads to:** STL containers, memory management patterns
 
+### Concept: Reference Binding and Const-correctness
+
+**Core Explanation (For Tutor's Understanding):**
+- Non-const lvalue references (T&) can only bind to non-const lvalues (named variables that can be modified)
+- Const references (const T&) can bind to lvalues, temporaries, literals, and const objects
+- Const member functions guarantee not to modify the object, allowing them to be called on const objects
+- Reference members must be initialized in the initializer list
+- Object lifetime is critical: references to destroyed/copy objects lead to undefined behavior
+
+**Helpful Analogies:**
+- Reference = Nickname for a specific person (must always refer to someone who exists)
+- Const reference = Nickname you promise never to use to change the person
+- Temporary = Visitor who leaves quickly; only safe to reference if you promise not to change them
+
+**Key Socratic Questions for This Concept:**
+- "Why can't you bind a non-const reference to a temporary or literal?"
+- "What happens if you try to modify an object through a const reference?"
+- "Why do reference members require initialization in the initializer list?"
+- "What is the difference between lvalue and rvalue in C++?"
+- "How does object lifetime affect the safety of references in class design?"
+- "Why do you need const member functions to call them on const objects?"
+
+**Common Student Misconceptions:**
+- Thinking all references can bind to any object
+- Not realizing temporaries are destroyed at the end of the full expression
+- Confusing constness of reference with constness of the object
+
+**Diagnostic Questions for Misconceptions:**
+- "What happens if you return a reference to a local variable?"
+- "Why does the compiler complain about type qualifiers when calling a non-const member function on a const object?"
+
+**Simple Illustrative Code Snippets (For Tutor Reference Only):**
+```cpp
+int x = 5;
+int &ref1 = x;         // OK: non-const lvalue
+const int &ref2 = 10;  // OK: binds to temporary
+int &ref3 = 10;        // ERROR: cannot bind non-const ref to temporary
+```
+
+**Prerequisites:** Understanding of references and object lifetime
+**Leads to:** Advanced class design, understanding temporaries and literals
+
 ---
 
 ## Template for Adding New Concepts:

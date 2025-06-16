@@ -6,19 +6,19 @@ HEADERS	= Weapon.hpp HumanA.hpp HumanB.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CC	= c++
+CCXX	= c++
 
 RM	= rm -f
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CCXXFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS) $(HEADERS)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+		$(CCXX) $(CCXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-		$(CC) $(CFLAGS) -c $< -o $@
+		$(CCXX) $(CCXXFLAGS) -c $< -o $@
 
 clean:
 		$(RM) $(OBJS)

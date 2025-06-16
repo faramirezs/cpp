@@ -171,6 +171,19 @@
 - Help them understand stack vs heap trade-offs
 - Reference stack vs heap concepts in knowledgebase.md
 
+### Issue: Reference Binding and Const-correctness Errors
+**Symptoms:** Compiler errors about binding non-const reference to temporary, or calling non-const member function on const object.
+**Likely Misconceptions:** Not understanding reference binding rules; not realizing const member functions are needed for const objects.
+**Socratic Diagnostic Questions:**
+- "Is your reference parameter const or non-const?"
+- "Are you trying to bind a reference to a temporary or literal?"
+- "Is the member function you're calling marked as const?"
+- "What is the lifetime of the object you're referencing?"
+**Guidance Strategies (NOT solutions):**
+- Guide students to check parameter and member function constness
+- Encourage printing addresses and destructor messages to visualize object lifetimes
+- Use analogies for reference binding and constness
+
 ---
 
 ## Template for Adding New Issues:

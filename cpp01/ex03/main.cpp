@@ -14,7 +14,9 @@ int main()
 {
     {
         Weapon club = Weapon("crude spiked club");
+        std::cout << "Club address in main: " << &club << "\n";
         HumanA bob("Bob", club);
+        //print the address of club in main and inside humana to see the difference.
         bob.attack();
         club.setType("some other type of club");
         bob.attack();

@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/account",
+            "program": "${workspaceFolder}/cpp01/ex03/attack",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

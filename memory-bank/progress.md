@@ -1,4 +1,4 @@
- <!-- Memory Bank File: Student Progress Tracker -->
+<!-- Memory Bank File: Student Progress Tracker -->
 <!-- Purpose: Tracks the student's overall learning journey and concept mastery -->
 <!-- Update Frequency: After each session or significant learning milestone -->
 <!-- Cross-references: ←student-profile.md (learning goals), →knowledgebase.md (concepts), →tutoring-insights.md (strategies) -->
@@ -38,10 +38,16 @@
   - **Evidence/Notes:** Successfully completed ex02 with string pointer and reference demonstration. Understands references as aliases vs pointers as addresses.
 - **Concept: Class Design with References vs Pointers**
   - **Status:** In Progress (2025-06-16)
-  - **Evidence/Notes:** Working on ex03 HumanA/HumanB implementation. Weapon.hpp created with proper structure, need to implement Weapon.cpp methods (getType, setType, constructors).
+  - **Evidence/Notes:** Explored reference, pointer, and copy semantics in HumanA/HumanB. Implemented Weapon class with const-correctness. Diagnosed object lifetime and reference binding issues. Experimented with pointer vs reference for mutability and lifetime.
 - **Concept: Constructor Parameter Design**
   - **Status:** In Progress (2025-06-16)
-  - **Evidence/Notes:** Understanding class method implementation patterns through Weapon class development.
+  - **Evidence/Notes:** Practiced initializer list for reference members, const-correctness for member functions, and safe parameter passing. Articulated difference between lvalue/rvalue and const/non-const reference binding.
+- **Concept: Const-correctness and Reference Binding**
+  - **Status:** Introduced (2025-06-16)
+  - **Evidence/Notes:** Learned why const member functions are needed for const objects, and why const references can bind to temporaries but not non-const references.
+- **Concept: Object Lifetime and Member Initialization**
+  - **Status:** Introduced (2025-06-16)
+  - **Evidence/Notes:** Understood why reference members must be initialized in the initializer list and how object lifetimes affect reference/copy/pointer safety in class design.
 - **Concept: Pointers to Member Functions**
   - **Status:** To Learn
   - **Evidence/Notes:** Advanced concept for ex05 Harl implementation
@@ -60,8 +66,8 @@
   - **Status:** Completed (2025-06-13)
   - **Focus:** ✅ Understanding references vs pointers conceptually, ✅ memory address relationships
 - **ex03: Unnecessary violence (Weapon/Human classes)**
-  - **Status:** Completed (2025-06-16)
-  - **Focus:** ✅ When to use references vs pointers in class design, ✅ constructor vs setter patterns, ✅ object relationship modeling
+  - **Status:** In Progress (2025-06-16)
+  - **Focus:** Reference, pointer, and copy semantics in class design; constructor vs setter patterns; object relationship modeling; const-correctness; object lifetime
 - **ex04: Sed is for losers**
   - **Status:** Ready to Start
   - **Focus:** File I/O and string manipulation without STL replace

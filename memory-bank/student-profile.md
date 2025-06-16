@@ -26,6 +26,7 @@
 - **Momentum-focused**: Values keeping coding momentum high with immediate, actionable feedback over detailed explanations
 - **Test-driven validation**: Likes to compile and test frequently to validate progress
 - **Example**: For sandbox problem, wants to start with basic child process execution, then add signal handling later
+- **Comfortable breaking and fixing code**: Shows willingness to experiment with references, pointers, and object lifetimes to learn C++ rules
 
 ## Known Strengths (Observed):
 - High self-motivation and discipline

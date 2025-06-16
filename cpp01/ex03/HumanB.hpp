@@ -13,7 +13,8 @@ class HumanB
 {
     private:
         std::string name;
-        Weapon *ptrweaponHB;
+        Weapon weaponHB;
+        //Weapon ptrweaponHB;
         //Weapon &refweaponHB;
     public:
         void setWeapon(Weapon weaponHB);
