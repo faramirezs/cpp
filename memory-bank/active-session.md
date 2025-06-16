@@ -5,46 +5,44 @@
 
 # Active Session Context
 
-**Session Date:** 2025-06-11 (ISO 8601 format: YYYY-MM-DD)
+**Session Date:** 2025-06-13 (ISO 8601 format: YYYY-MM-DD)
 **Student Identifier:** alejiri
 
 ## Current Problem/Topic Focus:
-- **Topic:** C++ Module 01 ex00 - BraiiiiiiinnnzzzZ (Zombie class implementation)
-- **Specific Issue:** Successfully implemented basic zombie class with stack vs heap allocation patterns
+- **Topic:** C++ Module 01 ex03 - Unnecessary violence (Weapon/Human classes)
+- **Specific Issue:** Understanding when to use references vs pointers in class design
 
 ## Current Code Under Review:
 ```cpp
-// Completed cpp01/ex00 - Zombie class with proper memory management
-// Zombie.hpp: Class declaration with constructor, destructor, announce method
-// Zombie.cpp: Implementation with proper this-> usage
-// main.cpp: Testing both newZombie (heap) and randomChump (stack)
-// Makefile: C++ compilation with proper object file dependencies
+// Completed cpp01/ex02 - References vs Pointers demonstration
+// Working on cpp01/ex03 - Weapon/HumanA/HumanB classes
+// HumanA.hpp: Started class structure, need to integrate Weapon
+// Focus: HumanA takes weapon by reference, HumanB can set weapon later
 ```
 
 ## Student's Current Question/Blocker:
-- Successfully resolved constructor/destructor implementation
-- Discovered difference between manual destructor calls vs delete operator
-- Understanding Makefile header dependencies and rebuild behavior
-- Ready to progress to ex01 (zombieHorde with arrays)
+- Successfully completed ex02 with references vs pointers understanding
+- Starting ex03 with class design decisions: reference vs pointer for weapon
+- Need to understand why HumanA uses reference (always has weapon) vs HumanB uses pointer (optional weapon)
+- Understanding constructor initialization with references vs setter methods with pointers
 
 ## Key Points from Last Exchange:
-- **Major breakthrough:** Understood that delete automatically calls destructor AND frees memory
-- **Memory management insight:** Manual destructor calls clean object but leave memory allocated (memory leak)
-- **Stack vs heap behavior:** Stack objects automatically destroyed, heap objects need explicit delete
-- **Makefile discovery:** Header file changes trigger rebuilds, understanding dependency relationships
-- **Compilation process:** Successfully resolved constructor syntax errors and access specifier issues
+- **ex02 Completed:** Successfully implemented string pointer and reference demonstration
+- **Reference Understanding:** Solid grasp of references as aliases vs pointers as addresses
+- **Ready for Design Decisions:** Understanding when to choose reference vs pointer in real-world scenarios
+- **Learning Pattern:** Continues to excel with hands-on implementation and discovery
 
 ## Next Socratic Question/Guidance Plan:
-- **Planned Question:** "Now that you understand single object allocation, what do you think happens when you need to create an array of zombies with new[]?"
-- **Reasoning:** Bridge from single object management to array management for ex01
-- **Backup Approaches:** Explore array allocation patterns and the relationship between new[]/delete[]
+- **Planned Question:** "Looking at the requirements, HumanA takes a weapon by reference in constructor, but HumanB can set weapon later. What do you think that tells us about when each human gets their weapon?"
+- **Reasoning:** Help discover the design reasoning behind reference vs pointer choice
+- **Backup Approaches:** Use real-world analogies about permanent vs temporary tool assignment
 
 ## Session Notes:
-- Student showing excellent discovery-based learning through experimentation
-- Strong grasp of memory ownership concepts emerging
-- Good debugging skills with compiler errors
-- Ready for more complex memory management scenarios
-- Demonstrates understanding of object lifecycle and RAII principles
+- Student showing excellent progression through cpp01 exercises
+- References vs pointers concepts mastered through practical implementation
+- Ready to apply knowledge to real design decisions
+- Focus on understanding the "why" behind reference vs pointer choices
+- Prepare foundation for method implementation and weapon interaction patterns
 
 ---
 *This file should be updated after each exchange with the student and cleared when moving to a new problem/topic. Important insights should be moved to → progress.md or → tutoring-insights.md before clearing.*

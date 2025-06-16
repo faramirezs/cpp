@@ -34,11 +34,11 @@
   - **Status:** Mastered (2025-06-11)
   - **Evidence/Notes:** Successfully implemented parameterized constructor with this-> syntax. Understands destructor timing for stack vs heap objects.
 - **Concept: References vs Pointers**
-  - **Status:** To Learn
-  - **Evidence/Notes:** Ready for ex02 after mastering basic memory management
+  - **Status:** Mastered (2025-06-13)
+  - **Evidence/Notes:** Successfully completed ex02 with string pointer and reference demonstration. Understands references as aliases vs pointers as addresses.
 - **Concept: Dynamic Arrays (new[] and delete[])**
-  - **Status:** To Learn
-  - **Evidence/Notes:** Next focus for ex01 zombieHorde implementation
+  - **Status:** Mastered (2025-06-13)
+  - **Evidence/Notes:** Successfully implemented zombieHorde with new[], proper element access, and addName method for post-creation initialization
 - **Concept: Pointers to Member Functions**
   - **Status:** To Learn
   - **Evidence/Notes:** Advanced concept for ex05 Harl implementation
@@ -51,14 +51,14 @@
   - **Status:** Completed (2025-06-11)
   - **Focus:** ✅ Stack vs heap allocation, ✅ constructor/destructor behavior, ✅ proper memory cleanup
 - **ex01: Moar brainz! (zombieHorde)**
-  - **Status:** Ready to Start
-  - **Focus:** Array allocation with new[], proper cleanup with delete[]
+  - **Status:** Completed (2025-06-13)
+  - **Focus:** ✅ Array allocation with new[], ✅ default constructor usage, ✅ post-creation object initialization
 - **ex02: HI THIS IS BRAIN**
-  - **Status:** Not Started
-  - **Focus:** Understanding references vs pointers conceptually
+  - **Status:** Completed (2025-06-13)
+  - **Focus:** ✅ Understanding references vs pointers conceptually, ✅ memory address relationships
 - **ex03: Unnecessary violence (Weapon/Human classes)**
-  - **Status:** Not Started
-  - **Focus:** When to use references vs pointers in class design
+  - **Status:** In Progress (2025-06-13)
+  - **Focus:** When to use references vs pointers in class design, constructor vs setter patterns
 - **ex04: Sed is for losers**
   - **Status:** Not Started
   - **Focus:** File I/O and string manipulation without STL replace
@@ -76,6 +76,7 @@
 - Mastered stack vs heap allocation decision-making through practical implementation (2025-06-11)
 - Successfully debugged constructor syntax and access specifier errors (2025-06-11)
 - Built functional Makefile for C++ compilation with dependency tracking (2025-06-11)
+- **Array Management Mastery:** Successfully implemented zombieHorde with new[], default constructors, and post-creation initialization (2025-06-13)
 
 ### C++ Module 02 - Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form
 - **Concept: Operator Overloading**
