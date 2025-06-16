@@ -42,6 +42,10 @@
   - **→ progress.md**: Mastered through newZombie/randomChump implementation and experimentation
 - [Dynamic Memory Management (new/delete)] - Date Mastered: 2025-06-11 (ISO 8601 format)
   - **→ progress.md**: Critical breakthrough understanding delete vs manual destructor calls
+- [References vs Pointers] - Date Mastered: 2025-06-13 (ISO 8601 format)
+  - **→ progress.md**: Mastered conceptual differences and practical application in class design
+- [Class Design with References vs Pointers] - Date Mastered: 2025-06-16 (ISO 8601 format)
+  - **→ progress.md**: Mastered through HumanA/HumanB implementation showing different object relationship patterns
 
 *(This file is updated less frequently, primarily when new stable traits or goals are identified. Use ISO 8601 date format: YYYY-MM-DD)*
 

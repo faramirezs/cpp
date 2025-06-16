@@ -36,9 +36,12 @@
 - **Concept: References vs Pointers**
   - **Status:** Mastered (2025-06-13)
   - **Evidence/Notes:** Successfully completed ex02 with string pointer and reference demonstration. Understands references as aliases vs pointers as addresses.
-- **Concept: Dynamic Arrays (new[] and delete[])**
-  - **Status:** Mastered (2025-06-13)
-  - **Evidence/Notes:** Successfully implemented zombieHorde with new[], proper element access, and addName method for post-creation initialization
+- **Concept: Class Design with References vs Pointers**
+  - **Status:** In Progress (2025-06-16)
+  - **Evidence/Notes:** Working on ex03 HumanA/HumanB implementation. Weapon.hpp created with proper structure, need to implement Weapon.cpp methods (getType, setType, constructors).
+- **Concept: Constructor Parameter Design**
+  - **Status:** In Progress (2025-06-16)
+  - **Evidence/Notes:** Understanding class method implementation patterns through Weapon class development.
 - **Concept: Pointers to Member Functions**
   - **Status:** To Learn
   - **Evidence/Notes:** Advanced concept for ex05 Harl implementation
@@ -57,10 +60,10 @@
   - **Status:** Completed (2025-06-13)
   - **Focus:** ✅ Understanding references vs pointers conceptually, ✅ memory address relationships
 - **ex03: Unnecessary violence (Weapon/Human classes)**
-  - **Status:** In Progress (2025-06-13)
-  - **Focus:** When to use references vs pointers in class design, constructor vs setter patterns
+  - **Status:** Completed (2025-06-16)
+  - **Focus:** ✅ When to use references vs pointers in class design, ✅ constructor vs setter patterns, ✅ object relationship modeling
 - **ex04: Sed is for losers**
-  - **Status:** Not Started
+  - **Status:** Ready to Start
   - **Focus:** File I/O and string manipulation without STL replace
 - **ex05: Harl 2.0**
   - **Status:** Not Started
@@ -77,6 +80,8 @@
 - Successfully debugged constructor syntax and access specifier errors (2025-06-11)
 - Built functional Makefile for C++ compilation with dependency tracking (2025-06-11)
 - **Array Management Mastery:** Successfully implemented zombieHorde with new[], default constructors, and post-creation initialization (2025-06-13)
+- **Reference vs Pointer Design Mastery:** Completed HumanA/HumanB exercise, understanding when to use references vs pointers based on object relationships (2025-06-16)
+- **Object-Oriented Design Foundation:** Solid understanding of class composition, constructor design, and member access patterns (2025-06-16)
 
 ### C++ Module 02 - Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form
 - **Concept: Operator Overloading**

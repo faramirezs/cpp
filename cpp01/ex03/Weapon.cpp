@@ -1,21 +1,34 @@
-# include "Zombie.hpp"
+# include "Weapon.hpp"
 
-Zombie::Zombie(std::string name)
+const std::string &Weapon::getType(void)
 {
-    this->name = name;
+    //What is the difference between returning this->type or just type?
+    //Which can match the return? why?
+    //Which creates a copy, why?
+    return(this->type);
 }
-Zombie::Zombie(void)
+
+void Weapon::setType(std::string tpe)
 {
+    Weapon::type = tpe;
+    std::cout << Weapon::type << " weapon type set." << "\n";
 }
-void Zombie::announce(void)
+
+Weapon::Weapon()
 {
-    std::cout << Zombie::name << ": BraiiiiiiinnnzzzZ..." << "\n";
+    //Do I always need a default constructor?
+    std::cout << Weapon::type << " weapon created (default const)." << "\n";
 }
-Zombie::~Zombie(void)
+
+Weapon::Weapon(std::string tpe)
 {
-    std::cout << Zombie::name << ": Bye bye..." << "\n";
+    //Here what would be the difference between using this->type Vs. Weapon::type ?
+    Weapon::type = tpe;
+    std::cout << Weapon::type << " weapon created." << "\n";
 }
-void Zombie::addName(std::string name)
+
+Weapon::~Weapon()
 {
-    this->name = name;
+    std::cout << Weapon::type << " destroyed." << "\n";
+    //Why in this case I can access directly type, without using getType()
 }

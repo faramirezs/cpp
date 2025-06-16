@@ -1,9 +1,19 @@
-# include "Zombie.hpp"
+# include "HumanA.hpp"
 
-Zombie* newZombie(std::string name) //heap allocation
+void HumanA::attack(void)
 {
-    Zombie *heapZombie;
-    heapZombie = new Zombie(name);
-    //heapZombie->name = name;
-    return heapZombie;
+    std::cout << HumanA::name << " attacks with their " << HumanA::weaponHA.getType() << "\n";
+
+}
+HumanA::HumanA(std::string nme, Weapon wponHA)
+{
+    //Why do I need a default constructor for weapon here?
+    HumanA::name = nme;
+    HumanA::weaponHA = wponHA;
+    std::cout << HumanA::name << " ready with " << HumanA::weaponHA.getType() << "\n";
+}
+
+HumanA::~HumanA(void)
+{
+    std::cout << HumanA::name << " destroyed." << "\n";
 }

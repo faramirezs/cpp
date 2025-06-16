@@ -98,6 +98,14 @@
 - **delete = Hotel checkout:** Both pack belongings (destructor) AND return room key (free memory)
 - **Manual destructor = Packing without checkout:** Belongings gone but room still rented (memory leak)
 - **this pointer = Mirror:** Always shows you the current object you're working with
+- **Reference = Permanent job assignment:** Once assigned, always refers to the same tool/weapon
+- **Pointer = Flexible tool loan:** Can be reassigned, can be null, changeable relationship
+
+## Design Pattern Insights (cpp01 ex03):
+- **References for permanent relationships:** HumanA always has a weapon, uses reference to ensure connection
+- **Pointers for optional/changeable relationships:** HumanB may or may not have weapon, uses pointer for flexibility
+- **Constructor vs setter patterns:** References require initialization in constructor, pointers can use setter methods
+- **Object lifetime considerations:** References bind to existing objects, pointers can manage optional relationships
 
 ## Effective C++ Learning Patterns Observed:
 - **Bridge from C to C++:** Students learn faster when connecting C++ features to C equivalents they know
