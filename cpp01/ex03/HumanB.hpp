@@ -13,11 +13,9 @@ class HumanB
 {
     private:
         std::string name;
-        Weapon weaponHB;
-        //Weapon ptrweaponHB;
-        //Weapon &refweaponHB;
+        Weapon *weaponHB;
     public:
-        void setWeapon(Weapon weaponHB);
+        void setWeapon(Weapon &weaponHB);
         void attack(void);
         HumanB(void);
         HumanB(std::string name);

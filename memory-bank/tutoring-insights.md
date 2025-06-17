@@ -100,19 +100,24 @@
 - **this pointer = Mirror:** Always shows you the current object you're working with
 - **Reference = Permanent job assignment:** Once assigned, always refers to the same tool/weapon
 - **Pointer = Flexible tool loan:** Can be reassigned, can be null, changeable relationship
+- **Const reference = Read-only access pass:** Can see but not modify, allows binding to temporaries
+- **Non-const reference = Full access pass:** Can modify, but only for permanent residents (lvalues)
 
 ## Design Pattern Insights (cpp01 ex03):
 - **References for permanent relationships:** HumanA always has a weapon, uses reference to ensure connection
 - **Pointers for optional/changeable relationships:** HumanB may or may not have weapon, uses pointer for flexibility
 - **Constructor vs setter patterns:** References require initialization in constructor, pointers can use setter methods
 - **Object lifetime considerations:** References bind to existing objects, pointers can manage optional relationships
+- **NULL pointer initialization:** Safe and flexible for optional relationships, allows checking for "no value" state
+- **Const-correctness propagation:** Const objects require const member functions, const references provide flexibility
 
-## Effective C++ Learning Patterns Observed:
-- **Bridge from C to C++:** Students learn faster when connecting C++ features to C equivalents they know
-- **Real-world first:** Starting with what the class represents before showing syntax
-- **Compilation understanding:** Students who understand the compilation process debug faster
-- **Memory ownership clarity:** Clear ownership rules prevent most memory-related bugs
-- **Progressive complexity:** Start with simple classes, add features incrementally
+## C++ Reference and Pointer Learning Patterns:
+- **Hypothesis-driven discovery:** Students learn reference binding rules better by testing their predictions
+- **Compilation error experimentation:** Let students encounter "type qualifiers not compatible" to discover const-correctness
+- **Project constraint navigation:** Working within API constraints (like setWeapon(club)) teaches parameter design
+- **Progressive complexity:** Start with simple member storage, then explore lifetime and mutability implications
+- **Address printing:** Visualizing memory addresses helps understand reference vs copy vs pointer behavior
+- **Destructor tracing:** Watching object destruction order clarifies lifetime and ownership
 
 *(This file is updated whenever a new generalizable insight is gained. Use ISO 8601 date format: YYYY-MM-DD)*
 

@@ -27,12 +27,16 @@
 - **Test-driven validation**: Likes to compile and test frequently to validate progress
 - **Example**: For sandbox problem, wants to start with basic child process execution, then add signal handling later
 - **Comfortable breaking and fixing code**: Shows willingness to experiment with references, pointers, and object lifetimes to learn C++ rules
+- **Hypothesis-driven experimentation**: Enjoys formulating observations as hypotheses and testing them through code experiments.
+- Appreciates being nudged to design their own tests for hypotheses, especially when the observation is not yet a clear hypothesis.
+- Wants help in refining observations into testable hypotheses and then being guided to discover the best way to test them independently.
 
 ## Known Strengths (Observed):
 - High self-motivation and discipline
 
 ## Potential Areas for Gentle Nudging/Support:
 - Actively working on building a technical foundation to transition into software engineering via 42 Coding School Berlin
+- Planing, breaking down complexity and project start off.
 
 ## Topics Mastered (Cross-reference with progress.md):
 - [C Basic Syntax] - Date Mastered: 2025-06-11 (ISO 8601 format)
@@ -45,8 +49,12 @@
   - **→ progress.md**: Critical breakthrough understanding delete vs manual destructor calls
 - [References vs Pointers] - Date Mastered: 2025-06-13 (ISO 8601 format)
   - **→ progress.md**: Mastered conceptual differences and practical application in class design
-- [Class Design with References vs Pointers] - Date Mastered: 2025-06-16 (ISO 8601 format)
-  - **→ progress.md**: Mastered through HumanA/HumanB implementation showing different object relationship patterns
+- [Class Design with References vs Pointers] - Date Mastered: 2025-06-17 (ISO 8601 format)
+  - **→ progress.md**: Mastered through HumanA/HumanB implementation showing different object relationship patterns, const-correctness, and object lifetime considerations
+- [Const-correctness and Reference Binding] - Date Mastered: 2025-06-17 (ISO 8601 format)
+  - **→ progress.md**: Deep understanding of const member functions, reference binding rules, and lvalue/rvalue concepts
+- [Object Lifetime and Member Initialization] - Date Mastered: 2025-06-17 (ISO 8601 format)
+  - **→ progress.md**: Solid grasp of initializer lists, reference member requirements, and pointer initialization strategies
 
 *(This file is updated less frequently, primarily when new stable traits or goals are identified. Use ISO 8601 date format: YYYY-MM-DD)*
 

@@ -184,6 +184,48 @@
 - Encourage printing addresses and destructor messages to visualize object lifetimes
 - Use analogies for reference binding and constness
 
+### Issue: Reference vs Pointer Parameter Confusion  
+**Symptoms:** "No viable overloaded '=' errors; "must explicitly initialize reference member" errors; confusion about setWeapon(club) vs setWeapon(&club).
+**Likely Misconceptions:** Not understanding difference between passing object vs address; confusion about reference vs pointer storage in classes.
+**Socratic Diagnostic Questions:**
+- "Is your function expecting an object, a reference to an object, or a pointer to an object?"
+- "What's the difference between 'club' and '&club' when passing to a function?"
+- "Can reference members be assigned after construction, or must they be initialized?"
+- "How do you represent 'no value' with a reference vs a pointer?"
+**Guidance Strategies (NOT solutions):**
+- Guide students to understand parameter types and calling conventions
+- Help them visualize object vs address vs reference relationships
+- Encourage experimentation with different parameter and storage types
+- Reference class design concepts in knowledgebase.md
+
+### Issue: Const-correctness and Type Qualifier Errors
+**Symptoms:** "Object has type qualifiers that are not compatible with the member function" errors; confusion about const member functions.
+**Likely Misconceptions:** Not understanding when const member functions are required; confusion about const objects vs const references.
+**Socratic Diagnostic Questions:**
+- "Is the object you're calling this function on declared as const?"
+- "Does your member function promise not to modify the object?"
+- "Why might the compiler require this guarantee for const objects?"
+- "What's the difference between 'const Weapon' and 'Weapon &'?"
+**Guidance Strategies (NOT solutions):**
+- Guide students to check constness of both objects and member functions
+- Help them understand const-correctness as a design principle
+- Encourage thinking about read-only vs modifiable interfaces
+- Reference const-correctness concepts in knowledgebase.md
+
+### Issue: Object Lifetime and Reference Binding
+**Symptoms:** Garbage values after object destruction; confusion about reference vs copy semantics; temporary object binding errors.
+**Likely Misconceptions:** Not understanding object lifetimes; confusion about when references become invalid.
+**Socratic Diagnostic Questions:**
+- "How long does this object exist in memory?"
+- "What happens to references when the object they refer to is destroyed?"
+- "Is your reference pointing to a temporary object or a permanent one?"
+- "Why can const references bind to temporaries but non-const references can't?"
+**Guidance Strategies (NOT solutions):**
+- Guide students to trace object creation and destruction
+- Help them visualize memory addresses and object lifetimes
+- Encourage printing addresses and destructor messages for experimentation
+- Reference object lifetime concepts in knowledgebase.md
+
 ---
 
 ## Template for Adding New Issues:

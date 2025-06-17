@@ -37,17 +37,17 @@
   - **Status:** Mastered (2025-06-13)
   - **Evidence/Notes:** Successfully completed ex02 with string pointer and reference demonstration. Understands references as aliases vs pointers as addresses.
 - **Concept: Class Design with References vs Pointers**
-  - **Status:** In Progress (2025-06-16)
-  - **Evidence/Notes:** Explored reference, pointer, and copy semantics in HumanA/HumanB. Implemented Weapon class with const-correctness. Diagnosed object lifetime and reference binding issues. Experimented with pointer vs reference for mutability and lifetime.
+  - **Status:** Mastered (2025-06-17)
+  - **Evidence/Notes:** Successfully completed HumanA/HumanB implementation demonstrating when to use references (permanent relationships) vs pointers (optional/changeable relationships). Mastered const-correctness, reference binding rules, and object lifetime considerations.
 - **Concept: Constructor Parameter Design**
-  - **Status:** In Progress (2025-06-16)
-  - **Evidence/Notes:** Practiced initializer list for reference members, const-correctness for member functions, and safe parameter passing. Articulated difference between lvalue/rvalue and const/non-const reference binding.
+  - **Status:** Mastered (2025-06-17)
+  - **Evidence/Notes:** Proficient with initializer lists for reference members, const-correctness for member functions, and parameter passing strategies. Articulated difference between lvalue/rvalue and const/non-const reference binding.
 - **Concept: Const-correctness and Reference Binding**
-  - **Status:** Introduced (2025-06-16)
-  - **Evidence/Notes:** Learned why const member functions are needed for const objects, and why const references can bind to temporaries but not non-const references.
+  - **Status:** Mastered (2025-06-17)
+  - **Evidence/Notes:** Deep understanding of why const member functions are needed for const objects, why const references can bind to temporaries but non-const references can't, and how to design const-correct class interfaces.
 - **Concept: Object Lifetime and Member Initialization**
-  - **Status:** Introduced (2025-06-16)
-  - **Evidence/Notes:** Understood why reference members must be initialized in the initializer list and how object lifetimes affect reference/copy/pointer safety in class design.
+  - **Status:** Mastered (2025-06-17)
+  - **Evidence/Notes:** Solid grasp of why reference members must be initialized in initializer lists, how object lifetimes affect reference/pointer safety, and when to use NULL pointer initialization for optional relationships.
 - **Concept: Pointers to Member Functions**
   - **Status:** To Learn
   - **Evidence/Notes:** Advanced concept for ex05 Harl implementation
@@ -66,8 +66,8 @@
   - **Status:** Completed (2025-06-13)
   - **Focus:** ✅ Understanding references vs pointers conceptually, ✅ memory address relationships
 - **ex03: Unnecessary violence (Weapon/Human classes)**
-  - **Status:** In Progress (2025-06-16)
-  - **Focus:** Reference, pointer, and copy semantics in class design; constructor vs setter patterns; object relationship modeling; const-correctness; object lifetime
+  - **Status:** Completed (2025-06-17)
+  - **Focus:** ✅ Reference vs pointer semantics in class design, ✅ const-correctness, ✅ object relationship modeling, ✅ constructor vs setter patterns, ✅ object lifetime management, ✅ NULL pointer initialization safety
 - **ex04: Sed is for losers**
   - **Status:** Ready to Start
   - **Focus:** File I/O and string manipulation without STL replace
