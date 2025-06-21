@@ -1,5 +1,5 @@
-#ifndef __WEAPON_H__
-#define __WEAPON_H__
+#ifndef __HARL_H__
+#define __HARL_H__
 
 # include <string>
 # include <iostream>
@@ -9,17 +9,20 @@
 # include <stdio.h>
 # include <cctype>
 
-class Weapon
+class Harl
 {
     private:
         std::string type;
+        void debug( void );
+        void info( void );
+        void warning( void );
+        void error( void );
     
     public:
-        const std::string &getType(void) const;
-        void setType(std::string tpe);
-        Weapon(std::string tpe);
-        Weapon(void);
-        ~Weapon(void);
+        void complain( std::string level );
+        //Weapon(std::string tpe);
+        Harl(void);
+        ~Harl(void);
 };
 
 

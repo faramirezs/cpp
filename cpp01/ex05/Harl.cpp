@@ -1,28 +1,26 @@
-# include "Weapon.hpp"
+# include "Harl.hpp"
 
-const std::string &Weapon::getType(void) const
+std::string * Harl::
+
+
+Harl::complain()
 {
-    return(type);
+
 }
 
-void Weapon::setType(const std::string tpe)
+void debug( void );
+void info( void );
+void warning( void );
+void error( void );
+void complain( std::string level );
+
+
+Harl::Harl()
 {
-    type = tpe;
-    std::cout << Weapon::type << " weapon type set." << "\n";
+    std::cout << "Created." << "\n";
 }
 
-Weapon::Weapon()
+Harl::~Harl()
 {
-    //std::cout << Weapon::type << " weapon created (default const)." << "\n";
-}
-
-Weapon::Weapon(std::string tpe)
-    :type(tpe)
-{
-    std::cout << type << " weapon created." << "\n";
-}
-
-Weapon::~Weapon()
-{
-    std::cout << type << " destroyed." << "\n";
+    std::cout <<"Destroyed." << "\n";
 }
