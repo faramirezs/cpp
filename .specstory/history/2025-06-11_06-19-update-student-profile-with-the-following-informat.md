@@ -2468,3 +2468,462 @@ What do you discover when you experiment with this approach?
 
 ---
 
+_**User**_
+
+Lets find out how to use pointers to members functios to call them. 
+
+---
+
+_**Assistant**_
+
+Excellent! You're diving into member function pointers - a powerful C++ feature. Let's explore this step by step using your Harl class.
+
+**Discovery questions about your current code:**
+
+Looking at your functions `debug()`, `info()`, `warning()`, and `error()` - what do you notice about where they're declared? Are they inside the `Harl` class or outside it?
+
+**Key experiment to try:**
+
+If these functions need to be called on a `Harl` object, what do you think needs to change about their declarations? Should they be:
+- Regular global functions (as they are now)?
+- Member functions of the `Harl` class?
+
+**Member function pointer syntax discovery:**
+
+Try this hypothesis: If you had a member function in your `Harl` class like:
+```cpp
+void Harl::debug() { /* ... */ }
+```
+
+What do you think the syntax would be to create a pointer to this member function? 
+
+**MVP experiment:**
+1. First, move one of your functions (like `debug`) inside the `Harl` class as a member function
+2. Try creating a simple pointer to it
+3. See what syntax the compiler expects
+
+What do you discover when you try to make `debug()` a member function first?
+
+---
+
+_**User**_
+
+Ok, now i declared debug inside the class, and also tried to create a pointer to member function and also I tried to assign the pointer to the function. And also tried to call the pointer to member function like this: Harl.*(debug_ptr());
+
+---
+
+_**Assistant**_
+
+Great experimentation! You're exploring member function pointer syntax. Let's break down what you've tried and discover what's happening:
+
+**Looking at your attempt:** `Harl.*(debug_ptr());`
+
+**Discovery questions:**
+
+1. **About the object:** In this line, what do you think `Harl` represents? Is it:
+   - The class name itself?
+   - An instance/object of the Harl class?
+   - Something else?
+
+2. **About member function pointers:** If you need to call a member function, what do you think you need first - the class name or an actual object of that class?
+
+3. **Syntax experiment:** What do you think would happen if you tried:
+   ```cpp
+   Harl myHarl;  // Create an actual object
+   (myHarl.*debug_ptr)();  // Then call the function
+   ```
+
+**MVP test to try:**
+
+Can you create a simple Harl object first and then try calling the member function pointer on that object? What do you observe about the difference between using the class name `Harl` versus an actual instance like `myHarl`?
+
+**Bonus discovery:** What do you think the parentheses around `(myHarl.*debug_ptr)` might be for? Try with and without them - what happens?
+
+What do you discover when you experiment with creating an actual Harl object first?
+
+---
+
+_**User**_
+
+Help me understand these:
+c4a13c1% make 
+c++ -g -Wall -Wextra -Werror -std=c++98 -c Harl.cpp -o Harl.o
+In file included from Harl.cpp:1:
+./Harl.hpp:18:19: error: expected member name or ';' after declaration specifiers
+        debug_ptr = &Harl::debug;
+        ~~~~~~~~~ ^
+Harl.cpp:8:14: error: use of undeclared identifier 'debug_ptr'
+    (myHarl.*debug_ptr)();
+             ^
+2 errors generated.
+make: *** [Makefile:21: Harl.o] Error 1
+
+---
+
+_**Assistant**_
+
+Great experimentation! You're getting close to understanding member function pointers. Let's explore these errors step by step:
+
+**Looking at your first error:**
+```
+./Harl.hpp:18:19: error: expected member name or ';' after declaration specifiers
+        debug_ptr = &Harl::debug;
+        ~~~~~~~~~ ^
+```
+
+**Discovery questions:**
+
+1. **About class member declarations:** In a class header file, what do you think is the difference between *declaring* a member variable and *initializing* it? 
+   - Where do you typically declare member variables?
+   - Where do you typically initialize them?
+
+2. **Experiment this:** What do you think would happen if you tried:
+   ```cpp
+   typedef void (Harl::*debug_ptr)(void);
+   debug_ptr myPointer;  // Just declare it here
+   ```
+   And then initialize it somewhere else, like in the constructor?
+
+3. **About the second error:** If `debug_ptr` isn't properly declared as a member variable, what do you think happens when you try to use it in `Harl.cpp`?
+
+**MVP experiment to try:**
+Can you separate the declaration from the initialization? Try declaring the function pointer as a member variable first, then initialize it in the constructor.
+
+What do you discover about where C++ allows you to declare vs. initialize member variables?
+
+---
+
+_**User**_
+
+It seems like I do not get it...
+
+---
+
+_**Assistant**_
+
+I can see you're working hard on member function pointers - this is genuinely one of the trickier concepts in C++! Let's step back and build this understanding piece by piece.
+
+**Let's start with a simpler discovery:**
+
+Looking at your code, I notice you have both global functions (`debug()`, `info()`, etc.) AND you're trying to use member function pointers. 
+
+**Key question:** What do you think is the difference between:
+- A regular function like `void debug()` (outside any class)
+- A member function like `void Harl::debug()` (inside the Harl class)
+
+**MVP experiment to clarify this:**
+
+Can you try this simple test first?
+1. Remove all the global functions (`debug`, `info`, etc.) from your `.cpp` file
+2. Make sure `debug()` is ONLY a member function of the Harl class
+3. Try calling it normally first: `myHarl.debug();`
+
+Once that works, then we can explore pointers to it.
+
+**Discovery question:** What do you think happens if you have both a global `debug()` function AND a `Harl::debug()` member function? Which one does the compiler think you're referring to?
+
+Try the simple member function call first - what do you observe?
+
+---
+
+_**User**_
+
+Great, I like that approach.
+
+c4a13c1% make 
+c++ -g -Wall -Wextra -Werror -std=c++98 -c Harl.cpp -o Harl.o
+Harl.cpp:8:12: error: 'debug' is a private member of 'Harl'
+    myHarl.debug();
+           ^
+./Harl.hpp:16:14: note: declared private here
+        void debug(void) {std::cout << "Debug" << "\n";};
+             ^
+1 error generated.
+make: *** [Makefile:21: Harl.o] Error 1
+
+---
+
+_**Assistant**_
+
+Perfect! You've hit a classic C++ access control discovery. This is exactly the right approach - start simple and let the compiler guide you.
+
+**Key discovery question:** What do you think the error message is telling you about the [`debug()`]`Harl.cpp` ) function?
+
+Looking at your error:
+```
+'debug' is a private member of 'Harl'
+declared private here
+```
+
+**Socratic exploration:**
+- In your [`Harl.hpp`](cpp01/ex05/Harl.hpp ), where did you declare the [`debug()`]`Harl.cpp` ) function - in the `private:` section or the `public:` section?
+- If a function is declared `private`, who do you think can call it - anyone, or only certain parts of the code?
+- What do you predict would happen if you moved [`debug()`]`Harl.cpp` ) from the `private:` section to the `public:` section?
+
+**MVP experiment:**
+Try moving just the [`debug()`]`Harl.cpp` ) function declaration to the `public:` section of your class and see what happens when you compile.
+
+**Follow-up question for after you try it:**
+Once it compiles, what do you think this tells us about the relationship between where we declare functions in a class and who can access them?
+
+What do you discover when you move [`debug()`]`Harl.cpp` ) to the public section?
+
+---
+
+_**User**_
+
+How can I give access to the private member debug() from the public member complain() without making debug() public?
+
+---
+
+_**Assistant**_
+
+Perfect question! You're thinking about access control and discovering a key C++ principle. Let's explore this step by step:
+
+**Discovery questions:**
+
+1. **About scope and access:** If [`complain()`]`Harl.cpp` ) is a member function of the `Harl` class, and [`debug()`]`Harl.cpp` ) is also a member function of the same `Harl` class, what do you think happens when one member function tries to call another?
+
+2. **Current problem analysis:** Looking at your code, where is the [`complain()`]`Harl.cpp` ) function currently defined? Is it:
+   - Inside the `Harl` class as a member function?
+   - Outside the `Harl` class as a global function?
+
+3. **Experiment this:** What do you think would happen if you moved the [`complain()`]`Harl.cpp` ) function to be a proper member function of the `Harl` class, and then called [`debug()`]`Harl.cpp` ) from within it?
+
+**MVP test to try:**
+
+Can you modify your `Harl` class so that [`complain()`]`Harl.cpp` ) is implemented as a member function? Then try calling [`this->debug()`]`Harl.cpp` ) or just [`debug()`]`Harl.cpp` ) from inside [`complain()`]`Harl.cpp` ).
+
+**Key insight to discover:** What do you think is the difference between calling a private function from outside the class versus calling it from inside the same class?
+
+What do you observe when you make [`complain()`]`Harl.cpp` ) a proper member function?
+
+---
+
+_**User**_
+
+Ok, now I can see that if the public member function is declared inside the class I can access private members. Now where do I need to save the pointer to the member function? Or can I call the function directly by its reference? 
+
+---
+
+_**Assistant**_
+
+Excellent discovery! You've figured out that public member functions can access private members - that's a key C++ access control principle.
+
+Now let's explore your next questions about storing and using function pointers:
+
+**Discovery questions about your current approach:**
+
+Looking at your [`complain()`]`Harl.hpp` ) function:
+```cpp
+hptr h_ptr;
+h_ptr = &(this->debug());
+```
+
+**Question 1:** What do you think `&(this->debug())` is doing? Is it:
+- Taking the address of the function itself?
+- Taking the address of the result of calling the function?
+
+**Question 2:** If you want to store a pointer to the function (not call it), what do you think the syntax should be? Compare these:
+- `&(this->debug())` - what does this do?
+- `&Harl::debug` - what might this do differently?
+
+**MVP experiment to try:**
+Can you test both approaches and see what the compiler tells you? Try:
+1. `h_ptr = &Harl::debug;` (pointer to the function)
+2. `h_ptr = &(this->debug());` (what you have now)
+
+**About storage location:** Where do you think would be the best place to store the function pointer if you need to use it multiple times? As a local variable in [`complain()`]`Harl.hpp` ), or as a member variable of the class?
+
+What do you discover when you experiment with these different syntaxes?
+
+---
+
+_**User**_
+
+It seems like now I can call a private member function by its pointer. It is hardcoded I would like to have this: h_ptr2 = &Harl::"level"; instead of h_ptr2 = &Harl::debug; How can I do it?
+
+---
+
+_**Assistant**_
+
+Excellent progress! You've successfully created and used a member function pointer. Now you want to make it dynamic based on the `level` parameter - that's exactly the right next step.
+
+**Discovery questions about your goal:**
+
+Looking at your current code:
+```cpp
+h_ptr2 = &Harl::debug;
+```
+
+And your desired outcome:
+```cpp
+h_ptr2 = &Harl::"level";
+```
+
+**Key question:** What do you think the relationship should be between the string `level` (like "debug", "info", "warning", "error") and the actual function names (`debug()`, `info()`, `warning()`, `error()`)?
+
+**Exploration challenge:**
+- If `level` is a string like "debug", how could you translate that string into the actual function `&Harl::debug`?
+- What C++ mechanism do you think could help you map strings to function pointers?
+
+**MVP experiment to try:**
+What do you think would happen if you created something like:
+```cpp
+if (level == "debug")
+    h_ptr2 = &Harl::debug;
+else if (level == "info")
+    h_ptr2 = &Harl::info;
+// ... etc
+```
+
+**Advanced discovery:** Have you encountered any C++ containers that could store key-value pairs? What might help you map string keys to function pointer values?
+
+What approach do you think would be the most elegant for mapping the `level` string to the correct function pointer?
+
+---
+
+_**User**_
+
+I though if and else, but the exercise prevent us from use this way. What is the most elegant solution? Give me a hint
+
+---
+
+_**Assistant**_
+
+Great question! You're thinking about the constraint against using if-else chains. Let me guide you to discover the elegant solution:
+
+**Discovery questions about data structures:**
+
+1. **Mapping concept:** If you need to connect strings like "debug" to function pointers like `&Harl::debug`, what kind of data structure do you think could store these pairs efficiently?
+
+2. **C++ containers exploration:** In your C++ knowledge, have you encountered any containers that store key-value relationships? Think about containers where you could use a string as a "key" to look up a function pointer as the "value".
+
+3. **Array-based approach:** What do you think would happen if you created two parallel arrays:
+   - One array of strings: `{"debug", "info", "warning", "error"}`
+   - One array of function pointers: `{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}`
+
+**MVP experiment to try:**
+
+Can you think of a way to use the position/index in one array to find the corresponding element in the other array? How might you search for the string "debug" and use its position to get the correct function pointer?
+
+**Hint question:** What C++ mechanism allows you to look up values using keys, similar to how a dictionary works?
+
+What container or approach do you think would eliminate the need for if-else chains entirely?
+
+---
+
+_**User**_
+
+Ok, I started with first array, how can I return the index of this array based on a given string?
+
+---
+
+_**Assistant**_
+
+Great approach! I can see you're working with the array solution. Let's explore this step by step:
+
+**Looking at your current code:**
+```cpp
+std::string lev[] = {"debug", "info", "warning", "error"};
+i = lev->find(level);
+```
+
+**Discovery questions about array searching:**
+
+1. **About the `find` method:** What do you think `lev->find(level)` is trying to do? Is `lev` a single `std::string` object, or is it an array of `std::string` objects?
+
+2. **Array vs. single string:** If `lev` is an array of strings, what do you think `lev->find()` would actually be calling? Would it be searching within the first string of the array, or searching through all strings in the array?
+
+3. **Manual search experiment:** What do you think would happen if you tried a simple loop approach:
+   ```cpp
+   for (size_t j = 0; j < 4; j++) {
+       if (lev[j] == level) {
+           // What would you do here?
+       }
+   }
+   ```
+
+**MVP test to try:**
+
+Can you experiment with a simple loop that compares each element of your `lev` array with the `level` parameter? What do you discover about how to find the index of a matching string?
+
+What happens when you try the loop approach versus the `find()` method?
+
+---
+
+_**User**_
+
+There is another way to look up specific strings inside an string array?
+
+---
+
+_**Assistant**_
+
+Great question! Let's explore different approaches to search through your string array.
+
+**Discovery questions about your current approach:**
+
+Looking at your line: `i = lev->find(level);`
+
+1. **What is `lev`?** Is it a single string or an array of strings?
+2. **What does `lev->` do?** What do you think `lev[0].find(level)` would search for versus what you actually want to find?
+
+**Alternative approaches to explore:**
+
+Since you want to find which position in the array contains your target string, what do you think about these approaches:
+
+1. **Manual loop approach:**
+   ```cpp
+   for (size_t j = 0; j < 4; j++) {
+       if (lev[j] == level) {
+           i = j;
+           break;
+       }
+   }
+   ```
+
+2. **C++ algorithm approach:** Have you encountered `std::find` in the C++ standard library? What do you think this might do differently than the `.find()` method you're currently using?
+
+**MVP experiment:**
+
+Can you try the manual loop approach first and see if it gives you the correct index when you search for "debug" or "info"?
+
+What do you predict will happen with each approach? Which one do you think will actually search through all elements of your array?
+
+---
+
+_**User**_
+
+c4a13c1% make re
+rm -f main.o Harl.o
+rm -f Harl
+c++ -g -Wall -Wextra -Werror -std=c++98 -c main.cpp -o main.o
+In file included from main.cpp:12:
+./Harl.hpp:34:19: error: no matching function for call to 'find'
+            ptr = std::find(lev, lev+4, level);
+                  ^~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/streambuf_iterator.h:434:5: note: candidate template ignored: could not match 'istreambuf_iterator<type-parameter-0-0>' against 'std::basic_string<char> *'
+    find(istreambuf_iterator<_CharT> __first,
+    ^
+1 error generated.
+make: *** [Makefile:21: main.o] Error 1
+
+---
+
+_**Assistant**_
+
+Great! You're discovering something important about `std::find`. Let's explore this error together:
+
+**Looking at your error:**
+```
+no matching function for call to 'find'
+could not match 'istreambuf_iterator<type-parameter-0-0>' against 'std::basic_string<char> *'
+```
+
+**Discovery questions:**
+
+1. **About the `std::find` function:** What do you think `std::find` expects as its parameters? Looking at your call `std::find(lev, lev+4, level)`, what 
+
+---
+
