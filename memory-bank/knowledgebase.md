@@ -378,6 +378,97 @@ public:
 **Prerequisites:** Understanding of references, pointers, constructors, const-correctness
 **Leads to:** Advanced class design patterns, RAII, smart pointers
 
+### Concept: C++ File I/O Streams (ifstream/ofstream)
+
+**Core Explanation (For Tutor's Understanding):**
+- C++ provides stream-based file I/O as an alternative to C-style file functions
+- ifstream for input (reading), ofstream for output (writing)
+- Stream objects handle file opening, closing, and error checking automatically
+- Integration with C++ string class and stream operators makes text processing easier
+- Documentation found in cppreference.com, not traditional man pages
+
+**Helpful Analogies:**
+- ifstream = Smart book reader (knows how to open, read pages, close automatically)
+- ofstream = Smart typewriter (knows how to create document, write, save automatically)
+- C-style fopen/fread = Manual tools (you control every step)
+- C++ streams = Power tools (built-in intelligence and safety features)
+
+**Key Socratic Questions for This Concept:**
+- "What advantages might C++ streams offer over C-style file functions?"
+- "Why can't you use 'std::string*' for argv in main()?"
+- "Where would you look for C++ standard library documentation vs C library docs?"
+- "How does 'std::ifstream file("name")' compare to 'FILE* f = fopen("name", "r")'?"
+
+**Common Student Misconceptions:**
+- Expecting C++ to completely replace C conventions (like main signature)
+- Looking for C++ documentation in man pages
+- Thinking streams and file descriptors are the same concept
+
+**Diagnostic Questions for Misconceptions:**
+- "Are you trying to use C file functions or C++ stream objects?"
+- "Where are you looking for documentation about C++ standard library features?"
+
+**Simple Illustrative Code Snippets (For Tutor Reference Only):**
+```cpp
+// C++ style
+std::ifstream inputFile("data.txt");
+if (inputFile.is_open()) {
+    std::string line;
+    std::getline(inputFile, line);
+}
+// File automatically closed when inputFile goes out of scope
+```
+
+**Prerequisites:** Understanding of C file I/O, basic C++ syntax
+**Leads to:** Stream manipulators, file processing algorithms
+
+### Concept: Pointers to Member Functions
+
+**Core Explanation (For Tutor's Understanding):**
+- Member functions belong to a class and require an object instance to be called
+- Syntax: `returnType (ClassName::*pointerName)(parameters)`
+- Must be called on an object: `(object.*pointer)()` or `(objectPtr->*pointer)()`
+- Useful for callback systems, dynamic dispatch, and eliminating if-else chains
+- More complex than regular function pointers due to class context requirement
+
+**Helpful Analogies:**
+- Member function pointer = Remote control (universal remote that works on any TV of the right brand)
+- Regular function pointer = Direct button (works on any compatible device)
+- Class instance = Specific TV (needed to make the remote work)
+- Dynamic selection = Programming remote to use different buttons based on input
+
+**Key Socratic Questions for This Concept:**
+- "What's the difference between a pointer to a function and a pointer to a member function?"
+- "Why do you need an object instance to call a member function through a pointer?"
+- "How can you avoid long if-else chains when selecting functions dynamically?"
+- "What's the difference between '&Class::function' and '&(this->function())'?"
+
+**Common Student Misconceptions:**
+- Trying to call member function pointers without an object instance
+- Confusing function address with function call result
+- Not understanding why parentheses are needed in calling syntax
+
+**Diagnostic Questions for Misconceptions:**
+- "Are you getting the address of the function or calling the function?"
+- "Do you have an actual object to call this member function on?"
+
+**Simple Illustrative Code Snippets (For Tutor Reference Only):**
+```cpp
+class Calculator {
+public:
+    int add(int a, int b) { return a + b; }
+    int multiply(int a, int b) { return a * b; }
+};
+
+// Declaration and usage
+int (Calculator::*operation)(int, int) = &Calculator::add;
+Calculator calc;
+int result = (calc.*operation)(5, 3);  // Calls add(5, 3)
+```
+
+**Prerequisites:** Understanding of classes, member functions, basic pointers
+**Leads to:** Function objects, callbacks, design patterns
+
 ---
 
 ## Template for Adding New Concepts:

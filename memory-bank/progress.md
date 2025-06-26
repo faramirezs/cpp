@@ -48,9 +48,12 @@
 - **Concept: Object Lifetime and Member Initialization**
   - **Status:** Mastered (2025-06-17)
   - **Evidence/Notes:** Solid grasp of why reference members must be initialized in initializer lists, how object lifetimes affect reference/pointer safety, and when to use NULL pointer initialization for optional relationships.
+- **Concept: File I/O Streams (ifstream/ofstream)**
+  - **Status:** Mastered (2025-06-24)
+  - **Evidence/Notes:** Successfully transitioned from C-style open()/read() to C++ ifstream/ofstream. Learned C++ documentation sources (cppreference vs man pages). Mastered argc/argv handling in C++ vs C.
 - **Concept: Pointers to Member Functions**
-  - **Status:** To Learn
-  - **Evidence/Notes:** Advanced concept for ex05 Harl implementation
+  - **Status:** In Progress (2025-06-24)
+  - **Evidence/Notes:** Successfully created and called member function pointers. Discovered access control rules (public can access private within class). Learning dynamic function selection and string-to-function mapping. Working with algorithm includes and array searching.
 - **Concept: Switch Statements**
   - **Status:** To Learn
   - **Evidence/Notes:** Final concept for ex06 Harl filter
@@ -69,11 +72,11 @@
   - **Status:** Completed (2025-06-17)
   - **Focus:** ✅ Reference vs pointer semantics in class design, ✅ const-correctness, ✅ object relationship modeling, ✅ constructor vs setter patterns, ✅ object lifetime management, ✅ NULL pointer initialization safety
 - **ex04: Sed is for losers**
-  - **Status:** Ready to Start
-  - **Focus:** File I/O and string manipulation without STL replace
+  - **Status:** Completed (2025-06-24)
+  - **Focus:** ✅ File I/O with ifstream/ofstream, ✅ C++ vs C documentation sources, ✅ argc/argv handling in C++, ✅ string replacement algorithms
 - **ex05: Harl 2.0**
-  - **Status:** Not Started
-  - **Focus:** Pointers to member functions
+  - **Status:** In Progress (2025-06-24)
+  - **Focus:** Pointers to member functions, dynamic function selection, array searching, algorithm includes, string-to-function mapping
 - **ex06: Harl filter**
   - **Status:** Not Started
   - **Focus:** Switch statements for control flow

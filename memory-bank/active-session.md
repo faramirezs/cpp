@@ -5,50 +5,50 @@
 
 # Active Session Context
 
-**Session Date:** 2025-06-17 (ISO 8601 format: YYYY-MM-DD)
+**Session Date:** 2025-06-24 (ISO 8601 format: YYYY-MM-DD)
 **Student Identifier:** alejiri
 
 ## Current Problem/Topic Focus:
-- **Topic:** C++ Module 01 - Exercise 03 (Unnecessary violence) - COMPLETED
-- **Specific Issue:** Successfully implemented Weapon, HumanA, and HumanB classes with proper reference/pointer semantics
+- **Topic:** C++ Module 01 - Exercise 05 (Harl 2.0) - Member Function Pointers
+- **Specific Issue:** Learning to use pointers to member functions to call private methods dynamically based on string input
 
 ## Current Code Under Review:
 ```cpp
-// COMPLETED: cpp01/ex03 - HumanA/HumanB with references vs pointers
-// Weapon class: fully implemented with const getType(), setType(), constructors, destructor
-// HumanA: uses const Weapon& reference member, requires weapon in constructor
-// HumanB: uses Weapon* pointer member, allows NULL initialization and setWeapon() method
-// All classes compile successfully and demonstrate different object relationship patterns
+// IN PROGRESS: cpp01/ex05 - Member function pointers in Harl class
+// COMPLETED: cpp01/ex04 - File I/O with ifstream/ofstream, string replacement
+// Current focus: std::find with arrays, mapping strings to function pointers
+// Challenges: C++ documentation sources, algorithm includes, array searching techniques
 ```
 
 ## Student's Current Question/Blocker:
-- Exercise 03 is complete and working
-- Student discovered the safety of initializing pointer members to NULL in initializer lists
-- Ready to progress to next C++ Module 01 exercise (ex04, ex05, ex06) or advance to Module 02
-- Strong understanding of reference vs pointer trade-offs in class design
+- Successfully created member function pointers and can call them
+- Working on dynamic function selection: mapping "debug" string to &Harl::debug function pointer
+- Struggling with std::find usage and missing algorithm include
+- Exploring array-based lookup vs other mapping approaches
+- Understanding difference between C man pages and C++ documentation
 
 ## Key Points from Last Exchange:
-- **MAJOR BREAKTHROUGH**: Successfully completed cpp01/ex03 with proper reference/pointer design patterns
-- **HumanA Design**: Uses const Weapon& reference member, requires weapon in constructor, permanent relationship
-- **HumanB Design**: Uses Weapon* pointer member, allows NULL initialization, flexible relationship via setWeapon()
-- **Const-correctness mastery**: Fixed "type qualifiers not compatible" errors by making getType() const
-- **Reference binding rules**: Discovered why const references bind to temporaries but non-const references don't
-- **Pointer safety**: Learned that initializing pointer members to NULL in initializer lists is safe and flexible
-- **Project constraints**: Successfully worked within constraint of jim.setWeapon(club) by using reference parameter
-- **Memory management**: Clear understanding of when to use references vs pointers in class design
-- **Object lifetime**: Solid grasp of how storage choice affects object relationships and mutability
+- **File I/O Discovery**: Learned that C++ main() still uses C-style argc/argv, cannot use std::string* for argv
+- **C++ vs C Documentation**: Discovered that C++ standard library documentation is not in man pages, found cppreference
+- **ifstream/ofstream Learning**: Moved from C-style open()/read() to C++ stream objects for file handling
+- **Member Function Pointers Breakthrough**: Successfully created and called pointers to private member functions
+- **Access Control Mastery**: Discovered that public member functions can access private members within same class
+- **Function Pointer Syntax**: Learned difference between &Harl::debug (function address) vs &(this->debug()) (result address)
+- **Array vs Container Search**: Exploring std::find vs manual loops for string-to-function mapping
+- **Dynamic Function Selection**: Working on mapping string parameters to appropriate function pointers
+- **Algorithm Include Discovery**: Found missing #include <algorithm> needed for std::find
 
 ## Next Socratic Question/Guidance Plan:
-- **Planned Question**: "You've mastered the fundamentals of C++ object relationships. What interests you next: file I/O (ex04), function pointers (ex05), switch statements (ex06), or advancing to operator overloading (cpp02)?"
-- **Reasoning**: Student has strong foundation and momentum, ready for next challenge with MVP approach
-- **Backup Approaches**: Present concrete coding challenges to maintain hands-on learning momentum
+- **Planned Question**: "What happens when you add #include <algorithm> and try std::find again? If that doesn't work, how would you write a simple loop to find the string index?"
+- **Reasoning**: Guide discovery of either std::find solution or fallback to manual array search
+- **Backup Approaches**: Explore alternative mapping strategies if current approach proves difficult
 
 ## Session Notes:
-- **MAJOR MILESTONE**: ex03 completed successfully with deep understanding of design trade-offs
-- Student articulated excellent hypotheses about reference/pointer behavior and tested them
-- Maintained strong MVP/experimental approach throughout complex C++ concepts
-- Ready for progression to more advanced C++ topics
-- Should update progress.md with mastery evidence before advancing
+- Strong progression from ex03 → ex04 → ex05, building on previous concepts
+- Excellent hypothesis-driven experimentation with member function pointers
+- Maintained MVP approach while tackling advanced C++ features
+- Ready to complete function pointer mapping and move to ex06 or beyond
+- Should update progress.md with ex04 completion and ex05 progress
 
 ---
 *This file should be updated after each exchange with the student and cleared when moving to a new problem/topic. Important insights should be moved to → progress.md or → tutoring-insights.md before clearing.*

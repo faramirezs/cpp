@@ -23,6 +23,10 @@
 - **Code-first learning:** Some students learn concepts faster by implementing first, then understanding theory, rather than traditional theory-first approach
 - **Strategic thinking development:** Advanced students benefit from being asked to prioritize features and justify their choices (like choosing timeout vs signal testing)
 - **Testing-driven understanding:** Students who actively test edge cases (like different crash types) develop deeper intuition about system behavior
+- **C++ documentation adaptation:** Students transitioning from C to C++ need guidance finding documentation (cppreference vs man pages)
+- **File I/O paradigm shift:** Students learn C++ streams better by contrasting with familiar C functions (open/read vs ifstream)
+- **Member function pointer complexity:** Advanced C++ features benefit from step-by-step discovery: access control first, then syntax, then dynamic selection
+- **Algorithm include discovery:** Students often miss necessary includes for STL algorithms; compilation errors provide good learning opportunities
 
 ## Successful Analogies Log:
 - **Concept:** Functions -> **Analogy:** A recipe (takes ingredients/parameters, performs steps, gives a dish/return value). **Effectiveness:** High.

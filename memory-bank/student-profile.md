@@ -55,6 +55,8 @@
   - **→ progress.md**: Deep understanding of const member functions, reference binding rules, and lvalue/rvalue concepts
 - [Object Lifetime and Member Initialization] - Date Mastered: 2025-06-17 (ISO 8601 format)
   - **→ progress.md**: Solid grasp of initializer lists, reference member requirements, and pointer initialization strategies
+- [File I/O Streams (ifstream/ofstream)] - Date Mastered: 2025-06-24 (ISO 8601 format)
+  - **→ progress.md**: Successfully transitioned from C-style file I/O to C++ streams, learned C++ documentation sources
 
 *(This file is updated less frequently, primarily when new stable traits or goals are identified. Use ISO 8601 date format: YYYY-MM-DD)*
 
