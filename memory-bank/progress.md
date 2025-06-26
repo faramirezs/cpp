@@ -85,20 +85,20 @@
 - **Concept: Orthodox Canonical Form (Rule of Three)**
   - **Status:** Mastered (2025-06-26)
   - **Evidence/Notes:** Successfully implemented Fixed class with copy constructor, assignment operator, and destructor. Understands deep copy requirements and resource management.
-- **Concept: Fixed-Point Arithmetic**
-  - **Status:** In Progress (2025-06-26)
-  - **Evidence/Notes:** Understanding binary representation of fixed-point numbers and conversion between integer/float and fixed-point format.
 - **Concept: Operator Overloading (Insertion Operator)**
-  - **Status:** In Progress (2025-06-26)
-  - **Evidence/Notes:** Learning to overload operator<< for custom class output. Understanding stream parameter passing and floating-point representation.
+  - **Status:** Mastered (2025-06-26)
+  - **Evidence/Notes:** Successfully implemented operator<< as non-member function. Understands parameter passing by reference, return type for chaining, and stream manipulation. Mastered difference between member vs non-member operator overloading.
+- **Concept: Fixed-Point Arithmetic**
+  - **Status:** Mastered (2025-06-26) 
+  - **Evidence/Notes:** Deep understanding of binary fixed-point representation. Grasped that fxpnt stores complete representation and conversion uses division by 2^fractional_bits. Can explain bit interpretation without bit manipulation.
 
 ### C++ Module 02 Exercises Progress:
 - **ex00: My First Class in Orthodox Canonical Form**
   - **Status:** Completed (2025-06-26)
   - **Focus:** ✅ Basic Fixed class, ✅ Orthodox Canonical Form, ✅ copy constructor, ✅ assignment operator, ✅ destructor
 - **ex01: Towards a more useful fixed-point number class**
-  - **Status:** In Progress (2025-06-26)
-  - **Focus:** toFloat() and toInt() conversion methods, operator<< overloading for output
+  - **Status:** Near Completion (2025-06-26)
+  - **Focus:** ✅ toFloat() and toInt() conversion methods, ✅ operator<< overloading for output, 🔄 int/float constructors (partial implementation)
 
 ### C++ Module 03 - Inheritance
 - **Concept: Class Inheritance**
@@ -121,6 +121,9 @@
 - Implemented first complete C++ class with encapsulation (contact class) (2025-06-11)
 - Built interactive console application with object-oriented design (phonebook) (2025-06-11)
 - Demonstrated understanding of class composition and member functions (2025-06-11)
+- **MAJOR BREAKTHROUGH:** Completed entire cpp01 module - mastered memory management, references, pointers, and member function pointers (2025-06-24)
+- **Advanced C++ Features:** Successfully implemented dynamic function selection and operator overloading (2025-06-26)
+- **Mathematical Programming:** Mastered fixed-point arithmetic and bit representation concepts (2025-06-26)
 
 ## Recurring Themes/Areas for Continued Focus:
 - Understanding the difference between static and instance members conceptually
