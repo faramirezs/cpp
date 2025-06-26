@@ -52,11 +52,11 @@
   - **Status:** Mastered (2025-06-24)
   - **Evidence/Notes:** Successfully transitioned from C-style open()/read() to C++ ifstream/ofstream. Learned C++ documentation sources (cppreference vs man pages). Mastered argc/argv handling in C++ vs C.
 - **Concept: Pointers to Member Functions**
-  - **Status:** In Progress (2025-06-24)
-  - **Evidence/Notes:** Successfully created and called member function pointers. Discovered access control rules (public can access private within class). Learning dynamic function selection and string-to-function mapping. Working with algorithm includes and array searching.
+  - **Status:** Completed (2025-06-24)
+  - **Evidence/Notes:** Successfully implemented member function pointers and dynamic function selection. Mastered string-to-function mapping and array searching techniques.
 - **Concept: Switch Statements**
-  - **Status:** To Learn
-  - **Evidence/Notes:** Final concept for ex06 Harl filter
+  - **Status:** Completed (2025-06-24)
+  - **Evidence/Notes:** Successfully completed Harl filter implementation with switch statements for control flow
 
 ### C++ Module 01 Exercises Progress:
 - **ex00: BraiiiiiiinnnzzzZ (Zombie class)**
@@ -75,30 +75,30 @@
   - **Status:** Completed (2025-06-24)
   - **Focus:** ✅ File I/O with ifstream/ofstream, ✅ C++ vs C documentation sources, ✅ argc/argv handling in C++, ✅ string replacement algorithms
 - **ex05: Harl 2.0**
-  - **Status:** In Progress (2025-06-24)
-  - **Focus:** Pointers to member functions, dynamic function selection, array searching, algorithm includes, string-to-function mapping
+  - **Status:** Completed (2025-06-24)
+  - **Focus:** ✅ Pointers to member functions, ✅ dynamic function selection, ✅ array searching, ✅ algorithm includes, ✅ string-to-function mapping
 - **ex06: Harl filter**
-  - **Status:** Not Started
-  - **Focus:** Switch statements for control flow
-
-## Key Milestones Achieved:
-- Successfully transitioned from C to C++ syntax (2025-06-11)
-- Implemented first complete C++ class with proper memory management (2025-06-11)
-- **MAJOR BREAKTHROUGH:** Understood delete vs manual destructor calls - memory management foundation solid (2025-06-11)
-- Mastered stack vs heap allocation decision-making through practical implementation (2025-06-11)
-- Successfully debugged constructor syntax and access specifier errors (2025-06-11)
-- Built functional Makefile for C++ compilation with dependency tracking (2025-06-11)
-- **Array Management Mastery:** Successfully implemented zombieHorde with new[], default constructors, and post-creation initialization (2025-06-13)
-- **Reference vs Pointer Design Mastery:** Completed HumanA/HumanB exercise, understanding when to use references vs pointers based on object relationships (2025-06-16)
-- **Object-Oriented Design Foundation:** Solid understanding of class composition, constructor design, and member access patterns (2025-06-16)
+  - **Status:** Completed (2025-06-24)
+  - **Focus:** ✅ Switch statements for control flow
 
 ### C++ Module 02 - Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form
-- **Concept: Operator Overloading**
-  - **Status:** To Learn
-- **Concept: Orthodox Canonical Form**
-  - **Status:** To Learn
-- **Concept: Copy Constructor & Assignment Operator**
-  - **Status:** To Learn
+- **Concept: Orthodox Canonical Form (Rule of Three)**
+  - **Status:** Mastered (2025-06-26)
+  - **Evidence/Notes:** Successfully implemented Fixed class with copy constructor, assignment operator, and destructor. Understands deep copy requirements and resource management.
+- **Concept: Fixed-Point Arithmetic**
+  - **Status:** In Progress (2025-06-26)
+  - **Evidence/Notes:** Understanding binary representation of fixed-point numbers and conversion between integer/float and fixed-point format.
+- **Concept: Operator Overloading (Insertion Operator)**
+  - **Status:** In Progress (2025-06-26)
+  - **Evidence/Notes:** Learning to overload operator<< for custom class output. Understanding stream parameter passing and floating-point representation.
+
+### C++ Module 02 Exercises Progress:
+- **ex00: My First Class in Orthodox Canonical Form**
+  - **Status:** Completed (2025-06-26)
+  - **Focus:** ✅ Basic Fixed class, ✅ Orthodox Canonical Form, ✅ copy constructor, ✅ assignment operator, ✅ destructor
+- **ex01: Towards a more useful fixed-point number class**
+  - **Status:** In Progress (2025-06-26)
+  - **Focus:** toFloat() and toInt() conversion methods, operator<< overloading for output
 
 ### C++ Module 03 - Inheritance
 - **Concept: Class Inheritance**
