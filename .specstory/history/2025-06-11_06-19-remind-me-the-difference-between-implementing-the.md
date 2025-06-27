@@ -883,7 +883,181 @@ I think that when f*pow(x,n) returns a float for which its fractional part is cl
 
 _**Assistant**_
 
+Excellent experimental thinking! 🎯 You're discovering a fundamental concept in computer science - **floating-point precision limitations**.
 
+Let me guide you to understand what's really happening here:
+
+**Question 1:** You observed that 3.7 becomes 3.69922 after the round-trip conversion. But here's the key question: **Where do you think this precision loss is coming from?**
+
+Is it from:
+- A) The `roundf()` operation?
+- B) The fixed-point representation itself?
+- C) Floating-point arithmetic limitations?
+
+**Question 2:** Try this quick experiment to isolate the issue:
+```cpp
+float original = 3.7f;
+float multiplied = original * 256;
+std::cout << "3.7 * 256 = " << multiplied << std::endl;
+```
+
+What do you get? Is it exactly 947.2, or something slightly different?
+
+**Question 3:** Now think about this mathematically: With 8 fractional bits, you can only represent fractions in increments of 1/256 = 0.00390625. 
+
+Can you represent **exactly** 3.7 using only multiples of 0.00390625? What's the closest you can get?
+
+**Challenge:** Calculate what 3.7 should be in your fixed-point system and see if that matches what you're getting. What does this tell you about the fundamental limitations of any fixed-point representation?
+
+---
+
+_**User**_
+
+What is missing from the int/float constructors ?
+
+---
+
+_**Assistant**_
+
+Looking at your constructors, let me guide you to discover what's missing through some quick experiments:
+
+**Question 1:** Compare these two constructors:
+```cpp
+Fixed::Fixed(const int i)
+{
+    fxpnt = i*pow(2,frbts);
+}
+
+Fixed::Fixed(const float f)
+{
+    fxpnt = roundf(f*pow(2,frbts));
+    std::cout <<"constructor with float called"<<std::endl;
+}
+```
+
+One has debug output, one doesn't. But there's something more important missing. What do you see in your other constructors that these are missing?
+
+**Question 2:** Look at your default constructor:
+```cpp
+Fixed::Fixed()
+    :fxpnt(0)
+{
+    std::cout << "Default constructor called" << "\n";
+}
+```
+
+What pattern do you notice here that your `int` and `float` constructors don't follow?
+
+**Quick MVP test:** Try compiling and running a simple test:
+```cpp
+Fixed a(42);
+Fixed b(3.7f);
+```
+
+What output do you get? What output do you think the exercise expects based on the pattern from ex00?
+
+Can you spot what's missing and add it to match the expected constructor behavior?
+
+---
+
+_**User**_
+
+The only thing I notice is the fxpnt variable initialized to 0 in the init list, Do i need to includ that one? Also from the suggested test I got:
+c4a13c1% ./fixed
+constructor with int called
+constructor with float called
+a is 42 as integer
+a is 42 as float
+b is 4 as integer
+b is 3.69922 as float
+Destructor called
+Destructor called
+
+This means that when we call the toInt method it gets converted to int, but should I return the raw bits inetead? like '947' ? What is missing?
+
+---
+
+_**Assistant**_
+
+Perfect experimental approach! You're asking exactly the right questions. Let me guide you to discover what's happening:
+
+**Question 1:** Look at your output:
+```
+b is 4 as integer
+b is 3.69922 as float
+```
+
+You passed `3.7f` to the constructor, but `toInt()` returns `4`. Think about this mathematically: what's happening when you convert 3.69922 to an integer?
+
+**Question 2:** You asked "should I return the raw bits instead like '947'?" - Great question! Let's think about what `toInt()` is supposed to do according to the exercise:
+
+*"A member function int toInt( void ) const; that converts the fixed-point value to an integer value."*
+
+What do you think this means? Should it return:
+- A) The raw internal representation (947)?
+- B) The integer part of the decimal value (3 or 4)?
+
+**Question 3:** About the initialization list - compare your constructors:
+
+```cpp
+Fixed::Fixed()  // Uses init list
+    :fxpnt(0)
+
+Fixed::Fixed(const int i)  // No init list
+{
+    fxpnt = i*pow(2,frbts);
+```
+
+What's the difference between initializing in the init list vs assigning in the constructor body? Does it matter for fundamental types like `int`?
+
+**MVP Test:** Try this quick experiment - what do you expect `Fixed(3).toInt()` to return? Test it and see if it matches your expectation!
+
+---
+
+_**User**_
+
+Yes, i get 3. According to the exercise toInt should return the integer value, not the raw bits. I do not know the difference between init list and no init list.
+
+---
+
+_**Assistant**_
+
+Perfect! You've got the right understanding about `toInt()` - it should return the integer value (3), not the raw bits (768). 
+
+Now let's tackle that initialization list question with a hands-on experiment:
+
+**MVP Test Time!** Try compiling and running these two simple classes:
+
+````cpp
+class TestA {
+    int value;
+public:
+    TestA(int x) : value(x) { }  // Init list
+};
+
+class TestB {
+    int value;
+public:
+    TestB(int x) { value = x; }  // Assignment in body
+};
+````
+
+**Question 1:** Both approaches work for `int`, but what do you think happens when you have a `const` member or a reference member?
+
+````cpp
+class TestC {
+    const int value;  // const member
+public:
+    TestC(int x) : value(x) { }      // This works
+    // TestC(int x) { value = x; }   // What about this?
+};
+````
+
+**Question 2:** Looking at your Fixed class, do you have any `const` members that might require initialization rather than assignment?
+
+**Quick experiment:** Try moving your `fxpnt` initialization to the init list in both constructors and see what happens. Does it compile? Does it behave differently?
+
+What pattern do you notice about when init lists become necessary vs just convenient?
 
 ---
 

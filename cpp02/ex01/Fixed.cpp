@@ -1,6 +1,5 @@
 # include "Fixed.hpp"
 
-
 int Fixed::getRawBits( void ) const
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -22,7 +21,7 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt( void ) const
 {
     int i;
-    i = fxpnt / pow(2,frbts);
+    i = roundf(fxpnt / pow(2,frbts));
     return (i);
     //converts the fixed-point value to an integer value.
 }
@@ -50,33 +49,16 @@ std::ostream & operator<<(std::ostream & ost, Fixed const & fxd)
     return (ost); 
 }
 
-
 Fixed::Fixed()
     :fxpnt(0)
 {
     std::cout << "Default constructor called" << "\n";
 }
 
-Fixed::~Fixed()
-{
-    std::cout <<"Destructor called" << "\n";
-}
-
-//Copy operator with init list
-/* Fixed::Fixed(Fixed const & src)
-    :integer(src.getRawBits())
-{
-    std::cout << "Copy constructor called" << std::endl;
-} */
-
-//float       roundf( float num );
-
-
-
-
 Fixed::Fixed(const int i)
 {
     fxpnt = i*pow(2,frbts);
+    std::cout <<"constructor with int called"<<std::endl;
     //It converts it to the corresponding fixed-point value. The fractional bits value
     //should be initialized to 8, like in exercise 00.
 }
@@ -95,3 +77,17 @@ Fixed::Fixed(const float f)
     //It converts it to the corresponding fixed-point value. The fractional bits value
     //should be initialized to 8, like in exercise 00
 }
+
+Fixed::~Fixed()
+{
+    std::cout <<"Destructor called" << "\n";
+}
+
+//Copy operator with init list
+/* Fixed::Fixed(Fixed const & src)
+    :integer(src.getRawBits())
+{
+    std::cout << "Copy constructor called" << std::endl;
+} */
+
+//float       roundf( float num );
