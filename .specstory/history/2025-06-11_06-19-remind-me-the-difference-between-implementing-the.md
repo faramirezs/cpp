@@ -1061,3 +1061,79 @@ What pattern do you notice about when init lists become necessary vs just conven
 
 ---
 
+_**User**_
+
+I can not see any difference...
+
+---
+
+_**Assistant**_
+
+Perfect! You've discovered something important - for simple types like `int`, there's **no practical difference** between init list and assignment in the constructor body! 🎯
+
+Both approaches work fine for your `fxpnt` member. The difference becomes critical with other types, but you'll encounter those later.
+
+**MVP Reality Check Time!** Let's focus on what actually matters right now:
+
+**Question:** Your constructors are working correctly, but let me guide you to spot one tiny detail. Run your current main and look at the output carefully. 
+
+Do you see **all** the constructor calls you expect? Specifically, when you write:
+```cpp
+Fixed const b( 10 );
+```
+
+What constructor should be called? And what debug message should you see?
+
+**Quick Test:** Try this and tell me what output you get for the `int` constructor. Does the debug message appear when you create `Fixed const b( 10 )`?
+
+**Hint:** Look at your [`Fixed(const int i)`]`Fixed.cpp` ) constructor vs your other constructors. What pattern do you see in the debug messages?
+
+Once we verify your constructors are working, your ex01 should be complete! What do you discover when you test it?
+
+---
+
+_**User**_
+
+The message is right... I do not see any issue there
+
+c4a13c1% ./fixed
+constructor with int called
+Destructor called
+c4a13c1% 
+
+---
+
+_**Assistant**_
+
+Perfect! 🎯 Your output looks exactly right:
+
+```
+constructor with int called
+Destructor called
+```
+
+That's **exactly** what should happen when you create `Fixed const b(10);` - the int constructor gets called, and when `b` goes out of scope, the destructor is called.
+
+**MVP Success Check!** Let's verify your complete implementation is working. Try uncommenting that big test case at the bottom of your main:
+
+```cpp
+Fixed a;
+Fixed const b( 10 );
+Fixed const c( 42.42f );
+Fixed const d( b );
+
+a = Fixed( 1234.4321f );
+
+std::cout << "a is " << a << std::endl;
+std::cout << "b is " << b << std::endl;
+std::cout << "c is " << c << std::endl;
+std::cout << "d is " << d << std::endl;
+```
+
+**Quick Challenge:** Before you run it, can you predict what constructor calls you'll see? Think about:
+- What happens with `Fixed a;`?
+- What happens with `Fixed const c( 42.42f );`?
+- What happens with 
+
+---
+
