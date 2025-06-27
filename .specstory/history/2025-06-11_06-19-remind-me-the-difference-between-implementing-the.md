@@ -1133,7 +1133,23 @@ std::cout << "d is " << d << std::endl;
 **Quick Challenge:** Before you run it, can you predict what constructor calls you'll see? Think about:
 - What happens with `Fixed a;`?
 - What happens with `Fixed const c( 42.42f );`?
-- What happens with 
+- What happens with `Fixed const d( b );`?
+
+Compile and run that test - do you get the expected constructor calls? Does the `operator<<` output work correctly?
+
+If everything works as expected, congratulations! Your ex01 should be complete! What do you see when you run the full test?
+
+---
+
+_**User**_
+
+Update memory bank.
+
+---
+
+_**Assistant**_
+
+
 
 ---
 

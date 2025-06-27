@@ -91,14 +91,23 @@
 - **Concept: Fixed-Point Arithmetic**
   - **Status:** Mastered (2025-06-26) 
   - **Evidence/Notes:** Deep understanding of binary fixed-point representation. Grasped that fxpnt stores complete representation and conversion uses division by 2^fractional_bits. Can explain bit interpretation without bit manipulation.
+- **Concept: Constructor Implementation and Conversion**
+  - **Status:** Mastered (2025-06-27)
+  - **Evidence/Notes:** Successfully implemented int/float constructors with proper fixed-point conversion using roundf() for precision. Understands initialization list vs assignment patterns and debug output requirements.
+- **Concept: Multiple Operator Overloading (Arithmetic and Comparison)**
+  - **Status:** In Progress (2025-06-27)
+  - **Evidence/Notes:** Starting implementation of arithmetic operators (+, -, *, /), comparison operators (<, >, ==, !=, >=, <=), and increment/decrement operators. Learning different return type patterns for different operator categories.
 
 ### C++ Module 02 Exercises Progress:
 - **ex00: My First Class in Orthodox Canonical Form**
   - **Status:** Completed (2025-06-26)
   - **Focus:** ✅ Basic Fixed class, ✅ Orthodox Canonical Form, ✅ copy constructor, ✅ assignment operator, ✅ destructor
 - **ex01: Towards a more useful fixed-point number class**
-  - **Status:** Near Completion (2025-06-26)
-  - **Focus:** ✅ toFloat() and toInt() conversion methods, ✅ operator<< overloading for output, 🔄 int/float constructors (partial implementation)
+  - **Status:** Completed (2025-06-27)
+  - **Focus:** ✅ toFloat() and toInt() conversion methods, ✅ operator<< overloading for output, ✅ int/float constructors with proper fixed-point conversion
+- **ex02: Now we're talking**
+  - **Status:** In Progress (2025-06-27)
+  - **Focus:** Arithmetic operators (+, -, *, /), comparison operators (<, >, ==, !=, >=, <=), increment/decrement operators (++, --)
 
 ### C++ Module 03 - Inheritance
 - **Concept: Class Inheritance**
