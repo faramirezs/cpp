@@ -83,7 +83,15 @@ Fixed::Fixed(const int i)
 
 Fixed::Fixed(const float f)
 {
-    fxpnt = f*pow(2,frbts);
+    fxpnt = roundf(f*pow(2,frbts));
+    std::cout <<"constructor with float called"<<std::endl;
+
+    /* std::cout <<"round: " << roundf(f*pow(2,frbts)) <<std::endl;
+    std::cout <<"no round: " << f*pow(2,frbts) <<std::endl;
+
+    float original = f;
+    float multiplied = original * 256;
+    std::cout << "3.7 * 256 = " << multiplied << std::endl; */
     //It converts it to the corresponding fixed-point value. The fractional bits value
     //should be initialized to 8, like in exercise 00
 }
