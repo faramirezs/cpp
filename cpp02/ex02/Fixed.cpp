@@ -94,18 +94,70 @@ Fixed::~Fixed()
 
 //float       roundf( float num );
 
+bool Fixed::operator==(const Fixed & rhs) const
+{
+    return(!(this->fxpnt < rhs.fxpnt) && !(this->fxpnt > rhs.fxpnt));
+}
 
-/* Fixed& operator>(Fixed const & rhs);
-        Fixed& operator<(Fixed const & rhs);
-        Fixed& operator>=(Fixed const & rhs);
-        Fixed& operator<=(Fixed const & rhs);
-        Fixed& operator==(Fixed const & rhs);
-        Fixed& operator!=(Fixed const & rhs);
-        Fixed& operator+(Fixed const & rhs);
-        Fixed& operator-(Fixed const & rhs);
-        Fixed& operator*(Fixed const & rhs);
-        Fixed& operator/(Fixed const & rhs);
-        Fixed& operator++();
-        Fixed& operator++(int);
-        Fixed& operator--();
-        Fixed& operator--(int); */
+bool Fixed::operator!=(const Fixed & rhs) const
+{
+    return(!(*this == rhs));
+}
+
+bool Fixed::operator>(const Fixed & rhs) const 
+{
+    return(!(*this == rhs) && this->fxpnt > rhs.fxpnt);
+}
+
+bool Fixed::operator<(const Fixed & rhs) const 
+{
+    return(!(*this == rhs) && !(*this > rhs));
+}
+
+bool Fixed::operator>=(const Fixed & rhs) const
+{
+    return((*this == rhs) || (*this > rhs));
+}
+
+bool Fixed::operator<=(const Fixed & rhs) const
+{
+    return((*this == rhs) || (*this < rhs));
+}
+
+Fixed& Fixed::operator+(Fixed const & rhs)
+{
+    this->fxpnt = this->fxpnt + rhs.fxpnt;
+    return(*this);
+}
+
+Fixed& Fixed::operator-(Fixed const & rhs)
+{
+    this->fxpnt = this->fxpnt - rhs.fxpnt;
+    return(*this);
+}
+
+Fixed& Fixed::operator*(Fixed const & rhs)
+{
+    this->fxpnt = ((float)(this->fxpnt * (float)rhs.fxpnt) / pow(2,frbts));
+    return(*this);
+}
+
+Fixed& Fixed::operator/(Fixed const & rhs)
+{
+    this->fxpnt = ((float)this->fxpnt / (float)rhs.fxpnt) * pow(2,frbts);
+    return(*this);
+}
+
+Fixed& Fixed::operator++()
+{
+    return (*this);
+}
+Fixed& Fixed::operator++(int)
+{
+    this->fxpnt = (float)this->fxpnt +  (1 / pow(2,frbts));
+    return (*this);
+}
+/* Fixed& Fixed::operator--()
+{}
+Fixed& Fixed::operator--(int)
+{} */

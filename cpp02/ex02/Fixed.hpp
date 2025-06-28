@@ -28,20 +28,20 @@ class Fixed
         Fixed(const int);
         Fixed(const float);
         Fixed& operator=(Fixed const & rhs);
-        Fixed& operator>(Fixed const & rhs);
-        Fixed& operator<(Fixed const & rhs);
-        Fixed& operator>=(Fixed const & rhs);
-        Fixed& operator<=(Fixed const & rhs);
-        Fixed& operator==(Fixed const & rhs);
-        Fixed& operator!=(Fixed const & rhs);
+        bool operator==(const Fixed & rhs) const;
+        bool operator!=(const Fixed & rhs) const;
+        bool operator>(const Fixed & rhs) const;
+        bool operator<(const Fixed & rhs) const;
+        bool operator>=(const Fixed & rhs) const;
+        bool operator<=(const Fixed & rhs) const;
         Fixed& operator+(Fixed const & rhs);
         Fixed& operator-(Fixed const & rhs);
         Fixed& operator*(Fixed const & rhs);
         Fixed& operator/(Fixed const & rhs);
         Fixed& operator++();
         Fixed& operator++(int);
-        Fixed& operator--();
-        Fixed& operator--(int);
+        /* Fixed& operator--();
+        Fixed& operator--(int); */
         Fixed(Fixed const & src);
         Fixed(void);
         ~Fixed(void);
