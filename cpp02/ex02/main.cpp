@@ -14,6 +14,9 @@ int main( void )
     std::cout << "Before: " << x << std::endl;
     x++;
     std::cout << "After: " << x << std::endl;
+    std::cout << "Before: " << x << std::endl;
+    ++x;
+    std::cout << "After: " << x << std::endl;
     
     /* Fixed x(8.5f);  // float constructor
     Fixed y(2.1f);  // float constructor

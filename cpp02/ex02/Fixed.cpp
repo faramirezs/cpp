@@ -29,12 +29,17 @@ int Fixed::toInt( void ) const
 Fixed::Fixed(Fixed const & src)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = src;
+    std::cout << "Copy constructor: this=" << this << ", src=" << &src << std::endl;
+    //std::cout << "NEW object fxpnt before assignment: " << this->fxpnt << std::endl;
+    //*this = src;
+    fxpnt = src.fxpnt;  // Direct assignment instead
 }
 
 Fixed & Fixed::operator=( Fixed const & rhs ) {
     
     std::cout << "Assignment operator called" << std::endl;
+    //std::cout << "this: " << *this << std::endl;
+    //std::cout << "rhs: " << rhs << std::endl;
     if (this != &rhs) 
     {
         this->fxpnt = rhs.getRawBits();
@@ -150,12 +155,20 @@ Fixed& Fixed::operator/(Fixed const & rhs)
 
 Fixed& Fixed::operator++()
 {
-    return (*this);
-}
-Fixed& Fixed::operator++(int)
-{
     this->fxpnt = (float)this->fxpnt +  (1 / pow(2,frbts));
     return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+    std::cout << "Creating tmp copy..." << std::endl;
+    Fixed tmp(*this);  // or
+    //Fixed tmp = *this; // or  
+    //tmp = *this;
+    std::cout << "tmp created, now incrementing..." << std::endl;    
+    //tmp = *this;
+    this->fxpnt = (float)this->fxpnt +  (1 / pow(2,frbts));
+    return (tmp);
 }
 /* Fixed& Fixed::operator--()
 {}

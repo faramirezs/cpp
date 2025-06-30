@@ -39,7 +39,7 @@ class Fixed
         Fixed& operator*(Fixed const & rhs);
         Fixed& operator/(Fixed const & rhs);
         Fixed& operator++();
-        Fixed& operator++(int);
+        Fixed operator++(int);
         /* Fixed& operator--();
         Fixed& operator--(int); */
         Fixed(Fixed const & src);
