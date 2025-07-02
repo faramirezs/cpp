@@ -1,8 +1,8 @@
 NAME	= fixed
 
-SRCS	= main.cpp Fixed.cpp
+SRCS	= main.cpp Fixed.cpp Point.cpp bsp.cpp
 
-HEADERS	= Fixed.hpp
+HEADERS	= Fixed.hpp Point.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

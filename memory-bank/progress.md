@@ -89,14 +89,23 @@
   - **Status:** Mastered (2025-06-26)
   - **Evidence/Notes:** Successfully implemented operator<< as non-member function. Understands parameter passing by reference, return type for chaining, and stream manipulation. Mastered difference between member vs non-member operator overloading.
 - **Concept: Fixed-Point Arithmetic**
-  - **Status:** Mastered (2025-06-26) 
+  - **Status:** Mastered (2025-06-26)
   - **Evidence/Notes:** Deep understanding of binary fixed-point representation. Grasped that fxpnt stores complete representation and conversion uses division by 2^fractional_bits. Can explain bit interpretation without bit manipulation.
 - **Concept: Constructor Implementation and Conversion**
   - **Status:** Mastered (2025-06-27)
   - **Evidence/Notes:** Successfully implemented int/float constructors with proper fixed-point conversion using roundf() for precision. Understands initialization list vs assignment patterns and debug output requirements.
 - **Concept: Multiple Operator Overloading (Arithmetic and Comparison)**
-  - **Status:** In Progress (2025-06-27)
-  - **Evidence/Notes:** Starting implementation of arithmetic operators (+, -, *, /), comparison operators (<, >, ==, !=, >=, <=), and increment/decrement operators. Learning different return type patterns for different operator categories.
+  - **Status:** Mastered (2025-07-02)
+  - **Evidence/Notes:** Successfully implemented arithmetic operators (+, -, *, /), comparison operators (<, >, ==, !=, >=, <=), and increment/decrement operators. Mastered different return type patterns and const-correctness for operators.
+- **Concept: Coordinate-Based Geometric Algorithms**
+  - **Status:** Mastered (2025-07-02)
+  - **Evidence/Notes:** Successfully implemented point-in-triangle detection using area-based algorithm. Mastered coordinate formula for triangle area and geometric relationship understanding (sum of sub-triangles equals original triangle area).
+- **Concept: Const Member Functions with Complex Parameters**
+  - **Status:** Mastered (2025-07-02)
+  - **Evidence/Notes:** Successfully resolved const-correctness issues with getter functions. Understands that const member functions are required when called on const objects/parameters.
+- **Concept: Edge Case Handling in Geometric Algorithms**
+  - **Status:** Mastered (2025-07-02)
+  - **Evidence/Notes:** Successfully implemented detection of points on edges (collinear points result in zero area). Mastered mathematical properties of degenerate triangles.
 
 ### C++ Module 02 Exercises Progress:
 - **ex00: My First Class in Orthodox Canonical Form**
@@ -106,8 +115,11 @@
   - **Status:** Completed (2025-06-27)
   - **Focus:** ✅ toFloat() and toInt() conversion methods, ✅ operator<< overloading for output, ✅ int/float constructors with proper fixed-point conversion
 - **ex02: Now we're talking**
-  - **Status:** In Progress (2025-06-27)
-  - **Focus:** Arithmetic operators (+, -, *, /), comparison operators (<, >, ==, !=, >=, <=), increment/decrement operators (++, --)
+  - **Status:** Completed (2025-07-02)
+  - **Focus:** ✅ Arithmetic operators (+, -, *, /), ✅ comparison operators (<, >, ==, !=, >=, <=), ✅ increment/decrement operators (++, --)
+- **ex03: BSP (Binary Space Partitioning)**
+  - **Status:** Completed (2025-07-02)
+  - **Focus:** ✅ Point-in-triangle algorithm using area calculation, ✅ const-correctness with getter functions, ✅ edge case handling for collinear points, ✅ coordinate-based geometric formulas
 
 ### C++ Module 03 - Inheritance
 - **Concept: Class Inheritance**
@@ -133,6 +145,7 @@
 - **MAJOR BREAKTHROUGH:** Completed entire cpp01 module - mastered memory management, references, pointers, and member function pointers (2025-06-24)
 - **Advanced C++ Features:** Successfully implemented dynamic function selection and operator overloading (2025-06-26)
 - **Mathematical Programming:** Mastered fixed-point arithmetic and bit representation concepts (2025-06-26)
+- **MODULE COMPLETION:** Successfully completed entire cpp02 module - mastered Orthodox Canonical Form, operator overloading, and geometric algorithms (2025-07-02)
 
 ## Recurring Themes/Areas for Continued Focus:
 - Understanding the difference between static and instance members conceptually

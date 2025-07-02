@@ -1,55 +1,35 @@
-# include "Fixed.hpp"
+# include "Point.hpp"
 
-int main() {
+int main()
+{
+    //inside
+/*     Point a(3.0f,9.0f);
+    Point b(4.0f,3.0f);
+    Point c(10.0f,8.0f);
+    Point pnt(6.0f,7.0f); */
 
-    std::cout << "=== Constructors ===" << std::endl;
-    Fixed a;
-    Fixed b(10);
-    Fixed c(42.42f);
-    Fixed d = b;
+    //outside
+    Point a(3.0f,9.0f);
+    Point b(4.0f,3.0f);
+    Point c(10.0f,8.0f);
+    Point pnt(11.0f,7.0f);
 
-    std::cout << "=== Assignment ===" << std::endl;
-    Fixed e;
-    e = c;
+    //outside vertex
+    /* Point a(3.0f,9.0f);
+    Point b(4.0f,3.0f);
+    Point c(10.0f,8.0f);
+    Point pnt(10.0f,8.0f); */
 
-    std::cout << "=== Get/Set Raw Bits ===" << std::endl;
-    std::cout << "e raw bits: " << e.getRawBits() << std::endl;
-    e.setRawBits(123456);
-    std::cout << "e raw bits after set: " << e.getRawBits() << std::endl;
+    //edge
+    /* Point a(0.0f, 0.0f);
+    Point b(4.0f, 0.0f);
+    Point c(2.0f, 3.0f);
+    Point pnt(2.0f, 0.0f); */
 
-    std::cout << "=== toFloat / toInt ===" << std::endl;
-    std::cout << "e toFloat: " << e.toFloat() << std::endl;
-    std::cout << "e toInt: " << e.toInt() << std::endl;
 
-    std::cout << "=== Comparison Operators ===" << std::endl;
-    std::cout << "b == d: " << (b == d) << std::endl;
-    std::cout << "b != c: " << (b != c) << std::endl;
-    std::cout << "b < c: " << (b < c) << std::endl;
-    std::cout << "b > c: " << (b > c) << std::endl;
-    std::cout << "b <= d: " << (b <= d) << std::endl;
-    std::cout << "b >= d: " << (b >= d) << std::endl;
-
-    std::cout << "=== Arithmetic Operators ===" << std::endl;
-    Fixed sum = b + c;
-    Fixed diff = b - c;
-    Fixed prod = b * c;
-    Fixed quot = b / c;
-    std::cout << "b + c = " << sum.toFloat() << std::endl;
-    std::cout << "b - c = " << diff.toFloat() << std::endl;
-    std::cout << "b * c = " << prod.toFloat() << std::endl;
-    std::cout << "b / c = " << quot.toFloat() << std::endl;
-
-    std::cout << "=== Increment/Decrement ===" << std::endl;
-    Fixed f;
-    std::cout << "f = " << f.toFloat() << std::endl;
-    std::cout << "++f = " << (++f).toFloat() << std::endl;
-    std::cout << "f++ = " << (f++).toFloat() << std::endl;
-    std::cout << "f = " << f.toFloat() << std::endl;
-    std::cout << "--f = " << (--f).toFloat() << std::endl;
-    std::cout << "f-- = " << (f--).toFloat() << std::endl;
-    std::cout << "f = " << f.toFloat() << std::endl;
-
-    std::cout << "=== Destructors (will be called automatically) ===" << std::endl;
-
+    if(bsp( a, b, c, pnt))
+        std::cout << "inside" << std::endl;
+    else
+        std::cout << "Outside" << std::endl;
     return 0;
 }

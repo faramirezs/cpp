@@ -22,14 +22,14 @@ int Fixed::toInt( void ) const
 
 Fixed::Fixed(Fixed const & src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
 Fixed & Fixed::operator=( Fixed const & rhs ) {
-    
-    std::cout << "Assignment operator called" << std::endl;
-    if (this != &rhs) 
+
+    //std::cout << "Assignment operator called" << std::endl;
+    if (this != &rhs)
     {
         this->fxpnt = rhs.getRawBits();
     }
@@ -39,30 +39,30 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 std::ostream & operator<<(std::ostream & ost, Fixed const & fxd)
 {
     ost << fxd.toFloat();
-    return (ost); 
+    return (ost);
 }
 
 Fixed::Fixed()
     :fxpnt(0)
 {
-    std::cout << "Default constructor called" << "\n";
+    //std::cout << "Default constructor called" << "\n";
 }
 
 Fixed::Fixed(const int i)
     :fxpnt(i << frbts)
 {
-    std::cout <<"constructor with int called"<<std::endl;
+    //std::cout <<"constructor with int called"<<std::endl;
 }
 
 Fixed::Fixed(const float f)
     :fxpnt(roundf(f*(1 << frbts)))
 {
-    std::cout <<"constructor with float called"<<std::endl;
+    //std::cout <<"constructor with float called"<<std::endl;
 }
 
 Fixed::~Fixed()
 {
-    std::cout <<"Destructor called" << "\n";
+    //std::cout <<"Destructor called" << "\n";
 }
 
 bool Fixed::operator==(const Fixed & rhs) const
@@ -75,12 +75,12 @@ bool Fixed::operator!=(const Fixed & rhs) const
     return(!(*this == rhs));
 }
 
-bool Fixed::operator>(const Fixed & rhs) const 
+bool Fixed::operator>(const Fixed & rhs) const
 {
     return(!(*this == rhs) && this->fxpnt > rhs.fxpnt);
 }
 
-bool Fixed::operator<(const Fixed & rhs) const 
+bool Fixed::operator<(const Fixed & rhs) const
 {
     return(!(*this == rhs) && !(*this > rhs));
 }
@@ -131,13 +131,13 @@ Fixed Fixed::operator/(const Fixed & rhs) const
 
 Fixed& Fixed::operator++()
 {
-    this->fxpnt += 1; 
+    this->fxpnt += 1;
     return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-    Fixed tmp(*this);  // or
+    Fixed tmp(*this);
     ++(*this);
     return (tmp);
 }

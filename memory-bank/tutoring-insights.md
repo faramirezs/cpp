@@ -27,6 +27,11 @@
 - **File I/O paradigm shift:** Students learn C++ streams better by contrasting with familiar C functions (open/read vs ifstream)
 - **Member function pointer complexity:** Advanced C++ features benefit from step-by-step discovery: access control first, then syntax, then dynamic selection
 - **Algorithm include discovery:** Students often miss necessary includes for STL algorithms; compilation errors provide good learning opportunities
+- **Const-correctness discovery:** Students learn const member function requirements better through compiler error guidance than theoretical explanation
+- **Geometric algorithm understanding:** Students grasp mathematical concepts faster when they can immediately code and test the formulas
+- **Edge case discovery:** Students develop stronger debugging skills by testing boundary conditions (points on edges) themselves
+- **Algorithm simplification:** Students often overcomplicate solutions; guiding them to simpler approaches (negation vs square root) builds confidence
+- **Mathematical intuition:** Students who implement coordinate-based formulas develop better geometric understanding than those who memorize formulas
 
 ## Successful Analogies Log:
 - **Concept:** Functions -> **Analogy:** A recipe (takes ingredients/parameters, performs steps, gives a dish/return value). **Effectiveness:** High.
@@ -98,7 +103,7 @@
 
 ## Successful Memory Management Analogies:
 - **Stack allocation = Post-it notes:** Temporary, automatically discarded when scope ends
-- **Heap allocation = Filing cabinet:** Permanent storage until you decide to throw away  
+- **Heap allocation = Filing cabinet:** Permanent storage until you decide to throw away
 - **delete = Hotel checkout:** Both pack belongings (destructor) AND return room key (free memory)
 - **Manual destructor = Packing without checkout:** Belongings gone but room still rented (memory leak)
 - **this pointer = Mirror:** Always shows you the current object you're working with

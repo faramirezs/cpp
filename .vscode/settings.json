@@ -50,6 +50,7 @@
         "iomanip": "cpp",
         "ctime": "cpp",
         "sstream": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "filesystem": "cpp"
     }
 }

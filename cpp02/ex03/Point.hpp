@@ -18,16 +18,18 @@ class Point
     private:
         Fixed x;
         Fixed y;
-        
+
     public:
-        point(Point p);
-        Point(const float x, const float y);
-        Point& operator=(Fixed const & rhs);
-        Point(Fixed const & src);
-        Point(void) {x = 0, y=0};
+        Point(Point const & src);
+        Point(const float x, const float y): x(x), y(y) {};
+        Point& operator=(Point const & rhs);
+        bool operator==(const Point & rhs) const;
+        Fixed get_x(void) const {return x;};
+        Fixed get_y(void) const {return y;};
+        Point(void): x(0), y(0) {};
         ~Point(void);
 };
 
-std::ostream & operator<<(std::ostream & ost, Fixed const & fxd);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
