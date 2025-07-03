@@ -1,8 +1,8 @@
-NAME	= ScavTrap
+NAME	= Diamond
 
-SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-HEADERS	= ClapTrap.hpp ScavTrap.hpp
+HEADERS	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

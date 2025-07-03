@@ -38,7 +38,7 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 
 		ClapTrap(std::string name) : name(name), hit(10), energy(10), attack_damage(0) {std::cout << "Default ClapTrap constructor called" << std::endl;};
-        ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage) : name(name), hit(hit), energy(energy), attack_damage(attack_damage) {std::cout << "ClapTrap constructor called by ScavTrap" << std::endl;};
+        ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage) : name(name), hit(hit), energy(energy), attack_damage(attack_damage) {std::cout << "ClapTrap constructor called by other Trap" << std::endl;};
 		~ClapTrap(void) {std::cout << "ClapTrap destructor called" << std::endl;};
 };
 

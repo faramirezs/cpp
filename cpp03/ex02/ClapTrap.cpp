@@ -10,21 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScavTrap.hpp"
+# include "ClapTrap.hpp"
 
-void ScavTrap::guardGate()
-{
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
-}
-
-void ScavTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string& target)
 {
 	if(hit > 0 && energy > 0)
 	{
-		std::cout << "ScavTrap "<< name << " attacks " << target << " causing " << attack_damage << " points of damage!" << std::endl;
+		std::cout << "ClapTrap "<< name << " attacks " << target << " causing " << "any " << "points of damage!" << std::endl;
+		attack_damage++;
 		energy--;
 	}
 }
 
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	hit = hit - amount;
+	std::cout << "ClapTrap "<< name << " damaged by " << amount << " new hit points balance: " << hit << std::endl;
+}
 
-
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	if(hit > 0 && energy > 0)
+	{
+		hit = hit + amount;
+		std::cout << "ClapTrap "<< name << " repaired by " << amount << " new hit points balance: " << hit << std::endl;
+		energy--;
+	}
+}

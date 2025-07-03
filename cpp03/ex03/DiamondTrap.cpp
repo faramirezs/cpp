@@ -10,21 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScavTrap.hpp"
+# include "DiamondTrap.hpp"
 
-void ScavTrap::guardGate()
+DiamondTrap::DiamondTrap(std::string name) 
+	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name) 
 {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	hit = FragTrap::hit;
+    energy = ScavTrap::energy;
+    attack_damage = FragTrap::attack_damage;
+	std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target)
+void DiamondTrap::whoAmI()
 {
-	if(hit > 0 && energy > 0)
-	{
-		std::cout << "ScavTrap "<< name << " attacks " << target << " causing " << attack_damage << " points of damage!" << std::endl;
-		energy--;
-	}
+	std::cout << "I'm DiamondTrap" << name << " derived from " << ClapTrap::name << std::endl;
 }
-
-
-

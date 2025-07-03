@@ -10,21 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys(void)
 {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	std::cout << "FragTrap: High-fives?" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::attack(const std::string& target)
 {
 	if(hit > 0 && energy > 0)
 	{
-		std::cout << "ScavTrap "<< name << " attacks " << target << " causing " << attack_damage << " points of damage!" << std::endl;
+		std::cout << "FragTrap "<< name << " attacks " << target << " causing " << attack_damage << " points of damage!" << std::endl;
 		energy--;
 	}
 }
-
-
-

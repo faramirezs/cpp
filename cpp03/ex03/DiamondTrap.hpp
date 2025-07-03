@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SCAVTRAP_H__
-#define __SCAVTRAP_H__
+#ifndef __DIAMONDTRAP_H__
+#define __DIAMONDTRAP_H__
 
 # include <string>
 # include <iostream>
@@ -22,21 +22,19 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
     private:
-        //std::string name;
-		//unsigned int hit;
-		//unsigned int energy;
-		//unsigned int attack_damage;
-    public:
-		void guardGate();
-		void attack(const std::string& target);
-		ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {std::cout << "ScavTrap constructor called" << std::endl;};
-        ~ScavTrap(void) {std::cout << "ScavTrap destructor called" << std::endl;};
+		std::string name;
+
+	public:
+		void attack_d(const std::string& target){ScavTrap::attack(target + "Diamond");};
+		void whoAmI();
+		DiamondTrap(std::string name);
+        ~DiamondTrap(void) {std::cout << "Diamond destructor called" << std::endl;};
 };
 
 #endif
