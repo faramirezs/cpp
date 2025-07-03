@@ -10,23 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "DiamondTrap.hpp"
+# include "Wanimal.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) 
-	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name) 
+void Wanimal::makeSound() const
 {
-	hit = FragTrap::hit;
-    energy = ScavTrap::energy;
-    attack_damage = FragTrap::attack_damage;
-	std::cout << "DiamondTrap constructor called" << std::endl;
+	std::cout << "Wrong Animal sound....." << std::endl;
+}
+		
+Wanimal::Wanimal(std::string type) 
+	: type(type) 
+{
+	std::cout << "Wrong Animal constructor called with type: "<< type << std::endl;
 }
 
-void DiamondTrap::attack(const std::string& target)
+Wanimal::Wanimal() 
 {
-	ScavTrap::attack(target);
-};
+	type = "Unknown Animal";
+	std::cout << "Default Wrong Animal constructor called" << std::endl;
+}
 
-void DiamondTrap::whoAmI()
+Wanimal::~Wanimal(void) 
 {
-	std::cout << "I'm " << name << " derived from " << ClapTrap::name << std::endl;
+	std::cout << "Wrong Animal destructor called" << std::endl;
+}
+
+std::string Wanimal::getType() const 
+{
+	return type;
+}
+
+void Wcat::makeSound() const
+{
+	std::cout << "wrong Miau... Wrong Miua.. Wrong mishuuuu... rrRRrrrrrRR" << std::endl;
+}
+		
+Wcat::Wcat() 
+	: Wanimal("WrongCat")
+{
+	std::cout << "Wrong Cat constructor called with type: "<< type << std::endl;
+}
+
+Wcat::~Wcat(void) 
+{
+	std::cout << "Wrong Cat destructor called" << std::endl;
 }

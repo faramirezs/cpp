@@ -29,7 +29,7 @@ class ScavTrap : virtual public ClapTrap
 {
     public:
 		void guardGate();
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {std::cout << "ScavTrap constructor called" << std::endl;};
         ~ScavTrap(void) {std::cout << "ScavTrap destructor called" << std::endl;};
 };

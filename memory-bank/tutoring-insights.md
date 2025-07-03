@@ -128,6 +128,21 @@
 - **Address printing:** Visualizing memory addresses helps understand reference vs copy vs pointer behavior
 - **Destructor tracing:** Watching object destruction order clarifies lifetime and ownership
 
+## Advanced C++ Inheritance and Polymorphism Patterns:
+- **MVP debugging methodology:** Students learn to isolate crashes by testing individual components before integration
+- **Constructor chaining understanding:** Students grasp inheritance better by observing constructor/destructor output messages
+- **Virtual function debugging:** Systematic testing (base class first, then derived) helps identify polymorphism issues
+- **Const-correctness in virtual functions:** Students discover const requirements through compilation errors rather than explanation
+- **Segmentation fault isolation:** Teaching students to comment out code sections to isolate crash locations builds debugging skills
+- **Inheritance validation:** Students understand construction/destruction order by verifying output messages match expected patterns
+- **Memory debugging techniques:** Step-by-step testing approach (create object → test method → identify crash point) builds systematic debugging skills
+
+## Fixed-Point Arithmetic and Operator Overloading Insights:
+- **Binary representation understanding:** Students grasp fixed-point better by understanding bit reinterpretation rather than bit manipulation
+- **Type casting discovery:** Students learn integer vs float division issues through hands-on experimentation with truncation
+- **Operator return type patterns:** Students discover different return types (Fixed vs bool vs Fixed&) through testing and compilation errors
+- **Mathematical precision:** Students understand floating-point limitations through practical examples (3.7 → 3.69922)
+
 *(This file is updated whenever a new generalizable insight is gained. Use ISO 8601 date format: YYYY-MM-DD)*
 
 **Cross-References:**

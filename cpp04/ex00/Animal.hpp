@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:56:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DIAMONDTRAP_H__
-#define __DIAMONDTRAP_H__
+#ifndef __ANIMAL_H__
+#define __ANIMAL_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,19 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "ScavTrap.hpp"
-# include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+
+class Animal
 {
-    private:
-		std::string name;
+	protected:
+		std::string type;
 
-	public:
-		void attack(const std::string& target);
-		void whoAmI();
-		DiamondTrap(std::string name);
-        ~DiamondTrap(void) {std::cout << "Diamond destructor called" << std::endl;};
+    public:
+		virtual void makeSound() const;
+		std::string getType() const;
+		Animal(std::string type);
+		Animal();
+		~Animal(void);
 };
 
 #endif

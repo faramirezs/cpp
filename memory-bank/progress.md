@@ -122,20 +122,45 @@
   - **Focus:** ✅ Point-in-triangle algorithm using area calculation, ✅ const-correctness with getter functions, ✅ edge case handling for collinear points, ✅ coordinate-based geometric formulas
 
 ### C++ Module 03 - Inheritance
-- **Concept: Class Inheritance**
-  - **Status:** To Learn
-- **Concept: Virtual Functions**
-  - **Status:** To Learn
-- **Concept: Access Specifiers in Inheritance**
-  - **Status:** To Learn
+- **Concept: Class Inheritance & Constructor Chaining**
+  - **Status:** Mastered (2025-07-03)
+  - **Evidence/Notes:** Successfully implemented ClapTrap/ScavTrap/FragTrap inheritance hierarchy. Mastered construction/destruction chaining order (base → derived, destroyed derived → base). Understands inheritance syntax and access specifiers.
+- **Concept: Virtual Functions & Polymorphism**
+  - **Status:** Mastered (2025-07-03)
+  - **Evidence/Notes:** Successfully implemented Animal/Dog/Cat hierarchy with virtual function overriding. Understands virtual function dispatch, polymorphic behavior through base class pointers, and method overriding in derived classes.
+- **Concept: Access Specifiers in Inheritance (public/protected/private)**
+  - **Status:** Mastered (2025-07-03)
+  - **Evidence/Notes:** Applied proper inheritance access control. Understands difference between public inheritance (is-a relationship) and how access specifiers affect member visibility in derived classes.
 
-### C++ Module 04 - Subtype polymorphism, abstract classes, interfaces
-- **Concept: Abstract Classes & Pure Virtual Functions**
-  - **Status:** To Learn
-- **Concept: Polymorphism & Virtual Destructors**
-  - **Status:** To Learn
-- **Concept: Interface Design**
-  - **Status:** To Learn
+### C++ Module 03 Exercises Progress:
+- **ex00: Aaaaand... OPEN!**
+  - **Status:** Completed (2025-07-03)
+  - **Focus:** ✅ Basic ClapTrap class with attack/takeDamage/beRepaired methods, ✅ proper constructor/destructor output, ✅ member initialization and encapsulation
+- **ex01: Serena, my love!**
+  - **Status:** Completed (2025-07-03)
+  - **Focus:** ✅ ScavTrap inheritance from ClapTrap, ✅ constructor chaining and proper destruction order, ✅ method overriding and specialized behavior (guardGate)
+- **ex02: Repetitive work**
+  - **Status:** Completed (2025-07-03)
+  - **Focus:** ✅ FragTrap inheritance from ClapTrap, ✅ distinct construction/destruction messages, ✅ specialized method implementation (highFivesGuys), ✅ proper inheritance chaining validation
+
+### C++ Module 04 - Subtype polymorphism, abstract classes, interfaces  
+- **Concept: Virtual Function Polymorphism**
+  - **Status:** Mastered (2025-07-03)
+  - **Evidence/Notes:** Successfully implemented polymorphic behavior with Animal base class and Dog/Cat derived classes. Mastered virtual function dispatch, const-correctness in virtual functions, and debugging polymorphic crashes.
+- **Concept: Dynamic Memory Management in Inheritance**
+  - **Status:** In Progress (2025-07-03)
+  - **Evidence/Notes:** Starting Brain class implementation with dynamic allocation. Learning deep copy requirements for classes with pointer members, RAII principles, and proper destructor chains.
+- **Concept: Deep Copy vs Shallow Copy**
+  - **Status:** In Progress (2025-07-03)
+  - **Evidence/Notes:** Understanding that classes with pointer members require custom copy constructor and assignment operator to prevent shallow copying and memory issues.
+
+### C++ Module 04 Exercises Progress:
+- **ex00: Polymorphism**
+  - **Status:** Completed (2025-07-03)
+  - **Focus:** ✅ Animal/Dog/Cat virtual function hierarchy, ✅ polymorphic method dispatch, ✅ const-correctness debugging, ✅ virtual function overriding, ✅ systematic debugging of segmentation faults
+- **ex01: I don't want to set the world on fire**
+  - **Status:** In Progress (2025-07-03)
+  - **Focus:** Brain class with dynamic memory allocation, deep copy semantics, Animal array management, proper destruction order
 
 ## Key Milestones Achieved:
 - Successfully transitioned from C to C++ syntax (2025-06-11)
@@ -145,6 +170,10 @@
 - **MAJOR BREAKTHROUGH:** Completed entire cpp01 module - mastered memory management, references, pointers, and member function pointers (2025-06-24)
 - **Advanced C++ Features:** Successfully implemented dynamic function selection and operator overloading (2025-06-26)
 - **Mathematical Programming:** Mastered fixed-point arithmetic and bit representation concepts (2025-06-26)
+- **Operator Overloading Mastery:** Completed comprehensive operator overloading implementation in cpp02 (2025-07-02)
+- **Geometric Algorithm Implementation:** Successfully implemented point-in-triangle detection using coordinate-based area calculations (2025-07-02)
+- **Inheritance Foundation:** Mastered inheritance hierarchy design with proper constructor/destructor chaining (2025-07-03)
+- **Polymorphism Understanding:** Successfully implemented virtual function polymorphism and debugging complex inheritance issues (2025-07-03)
 - **MODULE COMPLETION:** Successfully completed entire cpp02 module - mastered Orthodox Canonical Form, operator overloading, and geometric algorithms (2025-07-02)
 
 ## Recurring Themes/Areas for Continued Focus:

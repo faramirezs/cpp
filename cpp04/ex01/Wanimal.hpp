@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DIAMONDTRAP_H__
-#define __DIAMONDTRAP_H__
+#ifndef __WANIMAL_H__
+#define __WANIMAL_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,27 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "ScavTrap.hpp"
-# include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class Wanimal
 {
-    private:
-		std::string name;
+	protected:
+		std::string type;
 
+    public:
+		void makeSound() const;
+		std::string getType() const;
+		Wanimal(std::string type);
+		Wanimal();
+		~Wanimal(void);
+};
+
+class Wcat : public Wanimal
+{
 	public:
-		void attack(const std::string& target);
-		void whoAmI();
-		DiamondTrap(std::string name);
-        ~DiamondTrap(void) {std::cout << "Diamond destructor called" << std::endl;};
+		virtual void makeSound() const;
+		Wcat(std::string type);
+		Wcat();
+		~Wcat(void);
 };
 
 #endif

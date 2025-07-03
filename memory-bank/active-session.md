@@ -5,51 +5,54 @@
 
 # Active Session Context
 
-**Session Date:** 2025-07-02 (ISO 8601 format: YYYY-MM-DD)
+**Session Date:** 2025-07-03 (ISO 8601 format: YYYY-MM-DD)
 **Student Identifier:** alejiri
 
 ## Current Problem/Topic Focus:
-- **Topic:** C++ Module 02 - Exercise 03 (BSP - Binary Space Partitioning) - Point-in-Triangle Algorithm
-- **Specific Issue:** Completed BSP implementation using area-based triangle comparison method
+- **Topic:** C++ Module 04 - Exercise 01 (Abstract Classes & Deep Copy) - Brain Class Implementation
+- **Specific Issue:** Transitioning from basic inheritance to advanced memory management with deep copy semantics
 
 ## Current Code Under Review:
 ```cpp
-// COMPLETED: cpp02/ex03 - Binary Space Partitioning (BSP) point-in-triangle detection
-// ACHIEVED: Area-based algorithm using coordinate formula
-// MASTERED: Const-correctness with getter functions, area calculation, edge case handling
-// CURRENT FOCUS: Session completed successfully, preparing for cpp03 Inheritance module
+// COMPLETED: cpp04/ex00 - Basic polymorphism with Animal/Dog/Cat hierarchy
+// ACHIEVED: Virtual function overriding, const-correctness, inheritance chains
+// COMPLETED: cpp03/ex00-ex02 - ClapTrap/ScavTrap/FragTrap inheritance with proper construction/destruction chaining
+// IN PROGRESS: cpp04/ex01 - Brain class with dynamic memory management and deep copy requirements
+// CURRENT FOCUS: Deep copy semantics and memory leak prevention
 ```
 
 ## Student's Current Question/Blocker:
-- ✅ Successfully implemented area calculation using coordinate formula
-- ✅ Mastered const member function requirements for const parameters
-- ✅ Understood area-based point-in-triangle algorithm (sum of sub-triangles equals original)
-- ✅ Implemented edge case detection (zero area = collinear points)
-- ✅ Simplified absolute value calculation (negation vs complex square root)
-- 🔄 Session completed, ready to transition to cpp03 Inheritance
+- ✅ Successfully completed cpp04/ex00 with virtual function polymorphism
+- ✅ Mastered inheritance construction/destruction chaining in cpp03
+- ✅ Understood const member function requirements and virtual function behavior
+- ✅ Debugged segmentation faults through systematic MVP testing approach
+- 🔄 Starting cpp04/ex01: Brain class with dynamic memory allocation and deep copy semantics
+- � Need to understand: private Brain* attributes, deep vs shallow copy, destructor chains with dynamic memory
 
 ## Key Points from Last Exchange:
-- **Algorithm Discovery**: Successfully discovered area-based approach for point-in-triangle detection
-- **Mathematical Insight**: Understood that sum of sub-triangle areas equals original triangle area when point is inside
-- **Const-correctness Mastery**: Figured out that const member functions are needed for const parameters
-- **Edge Case Handling**: Recognized that zero area indicates collinear points (edges/vertices)
-- **Code Simplification**: Chose simple negation over complex square root for absolute value
-- **MVP Success**: Built working solution incrementally, testing each component
-- **Geometric Understanding**: Grasped the relationship between triangle areas and point containment
+- **Inheritance Mastery**: Successfully completed cpp03 module with proper constructor/destruction chaining
+- **Virtual Function Understanding**: Mastered virtual function overriding and polymorphic behavior in cpp04/ex00
+- **Debugging Excellence**: Systematically debugged segmentation faults using MVP isolation techniques
+- **Const-correctness Application**: Applied const member functions correctly for polymorphic interfaces
+- **Memory Debugging**: Used step-by-step testing to isolate crash locations and identify root causes
+- **Inheritance Chain Validation**: Verified proper construction/destruction order in derived classes
+- **Polymorphism Implementation**: Successfully implemented Animal/Dog/Cat hierarchy with virtual functions
+- **Problem Isolation Skills**: Learned to test individual components before combining complex functionality
 
 ## Next Socratic Question/Guidance Plan:
-- **Next Session Focus**: Begin C++ Module 03 - Inheritance concepts
-- **Key Topics**: Base/derived classes, constructor chains, virtual functions, polymorphism
-- **Implementation Strategy**: Start with simple inheritance example and build complexity
-- **Learning Goals**: Understand inheritance hierarchy, access specifiers, method overriding
+- **Next Session Focus**: Implement Brain class with dynamic memory allocation
+- **Key Question**: "What's the difference between shallow copy and deep copy when your class contains a pointer?"
+- **Implementation Strategy**: Build Brain class first, then integrate with Dog/Cat, test deep copy behavior
+- **Memory Management Goal**: Understand RAII principles and prevent memory leaks in inheritance hierarchies
+- **Testing Approach**: Create Animal array, test proper destruction order, verify no memory leaks
 
 ## Session Notes:
-- Smooth transition from ex01 completion to ex02 challenges
-- Strong foundation in Fixed class implementation provides confidence for operator overloading
-- Ready to tackle more complex operator patterns and multiple function signatures
-- Should maintain MVP approach: implement and test operator categories one at a time
-- Prepared to explore different operator overloading patterns (member vs non-member, return types, etc.)
-- Should focus on testing and validation in next session before advancing
+- Strong progression from cpp02 fixed-point arithmetic through cpp03 inheritance to cpp04 polymorphism
+- Excellent debugging methodology: isolate, test incrementally, verify assumptions
+- Ready for advanced memory management concepts: dynamic allocation, deep copy, RAII
+- Should maintain MVP approach: implement Brain class first, then integration, then deep copy testing
+- Prepared to explore complex destructor chains with dynamic memory cleanup
+- Focus on understanding ownership semantics and copy constructor requirements
 
 ---
 *This file should be updated after each exchange with the student and cleared when moving to a new problem/topic. Important insights should be moved to → progress.md or → tutoring-insights.md before clearing.*

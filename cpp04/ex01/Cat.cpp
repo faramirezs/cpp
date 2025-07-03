@@ -10,23 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "DiamondTrap.hpp"
+# include "Cat.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) 
-	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name) 
+void Cat::makeSound() const
 {
-	hit = FragTrap::hit;
-    energy = ScavTrap::energy;
-    attack_damage = FragTrap::attack_damage;
-	std::cout << "DiamondTrap constructor called" << std::endl;
+	std::cout << "Miau... Miua.. mishuuuu... rrRRrrrrrRR" << std::endl;
+}
+		
+Cat::Cat() 
+	: Animal("Cat")
+{
+	brain = new Brain();
+	std::cout << "Cat constructor called with type: "<< type << std::endl;
 }
 
-void DiamondTrap::attack(const std::string& target)
+Cat::~Cat(void) 
 {
-	ScavTrap::attack(target);
-};
-
-void DiamondTrap::whoAmI()
-{
-	std::cout << "I'm " << name << " derived from " << ClapTrap::name << std::endl;
+	delete brain;
+	std::cout << "Cat destructor called" << std::endl;
 }

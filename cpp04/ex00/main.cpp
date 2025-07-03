@@ -10,42 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
-# include "DiamondTrap.hpp"
+# include "Animal.hpp"
+# include "Dog.hpp"
+# include "Cat.hpp"
+# include "Wanimal.hpp"
 
-
-int main(void)
+int main()
 {
-	/* std::cout << "===ClaTrap=== "<< std::endl;
-	ClapTrap clap_peludo("peludo");
-	clap_peludo.attack("calvo");
-	clap_peludo.takeDamage(1);
-	clap_peludo.beRepaired(1);
-
-	std::cout << "===ScavTrap=== "<< std::endl;
-	ScavTrap scav_dodo("dodo");
-	scav_dodo.attack("calvo");
-	scav_dodo.takeDamage(1);
-	scav_dodo.beRepaired(1);
-	scav_dodo.guardGate(); */
-
-	/* std::cout << "===FragTrap=== "<< std::endl;
-	FragTrap scav_dada("dada");
-	scav_dada.attack("calvo");
-	scav_dada.takeDamage(1);
-	scav_dada.beRepaired(1);
-	scav_dada.highFivesGuys(); */
-
-	std::cout << "===DiamondTrap=== "<< std::endl;
-	DiamondTrap scav_dada("dada");
-	scav_dada.attack("calvo");
-	scav_dada.takeDamage(1);
-	scav_dada.beRepaired(1);
-	scav_dada.whoAmI();
-
-
-	return (0);
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	std::cout << j->getType() << " " << std::endl;
+	j->makeSound();
+	const Animal* i = new Cat();
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	std::cout << "====Animal sound====" << std::endl;
+	meta->makeSound();
+	std::cout << "====Wrong Animal====" << std::endl;
+	const Wanimal* wmeta = new Wanimal();
+	const Wanimal* k = new Wcat();
+	std::cout << k->getType() << " " << std::endl;
+	std::cout << "====Wrong Cat sound====" << std::endl;
+	k->makeSound();
+	std::cout << "====Wrong Animal sound====" << std::endl;
+	wmeta->makeSound();
+	return 0;
 }
 
 

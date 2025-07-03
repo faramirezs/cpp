@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DIAMONDTRAP_H__
-#define __DIAMONDTRAP_H__
+#ifndef __CAT_H__
+#define __CAT_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,18 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "ScavTrap.hpp"
-# include "FragTrap.hpp"
+# include "Animal.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+
+class Cat : public Animal
 {
-    private:
-		std::string name;
-
+	private:
+		Brain * brain;
 	public:
-		void attack(const std::string& target);
-		void whoAmI();
-		DiamondTrap(std::string name);
-        ~DiamondTrap(void) {std::cout << "Diamond destructor called" << std::endl;};
+		virtual void makeSound() const;
+		Cat(std::string type);
+		Cat();
+		~Cat(void);
 };
 
 #endif
