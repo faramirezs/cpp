@@ -17,23 +17,27 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	std::cout << j->getType() << " " << std::endl;
 	j->makeSound();
 	const Animal* i = new Cat();
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
-	std::cout << "====Animal sound====" << std::endl;
-	meta->makeSound();
+	std::cout << "====Destructors====" << std::endl;
+	delete j;
+	delete i;
+
 	std::cout << "====Wrong Animal====" << std::endl;
-	const Wanimal* wmeta = new Wanimal();
-	const Wanimal* k = new Wcat();
+	Wanimal* wmeta = new Wanimal();
+	Wanimal* k = new Wcat();
 	std::cout << k->getType() << " " << std::endl;
 	std::cout << "====Wrong Cat sound====" << std::endl;
 	k->makeSound();
 	std::cout << "====Wrong Animal sound====" << std::endl;
 	wmeta->makeSound();
+	delete static_cast<Wcat*>(k);
+	delete wmeta;
+
 	return 0;
 }
 

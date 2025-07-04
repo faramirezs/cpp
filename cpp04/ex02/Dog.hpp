@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_H__
-#define __CAT_H__
+#ifndef __DOG_H__
+#define __DOG_H__
 
 # include <string>
 # include <iostream>
@@ -25,16 +25,16 @@
 # include "Animal.hpp"
 
 
-class Cat : public Animal
+class Dog : public Animal
 {
 	private:
 		Brain * brain;
 	public:
 		virtual void makeSound() const;
 		Brain& getBrain();
-		Cat(std::string type);
-		Cat();
-		~Cat(void);
+		Dog(std::string type);
+		Dog();
+		~Dog(void);
 };
 
 #endif

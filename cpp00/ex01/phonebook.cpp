@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 14:37:49 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/04 14:39:40 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include <string>
 # include <iostream>
@@ -106,7 +117,7 @@ class phonebook
             i = 0;
             if (*id == 0)
             {
-                std::cout << "Empty phoneBook";
+                std::cout << "Empty phoneBook" << std::endl;
                 return;
             }
             std::cout << "\n";

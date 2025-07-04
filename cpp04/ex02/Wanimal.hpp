@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_H__
-#define __CAT_H__
+#ifndef __WANIMAL_H__
+#define __WANIMAL_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,27 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "Animal.hpp"
 
-
-class Cat : public Animal
+class Wanimal
 {
-	private:
-		Brain * brain;
+	protected:
+		std::string type;
+
+    public:
+		void makeSound() const;
+		std::string getType() const;
+		Wanimal(std::string type);
+		Wanimal();
+		virtual ~Wanimal(void);
+};
+
+class Wcat : public Wanimal
+{
 	public:
 		virtual void makeSound() const;
-		Brain& getBrain();
-		Cat(std::string type);
-		Cat();
-		~Cat(void);
+		Wcat(std::string type);
+		Wcat();
+		~Wcat(void);
 };
 
 #endif

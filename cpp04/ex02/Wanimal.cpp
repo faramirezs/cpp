@@ -10,27 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Cat.hpp"
+# include "Wanimal.hpp"
 
-void Cat::makeSound() const
+void Wanimal::makeSound() const
 {
-	std::cout << "Miau... Miua.. mishuuuu... rrRRrrrrrRR" << std::endl;
+	std::cout << "Wrong Animal sound....." << std::endl;
 }
 		
-Cat::Cat() 
-	: Animal("Cat")
+Wanimal::Wanimal(std::string type) 
+	: type(type) 
 {
-	brain = new Brain();
-	std::cout << "Cat constructor called with type: "<< type << std::endl;
+	std::cout << "Wrong Animal constructor called with type: "<< type << std::endl;
 }
 
-Cat::~Cat(void) 
+Wanimal::Wanimal() 
 {
-	delete brain;
-	std::cout << "Cat destructor called" << std::endl;
+	type = "Unknown Animal";
+	std::cout << "Default Wrong Animal constructor called" << std::endl;
 }
 
-Brain &Cat::getBrain()
+Wanimal::~Wanimal(void) 
 {
-	return *brain;
+	std::cout << "Wrong Animal destructor called" << std::endl;
+}
+
+std::string Wanimal::getType() const 
+{
+	return type;
+}
+
+void Wcat::makeSound() const
+{
+	std::cout << "wrong Miau... Wrong Miua.. Wrong mishuuuu... rrRRrrrrrRR" << std::endl;
+}
+		
+Wcat::Wcat() 
+	: Wanimal("WrongCat")
+{
+	std::cout << "Wrong Cat constructor called with type: "<< type << std::endl;
+}
+
+Wcat::~Wcat(void) 
+{
+	std::cout << "Wrong Cat destructor called" << std::endl;
 }

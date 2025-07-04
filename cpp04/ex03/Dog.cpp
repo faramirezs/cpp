@@ -10,27 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Cat.hpp"
+# include "Dog.hpp"
 
-void Cat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Miau... Miua.. mishuuuu... rrRRrrrrrRR" << std::endl;
+	std::cout << "Guau...! Guuuuua!" << std::endl;
 }
 		
-Cat::Cat() 
-	: Animal("Cat")
+Dog::Dog() 
+	: Animal("Dog") 
 {
 	brain = new Brain();
-	std::cout << "Cat constructor called with type: "<< type << std::endl;
+	std::cout << "Dog constructor called with type: "<< type << std::endl;
 }
 
-Cat::~Cat(void) 
+Dog::~Dog(void) 
 {
 	delete brain;
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-Brain &Cat::getBrain()
+Brain &Dog::getBrain()
 {
 	return *brain;
 }
+

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 14:36:38 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/04 14:37:38 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <iostream>
 #include <cctype>
@@ -18,7 +30,6 @@ int main(int ac, char **av)
     for (i = 1; av[i]; i++)
     {
         std::cout << av[i];
-        //std::cout << av[i]<< std::endl;
     }
     return 0;
 }

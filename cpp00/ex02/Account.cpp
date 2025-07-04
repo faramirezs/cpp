@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 14:38:14 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/04 14:45:26 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Account.hpp"
 # include <string>
 # include <iostream>
@@ -7,6 +19,8 @@
 # include <vector>
 # include <algorithm>
 # include <functional>
+
+//c++ -Wall -Wextra -Werror -std=c++98 Account.cpp Account.hpp tests.cpp
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -86,7 +100,7 @@ Account::Account(int initial_deposit)
     Account::_totalAmount = Account::_totalAmount + initial_deposit;
     Account::_displayTimestamp();
     std::cout << "index:" << Account::_accountIndex
-        << ";amount" << Account::_amount
+        << ";amount:" << Account::_amount
         << ";created"
         << "\n";
 }

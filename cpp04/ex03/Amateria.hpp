@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:56:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_H__
-#define __CAT_H__
+#ifndef __AMATERIA_H__
+#define __AMATERIA_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,43 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "Animal.hpp"
 
 
-class Cat : public Animal
+class AMateria
 {
-	private:
-		Brain * brain;
+	protected:
+		std::string type;
+		//[...]
 	public:
-		virtual void makeSound() const;
-		Brain& getBrain();
-		Cat(std::string type);
-		Cat();
-		~Cat(void);
+		AMateria(std::string const & type);
+		//[...]
+		ICharacter& 
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
+
+
+/* class Animal
+{
+	protected:
+		std::string type;
+
+    public:
+		virtual void makeSound() const = 0;
+		std::string getType() const;
+		Animal(Animal const & rhs); 
+		Animal(std::string type);
+		Animal();
+		virtual ~Animal(void);
+};
+
+class Brain
+{
+	public:
+	std::string ideas[100];
+	Brain();
+	virtual ~Brain(void);
+}; */
 
 #endif

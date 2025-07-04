@@ -17,8 +17,31 @@
 # include <string>
 
 int main()
-{		
-	int j = 10;
+{	
+
+	const Animal* j = new Dog();
+	std::cout << j->getType() << " " << std::endl;
+	j->makeSound();
+	const Animal* i = new Cat();
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	std::cout << "====Destructors====" << std::endl;
+	delete j;
+	delete i;
+
+	std::cout << "====Wrong Animal====" << std::endl;
+	Wanimal* wmeta = new Wanimal();
+	Wanimal* k = new Wcat();
+	std::cout << k->getType() << " " << std::endl;
+	std::cout << "====Wrong Cat sound====" << std::endl;
+	k->makeSound();
+	std::cout << "====Wrong Animal sound====" << std::endl;
+	wmeta->makeSound();
+	std::cout << "====Destructors====" << std::endl;
+	delete static_cast<Wcat*>(k);
+	delete wmeta;
+	
+	/* int j = 10;
 	Animal * Animals[10];
 	std::string baseIdea = "idea ";
 
@@ -45,7 +68,7 @@ int main()
 		std::cout << "Deleting Animal[" << k << "]" << std::endl;
 		delete Animals[k];
 	}
-	return 0;
+	return 0; */
 }
 
 
