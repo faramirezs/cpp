@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 13:47:59 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 13:59:09 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 int Fixed::getRawBits( void ) const
@@ -137,7 +149,7 @@ Fixed& Fixed::operator++()
 
 Fixed Fixed::operator++(int)
 {
-    Fixed tmp(*this);  // or
+    Fixed tmp(*this);
     ++(*this);
     return (tmp);
 }
@@ -153,4 +165,24 @@ Fixed Fixed::operator--(int)
     Fixed tmp(*this);
     --(*this);
     return (tmp);
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? const_cast<Fixed&>(a) : const_cast<Fixed&>(b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a > b) ? a : b;
+}
+
+Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a > b) ? const_cast<Fixed&>(a) : const_cast<Fixed&>(b);
 }

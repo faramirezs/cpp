@@ -49,6 +49,41 @@ int main() {
     std::cout << "f-- = " << (f--).toFloat() << std::endl;
     std::cout << "f = " << f.toFloat() << std::endl;
 
+    std::cout << "=== Static Min/Max Functions ===" << std::endl;
+    
+    // Test with non-const Fixed objects
+    Fixed x(5.5f);
+    Fixed y(3.2f);
+    std::cout << "x = " << x.toFloat() << ", y = " << y.toFloat() << std::endl;
+    
+    // Test min with non-const references
+    Fixed& minResult = Fixed::min(x, y);
+    std::cout << "Fixed::min(x, y) = " << minResult.toFloat() << std::endl;
+    
+    // Test max with non-const references  
+    Fixed& maxResult = Fixed::max(x, y);
+    std::cout << "Fixed::max(x, y) = " << maxResult.toFloat() << std::endl;
+    
+    // Test with const Fixed objects
+    const Fixed cx(7.8f);
+    const Fixed cy(9.1f);
+    std::cout << "const cx = " << cx.toFloat() << ", const cy = " << cy.toFloat() << std::endl;
+    
+    // Test min with const references
+    Fixed& minConstResult = Fixed::min(cx, cy);
+    std::cout << "Fixed::min(const cx, const cy) = " << minConstResult.toFloat() << std::endl;
+    
+    // Test max with const references
+    Fixed& maxConstResult = Fixed::max(cx, cy);
+    std::cout << "Fixed::max(const cx, const cy) = " << maxConstResult.toFloat() << std::endl;
+    
+    // Test edge cases - equal values
+    Fixed equal1(42.0f);
+    Fixed equal2(42.0f);
+    std::cout << "equal1 = " << equal1.toFloat() << ", equal2 = " << equal2.toFloat() << std::endl;
+    std::cout << "Fixed::min(equal1, equal2) = " << Fixed::min(equal1, equal2).toFloat() << std::endl;
+    std::cout << "Fixed::max(equal1, equal2) = " << Fixed::max(equal1, equal2).toFloat() << std::endl;
+
     std::cout << "=== Destructors (will be called automatically) ===" << std::endl;
 
     return 0;

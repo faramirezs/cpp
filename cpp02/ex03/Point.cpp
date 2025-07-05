@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 14:11:03 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 14:11:04 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Point.hpp"
 
 Point::Point(Point const & src)
 {
-    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
-Point & Point::operator=( Point const & rhs ) {
-
-    //std::cout << "Assignment operator called" << std::endl;
+Point & Point::operator=( Point const & rhs ) 
+{
     if (this != &rhs)
     {
         this->x = rhs.x;
@@ -24,6 +34,6 @@ bool Point::operator==(const Point & rhs) const
 
 Point::~Point()
 {
-    //std::cout <<"Destructor called" << "\n";
+
 }
 

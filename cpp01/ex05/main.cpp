@@ -1,6 +1,14 @@
-/* # include "Weapon.hpp"
-# include "HumanA.hpp"
-# include "HumanB.hpp" */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 10:24:45 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 10:58:42 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include <string>
 # include <iostream>
@@ -11,11 +19,8 @@
 # include <cctype>
 # include "Harl.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    (void)ac;
-    (void)av;
-
     Harl myHarl;
     myHarl.complain("debug");
     myHarl.complain("info");

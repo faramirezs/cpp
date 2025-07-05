@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 10:24:23 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 11:06:12 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __HARL_H__
 #define __HARL_H__
 
@@ -22,24 +34,7 @@ class Harl
         void error( void ) { std::cout << "error: This is unacceptable! I want to speak to the manager now." << "\n";};
     
     public:
-        
-        void complain( std::string level )
-        {
-            Harl myHarl;
-            std::string *ptr = NULL;
-            size_t i = -1;
-
-            hptr ptr_mem[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-            std::string lev[] = {"debug", "info", "warning", "error"};
-            ptr = std::find(lev, lev+4, level);
-            if (ptr == lev+4)
-            {
-                std::cout << "Wrong input. Use only: 'debug', 'info', 'warning' or 'error'. "<< '\n';
-                return;
-            }
-            i = ptr - lev;
-            CALL_MEMBER_FN(myHarl, ptr_mem[i])();
-        };
+        void complain( std::string level );
         Harl(void);
         ~Harl(void);
 };

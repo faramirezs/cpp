@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 15:21:54 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ class ClapTrap
 		unsigned int hit;
 		unsigned int energy;
 		unsigned int attack_damage;
-    public:
-
+    
+	public:
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		ClapTrap(std::string name) : name(name), hit(10), energy(10), attack_damage(0) {std::cout << "ClapTrap constructor called" << std::endl;};
-        ~ClapTrap(void) {std::cout << "ClapTrap destructor called" << std::endl;};
+		ClapTrap(std::string name);
+        ~ClapTrap(void);
 };
 
 #endif

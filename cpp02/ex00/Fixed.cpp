@@ -1,5 +1,16 @@
-# include "Fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 13:42:28 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 13:42:54 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+# include "Fixed.hpp"
 
 int Fixed::getRawBits( void ) const
 {
@@ -18,7 +29,8 @@ Fixed::Fixed(Fixed const & src)
     *this = src;
 }
 
-Fixed & Fixed::operator=( Fixed const & rhs ) {
+Fixed & Fixed::operator=( Fixed const & rhs ) 
+{
     
     std::cout << "Assignment operator called" << std::endl;
     if (this != &rhs) 
@@ -38,10 +50,3 @@ Fixed::~Fixed()
 {
     std::cout <<"Destructor called" << "\n";
 }
-
-//Copy operator with init list
-/* Fixed::Fixed(Fixed const & src)
-    :integer(src.getRawBits())
-{
-    std::cout << "Copy constructor called" << std::endl;
-} */

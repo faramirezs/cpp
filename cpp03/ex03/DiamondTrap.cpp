@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:27 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 15:32:16 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,9 @@ void DiamondTrap::attack(const std::string& target)
 void DiamondTrap::whoAmI()
 {
 	std::cout << "I'm " << name << " derived from " << ClapTrap::name << std::endl;
+}
+
+DiamondTrap::~DiamondTrap(void) 
+{
+	std::cout << "Diamond destructor called" << std::endl;
 }

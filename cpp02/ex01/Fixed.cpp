@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 13:44:19 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 13:50:31 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 int Fixed::getRawBits( void ) const
@@ -13,17 +25,12 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-    float f;
-    f = fxpnt / pow(2,frbts);
-    return(f);
+    return static_cast<float>(fxpnt) / (1 << frbts);
 }
 
 int Fixed::toInt( void ) const
 {
-    int i;
-    i = roundf(fxpnt / pow(2,frbts));
-    return (i);
-    //converts the fixed-point value to an integer value.
+    return fxpnt >> frbts;
 }
 
 Fixed::Fixed(Fixed const & src)
@@ -44,7 +51,6 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 
 std::ostream & operator<<(std::ostream & ost, Fixed const & fxd)
 {
-    //std::cout << "<< operator called" << std::endl;
     ost << fxd.toFloat();
     return (ost); 
 }
@@ -56,40 +62,18 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const int i)
-    :fxpnt(0)
+    :fxpnt(i*(1 << frbts))
 {
-    fxpnt = i*pow(2,frbts);
     std::cout <<"constructor with int called"<<std::endl;
-    //It converts it to the corresponding fixed-point value. The fractional bits value
-    //should be initialized to 8, like in exercise 00.
 }
 
 Fixed::Fixed(const float f)
-    :fxpnt(0)
+    :fxpnt(roundf(f*(1 << frbts)))
 {
-    fxpnt = roundf(f*pow(2,frbts));
     std::cout <<"constructor with float called"<<std::endl;
-
-    /* std::cout <<"round: " << roundf(f*pow(2,frbts)) <<std::endl;
-    std::cout <<"no round: " << f*pow(2,frbts) <<std::endl;
-
-    float original = f;
-    float multiplied = original * 256;
-    std::cout << "3.7 * 256 = " << multiplied << std::endl; */
-    //It converts it to the corresponding fixed-point value. The fractional bits value
-    //should be initialized to 8, like in exercise 00
 }
 
 Fixed::~Fixed()
 {
     std::cout <<"Destructor called" << "\n";
 }
-
-//Copy operator with init list
-/* Fixed::Fixed(Fixed const & src)
-    :integer(src.getRawBits())
-{
-    std::cout << "Copy constructor called" << std::endl;
-} */
-
-//float       roundf( float num );

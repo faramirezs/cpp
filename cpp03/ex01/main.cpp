@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:46 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 16:42:17 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 14:30:18 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

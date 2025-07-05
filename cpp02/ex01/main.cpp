@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 13:46:46 by alramire          #+#    #+#             */
+/*   Updated: 2025/07/05 13:46:47 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include <string>
 # include <iostream>
 # include <limits>
@@ -8,21 +20,7 @@
 # include "Fixed.hpp"
 
 int main( void ) 
-{
-    //Fixed const b( 10 );
-    //std::cout << "3 is " << Fixed(3).toInt() << " as integer" << std::endl;
-    /* Fixed a(42);
-    Fixed b(3.7f);
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "a is " << a.toFloat() << " as float" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toFloat() << " as float" << std::endl;
-     */
-    
-    /* Fixed f1(3.7f);
-    std::cout << "toFloat: " << f1.toFloat() << std::endl;
-    std::cout << "roundf: " << roundf(f1.toFloat()) << std::endl;  // What do you expect vs what do you get? */
-    
+{    
     Fixed a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );

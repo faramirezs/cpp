@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:56:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 15:25:00 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,11 @@
 
 class ScavTrap : public ClapTrap
 {
-    private:
-        //std::string name;
-		//unsigned int hit;
-		//unsigned int energy;
-		//unsigned int attack_damage;
     public:
 		void guardGate();
 		void attack(const std::string& target);
-		ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {std::cout << "ScavTrap constructor called" << std::endl;};
-        ~ScavTrap(void) {std::cout << "ScavTrap destructor called" << std::endl;};
+		ScavTrap(std::string name);
+        ~ScavTrap(void);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:27 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 15:21:29 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap "<< name << " repaired by " << amount << " new hit points balance: " << hit << std::endl;
 		energy--;
 	}
+}
+
+ClapTrap::ClapTrap(std::string name) 
+	: name(name), hit(10), energy(10), attack_damage(0) 
+{
+	std::cout << "ClapTrap constructor called" << std::endl;
+}
+
+ClapTrap::~ClapTrap(void) 
+{
+	std::cout << "ClapTrap destructor called" << std::endl;
 }

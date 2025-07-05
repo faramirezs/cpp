@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 09:20:58 by alramire          #+#    #+#             */
-/*   Updated: 2025/07/05 09:21:09 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/05 11:17:29 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Zombie::Zombie(std::string name)
 {
     this->name = name;
+    std::cout << Zombie::name << ": Knock KNOCK... (created)." << "\n";
 }
 
 void Zombie::announce(void)
@@ -24,5 +25,5 @@ void Zombie::announce(void)
 
 Zombie::~Zombie(void)
 {
-    std::cout << Zombie::name << ": Bye bye..." << "\n";
+    std::cout << Zombie::name << ": Bye bye... (destroyed)." << "\n";
 }

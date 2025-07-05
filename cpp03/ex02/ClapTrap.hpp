@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/05 15:28:09 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		ClapTrap(std::string name) : name(name), hit(10), energy(10), attack_damage(0) {std::cout << "Default ClapTrap constructor called" << std::endl;};
-        ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage) : name(name), hit(hit), energy(energy), attack_damage(attack_damage) {std::cout << "ClapTrap constructor called by other Trap" << std::endl;};
-		~ClapTrap(void) {std::cout << "ClapTrap destructor called" << std::endl;};
+		ClapTrap(std::string name);
+        ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage);
+		~ClapTrap(void);
 };
 
 #endif
