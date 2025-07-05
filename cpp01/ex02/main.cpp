@@ -6,11 +6,11 @@ int main(void)
     std::string *stringPTR = &str;
     std::string &stringREF = str;
 
-    std::cout << "The memory address of the str:" << &str << "\n";
-    std::cout << "The memory address of stringPTR:" << stringPTR << "\n";
-    std::cout << "The memory address of stringREF:" << &stringREF << "\n";
+    std::cout << "The memory address of the str: " << &str << std::endl;
+    std::cout << "The memory address of stringPTR: " << stringPTR << std::endl;
+    std::cout << "The memory address of stringREF: " << &stringREF << std::endl;
 
-    std::cout << "Content of str:" << str << "\n";
-    std::cout << "Content pointed to by stringPTR:" << *stringPTR << "\n";
-    std::cout << "Content pointed to by stringREF:" << stringREF << "\n";
+    std::cout << "Content of str:" << str << std::endl;
+    std::cout << "Content pointed to by stringPTR: " << *stringPTR << std::endl;
+    std::cout << "Content pointed to by stringREF: " << stringREF << std::endl;
 }
