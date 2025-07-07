@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:27 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/07 16:51:57 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Animal.hpp"
+
+Animal& Animal::operator=(Animal const & rhs)
+{
+	std::cout << "Assignment constructor called." << std::endl;
+	if(this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return(*this);
+}
+
+Animal::Animal(Animal const & src) : type(src.type)
+{
+	std::cout << "Copy constructor called." << std::endl;
+}
+
+Animal::~Animal(void) 
+{
+	std::cout << "Animal destructor called" << std::endl;
+}
 
 void Animal::makeSound() const
 {
@@ -27,11 +47,6 @@ Animal::Animal()
 {
 	type = "Unknown Animal";
 	std::cout << "Default Animal constructor called" << std::endl;
-}
-
-Animal::~Animal(void) 
-{
-	std::cout << "Animal destructor called" << std::endl;
 }
 
 std::string Animal::getType() const 

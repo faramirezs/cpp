@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Wcat.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/07 17:11:58 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/07 17:08:33 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Dog.hpp"
+# include "Wcat.hpp"
 
-Dog::Dog() 
-	: Animal("Dog") 
+Wcat::Wcat() 
+	: Wanimal("WrongCat")
 {
-	std::cout << "Dog constructor called with type: "<< type << std::endl;
+	std::cout << "Wrong cat constructor called with type: "<< type << std::endl;
 }
 
-Dog::Dog(Dog const & src) : Animal(src)
+Wcat::Wcat(Wcat const & src) : Wanimal(src)
 {
-	std::cout << "Dog copy constructor called." << std::endl;
+	std::cout << "Wrong cat Copy constructor called." << std::endl;
 }
 
-Dog& Dog::operator=(Dog const & rhs)
+Wcat& Wcat::operator=(Wcat const & rhs)
 {
-	std::cout << "Dog assignment constructor called." << std::endl;
+	std::cout << "Wrong cat assignment constructor called." << std::endl;
 	if(this != &rhs)
 	{
-		Animal::operator=(rhs);
+		Wanimal::operator=(rhs);
 	}
 	return(*this);
 }
 
-Dog::~Dog(void) 
+Wcat::~Wcat(void) 
 {
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "Wrong cat destructor called" << std::endl;
 }
 
-void Dog::makeSound() const
+
+void Wcat::makeSound() const
 {
-	std::cout << "Guau...! Guuuuua!" << std::endl;
+	std::cout << "wrong Miau... Wrong Miua.. Wrong mishuuuu... rrRRrrrrrRR" << std::endl;
 }
-	
-
-
-
+		
 

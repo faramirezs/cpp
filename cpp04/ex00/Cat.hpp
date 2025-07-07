@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:56:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/07 17:07:31 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@
 # include "Animal.hpp"
 
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 	public:
-		virtual void makeSound() const;
-		Cat(std::string type);
 		Cat();
-		~Cat(void);
+		Cat(Cat const & src);
+		Cat& operator=(Cat const & rhs);
+        virtual ~Cat(void);
+
+		virtual void makeSound() const;
 };
 
 #endif

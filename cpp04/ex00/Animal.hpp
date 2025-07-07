@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/07 17:13:04 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ class Animal
 		std::string type;
 
     public:
+		Animal();
+		Animal(std::string type);
+		Animal(Animal const & src);
+		Animal& operator=(Animal const & rhs);
+		virtual ~Animal(void);
+
 		virtual void makeSound() const;
 		std::string getType() const;
-		Animal(std::string type);
-		Animal();
-		~Animal(void);
 };
 
 #endif
