@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   Wanimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:27 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/07 17:13:24 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Wanimal.hpp"
+
+Wanimal& Wanimal::operator=(Wanimal const & rhs)
+{
+	std::cout << "Assignment constructor called." << std::endl;
+	if(this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return(*this);
+}
+
+Wanimal::Wanimal(Wanimal const & src) : type(src.type)
+{
+	std::cout << "Copy constructor called." << std::endl;
+}
+
+Wanimal::~Wanimal(void) 
+{
+	std::cout << "Wrong Animal destructor called" << std::endl;
+}
 
 void Wanimal::makeSound() const
 {
@@ -29,28 +49,7 @@ Wanimal::Wanimal()
 	std::cout << "Default Wrong Animal constructor called" << std::endl;
 }
 
-Wanimal::~Wanimal(void) 
-{
-	std::cout << "Wrong Animal destructor called" << std::endl;
-}
-
 std::string Wanimal::getType() const 
 {
 	return type;
-}
-
-void Wcat::makeSound() const
-{
-	std::cout << "wrong Miau... Wrong Miua.. Wrong mishuuuu... rrRRrrrrrRR" << std::endl;
-}
-		
-Wcat::Wcat() 
-	: Wanimal("WrongCat")
-{
-	std::cout << "Wrong Cat constructor called with type: "<< type << std::endl;
-}
-
-Wcat::~Wcat(void) 
-{
-	std::cout << "Wrong Cat destructor called" << std::endl;
 }

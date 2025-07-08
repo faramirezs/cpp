@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:56:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/08 09:30:13 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOG_H__
-#define __DOG_H__
+#ifndef __BRAIN_H__
+#define __BRAIN_H__
 
 # include <string>
 # include <iostream>
@@ -22,19 +22,16 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
-# include "Animal.hpp"
 
-
-class Dog : public Animal
+class Brain
 {
-	private:
-		Brain * brain;
 	public:
-		virtual void makeSound() const;
-		Brain& getBrain();
-		Dog(std::string type);
-		Dog();
-		~Dog(void);
+		Brain();
+		Brain(Brain const & src);
+		Brain& operator=(Brain const & rhs);
+		virtual ~Brain(void);
+
+		std::string ideas[100];
 };
 
 #endif

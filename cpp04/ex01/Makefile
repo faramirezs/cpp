@@ -1,8 +1,8 @@
 NAME	= fire
 
-SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp Wanimal.cpp
+SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp Wanimal.cpp Wcat.cpp Brain.cpp
 
-HEADERS	= Animal.hpp Dog.hpp Cat.hpp Wanimal.hpp
+HEADERS	= Animal.hpp Dog.hpp Cat.hpp Wanimal.hpp Wcat.hpp Brain.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

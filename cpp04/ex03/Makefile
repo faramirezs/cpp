@@ -1,8 +1,8 @@
 NAME	= abst
 
-SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp Wanimal.cpp
+SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
-HEADERS	= Animal.hpp Dog.hpp Cat.hpp Wanimal.hpp
+HEADERS	= AMateria.hpp Character.hpp ICharacter.hpp Cure.hpp Ice.hpp MateriaSource.hpp IMateriaSource.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

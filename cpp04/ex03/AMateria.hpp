@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/08 12:47:37 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
+# include "ICharacter.hpp"
+
 
 
 class AMateria
@@ -30,35 +32,17 @@ class AMateria
 		std::string type;
 		//[...]
 	public:
+		AMateria();
 		AMateria(std::string const & type);
+		AMateria(AMateria const & src);
+		AMateria& operator=(AMateria const & rhs);
+		virtual ~AMateria(void);
+
 		//[...]
-		ICharacter& 
+		//ICharacter& 
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };
-
-
-/* class Animal
-{
-	protected:
-		std::string type;
-
-    public:
-		virtual void makeSound() const = 0;
-		std::string getType() const;
-		Animal(Animal const & rhs); 
-		Animal(std::string type);
-		Animal();
-		virtual ~Animal(void);
-};
-
-class Brain
-{
-	public:
-	std::string ideas[100];
-	Brain();
-	virtual ~Brain(void);
-}; */
 
 #endif

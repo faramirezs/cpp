@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:27 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/08 11:24:53 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Animal.hpp"
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal sound....." << std::endl;
-}
-		
-Animal::Animal(std::string type) 
-	: type(type) 
-{
-	std::cout << "Animal constructor called with type: "<< type << std::endl;
-}
 
 Animal::Animal() 
 {
@@ -29,22 +18,38 @@ Animal::Animal()
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
+Animal::Animal(std::string type) 
+	: type(type) 
+{
+	std::cout << "Animal constructor called with type: "<< type << std::endl;
+}
+
+Animal::Animal(Animal const & src) : type(src.type)
+{
+	std::cout << "Animal copy constructor called." << std::endl;
+}
+
+Animal& Animal::operator=(Animal const & rhs)
+{
+	std::cout << "Animal assignment constructor called." << std::endl;
+	if(this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return(*this);
+}
+
 Animal::~Animal(void) 
 {
 	std::cout << "Animal destructor called" << std::endl;
 }
 
+void Animal::makeSound() const
+{
+	std::cout << "Animal sound....." << std::endl;
+}
+
 std::string Animal::getType() const 
 {
 	return type;
-}
-
-Brain::Brain()
-{
-	std::cout << "Default Brain constructor called" << std::endl;
-}
-
-Brain::~Brain(void)	
-{
-	std::cout << "Brain destructor called" << std::endl;
 }

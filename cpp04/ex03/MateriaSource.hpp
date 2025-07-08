@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/08 15:30:54 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,24 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 
-class IMateriaSource
-{
-	public:
-	virtual ~IMateriaSource() {}
-	virtual void learnMateria(AMateria*) = 0;
-	virtual AMateria* createMateria(std::string const & type) = 0;
-};
-
-
-/* class Animal
+class MateriaSource : public IMateriaSource
 {
 	protected:
-		std::string type;
+		std::string type[4];
 
-    public:
-		virtual void makeSound() const = 0;
-		std::string getType() const;
-		Animal(Animal const & rhs); 
-		Animal(std::string type);
-		Animal();
-		virtual ~Animal(void);
-};
-
-class Brain
-{
 	public:
-	std::string ideas[100];
-	Brain();
-	virtual ~Brain(void);
-}; */
+		MateriaSource();
+		MateriaSource(MateriaSource const & src);
+		MateriaSource& operator=(MateriaSource const & rhs);
+		virtual ~MateriaSource() {}
+
+		AMateria * spellBook[4];
+		virtual void learnMateria(AMateria* materia);
+		virtual AMateria* createMateria(std::string const & type);
+};
 
 #endif

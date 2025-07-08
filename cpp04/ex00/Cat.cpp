@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/07 17:09:39 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/08 08:07:04 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat()
 
 Cat::Cat(Cat const & src) : Animal(src)
 {
-	std::cout << "Cat Copy constructor called." << std::endl;
+	std::cout << "Cat copy constructor called." << std::endl;
 }
 
 Cat& Cat::operator=(Cat const & rhs)

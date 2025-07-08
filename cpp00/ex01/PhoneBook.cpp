@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:37:49 by alramire          #+#    #+#             */
-/*   Updated: 2025/07/07 13:32:20 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/08 17:31:05 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,29 @@ void PhoneBook::addContact(int *id)
     std::string nname;
     std::string phone;
 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     if (*id == 8)
     {
         std::cout << "Memory full! ovewritting oldest contact...\n";
         memory_full(contacts);
         (*id)--;
-        std::cout << "Contacts: " << *id << "\n";
     }
     std::cout << "Enter first name: ";
-    std::cin >> fname;
+    std::getline(std::cin, fname);
+
     std::cout << "Enter last name: ";
-    std::cin >> lname;
+    std::getline(std::cin, lname);
+
     std::cout << "Enter darkest secret: ";
-    std::cin >> secret;
+    std::getline(std::cin, secret);
+
     std::cout << "Enter nickname: ";
-    std::cin >> nname;
+    std::getline(std::cin, nname);
+
     std::cout << "Enter phone: ";
-    std::cin >> phone;
+    std::getline(std::cin, phone);
+    
     contacts[*id] = Contact(fname, lname, secret, *id, nname, phone);
     (*id)++;
     std::cout << "Contacts: " << *id << "\n";
@@ -63,6 +69,8 @@ void PhoneBook::searchContact(int *id)
     std::string lname;
     std::string nname;
     int command;
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     i = 0;
     if (*id == 0)
@@ -96,9 +104,14 @@ void PhoneBook::searchContact(int *id)
         }
     std::cout << "\n";
     std::cout << "Enter the index of the contact you want to see: ";
-    if (!(std::cin >> command)) {
+    if (!(std::cin >> command)) 
+    {
+        if (std::cin.eof()) 
+        {
+            std::cout << "\nInput stream closed. Exiting search.\n";
+            return;
+        }
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Invalid input. Please enter a numeric index.\n";
         searchContact(id);
         return;

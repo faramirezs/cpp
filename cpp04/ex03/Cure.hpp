@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/02 17:45:48 by alejandrora      ###   ########.fr       */
+/*   Updated: 2025/07/08 13:17:29 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_H__
-#define __ANIMAL_H__
+#ifndef __CURE_H__
+#define __CURE_H__
 
 # include <string>
 # include <iostream>
@@ -22,41 +22,27 @@
 # include <cctype>
 # include <algorithm>
 # include <cmath>
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 
-class AMateria
-{
-	protected:
-		//[...]
-	public:
-		AMateria(std::string const & type);
-		//[...]
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
-};
-
-
-/* class Animal
+class Cure : public AMateria
 {
 	protected:
 		std::string type;
-
-    public:
-		virtual void makeSound() const = 0;
-		std::string getType() const;
-		Animal(Animal const & rhs); 
-		Animal(std::string type);
-		Animal();
-		virtual ~Animal(void);
-};
-
-class Brain
-{
+		//[...]
 	public:
-	std::string ideas[100];
-	Brain();
-	virtual ~Brain(void);
-}; */
+		Cure();
+		Cure(std::string const & type);
+		Cure(Cure const & src);
+		Cure& operator=(Cure const & rhs);
+		virtual ~Cure(void);
+
+		//[...]
+		//ICharacter& 
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
+};
 
 #endif
