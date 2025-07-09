@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/08 17:44:23 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 07:41:17 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <algorithm>
 # include <cmath>
 # include "ClapTrap.hpp"
-
 
 class ClapTrap
 {

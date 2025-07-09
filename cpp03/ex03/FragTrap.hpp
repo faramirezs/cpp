@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/05 15:34:16 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 08:16:31 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@
 class FragTrap : virtual public ClapTrap
 {
     public:
-		void highFivesGuys(void);
-		void attack(const std::string& target);
+
+		FragTrap();
 		FragTrap(std::string name);
-        ~FragTrap(void);
+		FragTrap(FragTrap const & src);
+		FragTrap& operator=(FragTrap const & rhs);
+		~FragTrap(void);
+		void attack(const std::string& target);
+		void highFivesGuys(void);
 };
 
 #endif

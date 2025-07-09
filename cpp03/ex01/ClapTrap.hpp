@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/05 14:29:58 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 07:59:19 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,27 @@
 # include <cmath>
 # include "ClapTrap.hpp"
 
-
 class ClapTrap
 {
-    public:
+    protected:
+	
         std::string name;
 		unsigned int hit;
 		unsigned int energy;
 		unsigned int attack_damage;
+    
+	public:
+
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage);
+		ClapTrap(ClapTrap const & src);
+		ClapTrap& operator=(ClapTrap const & rhs);
+		~ClapTrap(void);
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-
-		ClapTrap(std::string name);
-        ClapTrap(std::string name, unsigned int hit, unsigned int energy,  unsigned int attack_damage);
-		~ClapTrap(void);
 };
 
 #endif
