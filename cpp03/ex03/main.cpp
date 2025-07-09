@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:46 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/07 14:03:10 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:03:56 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(void)
 {
-	std::cout << "===ClaTrap=== "<< std::endl;
+	/* std::cout << "===ClaTrap=== "<< std::endl;
 	ClapTrap clap_peludo("peludo");
 	clap_peludo.attack("calvo");
 	clap_peludo.takeDamage(1);
@@ -44,7 +44,42 @@ int main(void)
 	diam_dada.beRepaired(1);
 	diam_dada.whoAmI();
 
-	std::cout << "===Destructors=== "<< std::endl;
+	std::cout << "===Destructors=== "<< std::endl; */
+
+	std::cout << "=== DiamondTrap Constructor Test ===" << std::endl;
+	DiamondTrap diam_dada("dudu");
+
+	std::cout << "\n=== Attack Test ===" << std::endl;
+	diam_dada.attack("calvo");
+
+	std::cout << "\n=== Take Damage Test ===" << std::endl;
+	diam_dada.takeDamage(1);
+
+	std::cout << "\n=== Repair Test ===" << std::endl;
+	diam_dada.beRepaired(1);
+
+	std::cout << "\n=== Who Am I Test ===" << std::endl;
+	diam_dada.whoAmI();
+
+	std::cout << "\n=== Copy Constructor Test ===" << std::endl;
+	DiamondTrap diam_copy(diam_dada);
+	diam_copy.whoAmI();
+
+	std::cout << "\n=== Assignment Operator Test ===" << std::endl;
+	DiamondTrap diam_assigned;
+	diam_assigned = diam_dada;
+	diam_assigned.whoAmI();
+
+	std::cout << "\n=== Energy Depletion Test ===" << std::endl;
+	for (int i = 0; i < 55; ++i)
+		diam_dada.attack("someone");
+
+	std::cout << "\n=== Final whoAmI ===" << std::endl;
+	diam_dada.whoAmI();
+
+	std::cout << "\n=== DiamondTrap Destructor Test ===" << std::endl;
+	return 0;
+
 	return (0);
 }
 

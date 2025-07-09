@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/09 08:16:31 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:02:02 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 class FragTrap : virtual public ClapTrap
 {
     public:
+
+		static const unsigned int default_hit = 100;
+		static const unsigned int default_attack = 30;
 
 		FragTrap();
 		FragTrap(std::string name);

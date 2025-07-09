@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/09 08:17:37 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:02:07 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 class ScavTrap : virtual public ClapTrap
 {
     public:
+		
+		static const unsigned int default_energy = 50;
 
 		ScavTrap();
 		ScavTrap(std::string name);
