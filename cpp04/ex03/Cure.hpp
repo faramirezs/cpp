@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/08 13:17:29 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:09:34 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,15 @@
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-
 class Cure : public AMateria
 {
-	protected:
-		std::string type;
-		//[...]
 	public:
 		Cure();
-		Cure(std::string const & type);
 		Cure(Cure const & src);
 		Cure& operator=(Cure const & rhs);
 		virtual ~Cure(void);
 
-		//[...]
-		//ICharacter& 
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 };

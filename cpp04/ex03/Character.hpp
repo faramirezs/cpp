@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/08 15:51:35 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:58:02 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ are still forbidden). The unequip() member function must NOT delete the Materia!
 class Character : public ICharacter
 {
 	public:
-	Character();
-	Character(std::string const & name);
-	Character(Character const & src);
-	Character& operator=(Character const & rhs);
-	virtual ~Character() {}
+		Character();
+		Character(std::string const & name);
+		Character(Character const & src);
+		Character& operator=(Character const & rhs);
+		virtual ~Character();
 	
-	AMateria * slot[4];
-	const std::string name;
-	virtual std::string const & getName() const;
-	virtual void equip(AMateria* m);
-	virtual void unequip(int idx);
-	virtual void use(int idx, ICharacter& target);
+		AMateria * slot[4];
+		const std::string name;
+		virtual std::string const & getName() const;
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 };
 
 #endif

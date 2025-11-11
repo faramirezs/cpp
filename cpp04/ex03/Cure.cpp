@@ -13,16 +13,10 @@
 # include "Cure.hpp"
 
 Cure::Cure()
-	: AMateria("Cure")
+	: AMateria("cure")
 {
 	std::cout << "Default Cure constructor called" << std::endl;
 }
-
-// Cure::Cure(std::string type) 
-// 	: type(type) 
-// {
-// 	std::cout << "Cure constructor called with type: "<< type << std::endl;
-// }
 
 Cure::Cure(Cure const & src) 
 	: AMateria(src)

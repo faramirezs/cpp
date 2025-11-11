@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:42:57 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/08 15:59:11 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:08:48 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,19 @@ Character::Character(Character const & src)
 
 Character& Character::operator=(Character const & rhs)
 {
-	std::cout << "Character assignment constructor called." << std::endl;
 	if(this != &rhs)
 	{
 		for (size_t i = 0; i < 4; i++)
 		{
-			slot[i] = rhs.slot[i];
+			if(slot[i])
+			delete slot[i];
+			if(rhs.slot[i])
+			slot[i] = rhs.slot[i]->clone();
+			else
+			slot[i] = NULL;
 		}
 	}
+	std::cout << "Character assignment constructor called." << std::endl;
 	return(*this);
 }
 
@@ -61,13 +66,30 @@ std::string const & Character::getName() const
 	return name;
 }
 
+Character::~Character()
+{
+	for (size_t i = 0; i < 4; i++)
+	{
+		if(slot[i])
+		{
+			delete slot[i];
+		}
+	}
+	std::cout << "Character destructor called." << std::endl;
+}
+
 void Character::equip(AMateria* m)
 {
+	if(!m)
+	{
+		std::cout <<"Non existant amateria" << std::endl;
+		return;
+	}
 	for (size_t i = 0; i < 4; i++)
 	{
 		if(!slot[i])
 		{
-			slot[i] = m->clone();
+			slot[i] = m;
 			return;
 		}
 	}
@@ -76,11 +98,11 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	(void)idx;
+	std::cout << "Unequip: " << slot[idx]->getType() << std::endl;
+	slot[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	(void)idx;
-	(void)target;
+	slot[idx]->use(target);
 }

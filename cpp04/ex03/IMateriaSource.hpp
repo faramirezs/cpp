@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:43:01 by alejandrora       #+#    #+#             */
-/*   Updated: 2025/07/08 14:19:10 by alramire         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:59:56 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <cmath>
 # include "IMateriaSource.hpp"
 # include "AMateria.hpp"
-
 
 class IMateriaSource
 {
