@@ -28,7 +28,7 @@ class Bureaucrat
         const std::string & getName() const;
         void incrementGrade();
         void decrementGrade();
-        void signForm();
+        void signForm(Form & form);
         
         Bureaucrat& operator=(Bureaucrat const & rhs);
         Bureaucrat(Bureaucrat const & src);

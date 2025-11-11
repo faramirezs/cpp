@@ -39,9 +39,17 @@ void Bureaucrat::decrementGrade()
         _grade++;
 }
 
-void Bureaucrat::signForm()
+void Bureaucrat::signForm(Form & form)
 {
-    Form::beSigned(this);
+    try
+    {
+        form.beSigned(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src)
