@@ -18,6 +18,8 @@
 # include <stdexcept>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
     private:
@@ -27,8 +29,8 @@ class Form
         const int _execGrade;
 
     public:
-        const int getSignGrade() const;
-        const int getExecGrade() const;
+        int getSignGrade() const;
+        int getExecGrade() const;
         const std::string & getFName() const;
         bool getIsSigned() const;
         void beSigned(Bureaucrat const & src);

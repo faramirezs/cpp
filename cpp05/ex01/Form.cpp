@@ -17,12 +17,12 @@ const std::string & Form::getFName() const
     return _fName;
 }
 
-const int Form::getSignGrade() const
+int Form::getSignGrade() const
 {
     return _signGrade;
 }
 
-const int Form::getExecGrade() const
+int Form::getExecGrade() const
 {
     return _execGrade;
 }
@@ -73,7 +73,7 @@ Form & Form::operator=( const Form & rhs )
 
 std::ostream & operator<<(std::ostream & ost, Form const & frm)
 {
-    ost << frm.getFName() << ", Form sign grade: " << frm.getSignGrade() << ", Form exec grade: " << frm.getExecGrade() << ", Form is signed: " << frm.getSignGrade() << "." <<std::endl;
+    ost << frm.getFName() << ", Form sign grade: " << frm.getSignGrade() << ", Form exec grade: " << frm.getExecGrade() << ", Form is signed: " << frm.getIsSigned() << "." <<std::endl;
     return (ost); 
 }
 
