@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
-# include "Form.hpp"
+# include "AForm.hpp"
 
 const std::string & Bureaucrat::getName() const
 {

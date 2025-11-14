@@ -35,26 +35,10 @@ bool Form::getIsSigned() const
 void Form::beSigned(Bureaucrat const & bct)
 {
     if (_signGrade < bct.getGrade())
-        throw Form::gradeTooLowException();
+        throw Form::gradeTooHighException();
     else
         _isSigned = true;
 }
-
-// void Form::incrementGrade()
-// {
-//     if (_grade == 1)
-//         throw Form::gradeTooHighException();
-//     else
-//         _grade--;
-// }
-
-// void Form::decrementGrade()
-// {
-//     if (_grade == 150)
-//         throw Form::gradeTooLowException();
-//     else
-//         _grade++;
-// }
 
 Form::Form(Form const & src)
     : _fName(src._fName), _isSigned(src._isSigned) ,_signGrade(src._signGrade), _execGrade(src._execGrade)
@@ -85,12 +69,12 @@ Form::Form()
 
 const char* Form::gradeTooHighException::what() const throw() 
 {
- return ("Grade too high.");   
+ return ("Form grade too high.");   
 }
 
 const char* Form::gradeTooLowException::what() const throw() 
 {
- return ("Grade too low.");   
+ return ("Form grade too low.");   
 }
 
 Form::Form(const std::string fName, bool isSigned, const int signGrade, const int execGrade)
