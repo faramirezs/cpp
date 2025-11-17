@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:46:25 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/14 10:40:56 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:32:47 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 class Bureaucrat;
 
-class AForm
+class ShrubberyCreationForm: public AForm
 {
     private:
         const std::string _fName;
@@ -30,33 +30,16 @@ class AForm
         const int _execGrade;
 
     public:
-        virtual void executeAction(Bureaucrat const & src) const = 0;
+        void execute(Bureaucrat const & src);
         
         AForm& operator=(AForm const & rhs);
         AForm(AForm const & src);
         AForm();
         AForm(const std::string, bool, const int, const int);
-        virtual ~AForm(void);
+        ~ShrubberyCreationForm(void);
 
-        class gradeTooHighException : public std::exception
-        {
-        public:
-            const char* what() const throw();
-        };
-
-        class gradeTooLowException : public std::exception
-        {
-        public:
-            const char* what() const throw();
-        };
-
-        class notSignedException : public std::exception
-        {
-        public:
-            const char* what() const throw();
-        };
 };
 
-std::ostream & operator<<(std::ostream & ost, AForm const & bct);
+std::ostream & operator<<(std::ostream & ost, ShrubberyCreationForm const & frm);
 
 #endif
