@@ -6,48 +6,40 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:44:19 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/14 10:40:31 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:49:47 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 
-const std::string & AForm::getFName() const
+// const std::string & AForm::getFName() const
+// {
+//     return _fName;
+// }
+
+// int AForm::getSignGrade() const
+// {
+//     return _signGrade;
+// }
+
+// int AForm::getExecGrade() const
+// {
+//     return _execGrade;
+// }
+
+// bool AForm::getIsSigned() const
+// {
+//     return _isSigned;
+// }
+
+const std::string ShrubberyCreationForm::getTarget()
 {
-    return _fName;
+    return _target;
 }
 
-int AForm::getSignGrade() const
+void ShrubberyCreationForm::execute(Bureaucrat const & src) 
 {
-    return _signGrade;
-}
-
-int AForm::getExecGrade() const
-{
-    return _execGrade;
-}
-
-bool AForm::getIsSigned() const
-{
-    return _isSigned;
-}
-
-void AForm::beSigned(Bureaucrat const & bct)
-{
-    if (_signGrade < bct.getGrade())
-        throw AForm::gradeTooHighException();
-    else
-        _isSigned = true;
-}
-
-void AForm::execute(Bureaucrat const & src) 
-{
-    if (!_isSigned)
-        throw AForm::notSignedException();
-    else if (src.getGrade() > _execGrade)
-        throw AForm::gradeTooHighException();
-    else
-        executeAction(src);
+    //Execute
 }   
 
 AForm::AForm(AForm const & src)
@@ -65,16 +57,17 @@ AForm & AForm::operator=( const AForm & rhs )
     return *this;
 }
 
-std::ostream & operator<<(std::ostream & ost, AForm const & frm)
+std::ostream & operator<<(std::ostream & ost, ShrubberyCreationForm const & frm)
 {
-    ost << frm.getFName() << ", AForm sign grade: " << frm.getSignGrade() << ", AForm exec grade: " << frm.getExecGrade() << ", AForm is signed: " << frm.getIsSigned() << "." <<std::endl;
+    ost << frm.getFName() 
+    << ", Shrubbery Form sign grade: " 
+    << frm.getSignGrade() 
+    << ", Shrubbery Form exec grade: " 
+    << frm.getExecGrade() 
+    << ", Shrubbery Form is signed: " 
+    << frm.getIsSigned() 
+    << "." <<std::endl;
     return (ost); 
-}
-
-AForm::AForm()
-    :_fName("default AFormform"), _isSigned(false) ,_signGrade(150), _execGrade(150)
-{
-
 }
 
 const char* AForm::gradeTooHighException::what() const throw() 
@@ -87,16 +80,13 @@ const char* AForm::gradeTooLowException::what() const throw()
  return ("AForm grade too low.");   
 }
 
-AForm::AForm(const std::string fName, bool isSigned, const int signGrade, const int execGrade)
-    :_fName(fName), _isSigned(isSigned) ,_signGrade(signGrade), _execGrade(execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
+    :AForm("ShrubberyCreationForm", false, 145, 137), _target(target) 
 {
-    if (signGrade < 1 || execGrade < 1)
-        throw AForm::gradeTooHighException();
-    else if (signGrade > 150 || execGrade > 150)
-        throw AForm::gradeTooLowException();   
+
 }
 
-AForm::~AForm()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     
 }
