@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SCFORM_H__
-#define __SCFORM_H__
+#ifndef __RFORM_H__
+#define __RFORM_H__
 
 # include <string>
 # include <iostream>
@@ -22,20 +22,20 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm: public AForm
+class RobotomyRequestForm: public AForm
 {
 
     public:
         void executeAction() const;
         
-        ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
-        ShrubberyCreationForm(ShrubberyCreationForm const & rhs);
-        ShrubberyCreationForm(const std::string & target);
-        ShrubberyCreationForm();
-        ~ShrubberyCreationForm();
+        RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
+        RobotomyRequestForm(RobotomyRequestForm const & rhs);
+        RobotomyRequestForm(const std::string & target);
+        RobotomyRequestForm();
+        ~RobotomyRequestForm();
 
 };
 
-std::ostream & operator<<(std::ostream & ost, ShrubberyCreationForm const & frm);
+std::ostream & operator<<(std::ostream & ost, RobotomyRequestForm const & frm);
 
 #endif

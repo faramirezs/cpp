@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SCFORM_H__
-#define __SCFORM_H__
+#ifndef __PPFORM_H__
+#define __PPFORM_H__
 
 # include <string>
 # include <iostream>
@@ -22,20 +22,20 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm: public AForm
+class PresidentialPardonForm: public AForm
 {
 
     public:
         void executeAction() const;
         
-        ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
-        ShrubberyCreationForm(ShrubberyCreationForm const & rhs);
-        ShrubberyCreationForm(const std::string & target);
-        ShrubberyCreationForm();
-        ~ShrubberyCreationForm();
+        PresidentialPardonForm& operator=(PresidentialPardonForm const & rhs);
+        PresidentialPardonForm(PresidentialPardonForm const & rhs);
+        PresidentialPardonForm(const std::string & target);
+        PresidentialPardonForm();
+        ~PresidentialPardonForm();
 
 };
 
-std::ostream & operator<<(std::ostream & ost, ShrubberyCreationForm const & frm);
+std::ostream & operator<<(std::ostream & ost, PresidentialPardonForm const & frm);
 
 #endif
