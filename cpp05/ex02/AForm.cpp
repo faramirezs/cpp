@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:44:19 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/18 09:39:01 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/19 09:04:39 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ bool AForm::getIsSigned() const
     return _isSigned;
 }
 
+const std::string & AForm::getTarget()
+{
+    return _target;
+}
+
 void AForm::beSigned(Bureaucrat const & bct)
 {
     if (_signGrade < bct.getGrade())
@@ -40,14 +45,14 @@ void AForm::beSigned(Bureaucrat const & bct)
         _isSigned = true;
 }
 
-void AForm::execute(Bureaucrat const & src) 
+void AForm::execute(Bureaucrat const & executor) 
 {
     if (!_isSigned)
         throw AForm::notSignedException();
-    else if (src.getGrade() > _execGrade)
+    else if (executor.getGrade() > _execGrade)
         throw AForm::gradeTooHighException();
     else
-        executeAction(src);
+        executeAction();
 }   
 
 AForm::AForm(AForm const & src)
@@ -87,8 +92,8 @@ const char* AForm::gradeTooLowException::what() const throw()
  return ("AForm grade too low.");   
 }
 
-AForm::AForm(const std::string fName, bool isSigned, const int signGrade, const int execGrade)
-    :_fName(fName), _isSigned(isSigned) ,_signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm(const std::string fName, bool isSigned, const int signGrade, const int execGrade, const std::string & target)
+    :_fName(fName), _isSigned(isSigned) ,_signGrade(signGrade), _execGrade(execGrade), _target(target)
 {
     if (signGrade < 1 || execGrade < 1)
         throw AForm::gradeTooHighException();

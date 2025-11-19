@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:44:19 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/18 09:49:47 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/19 09:16:37 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,42 @@
 //     return _isSigned;
 // }
 
-const std::string ShrubberyCreationForm::getTarget()
-{
-    return _target;
-}
+// const std::string ShrubberyCreationForm::getTarget()
+// {
+//     return _target;
+// }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & src) 
+void ShrubberyCreationForm::executeAction() 
 {
-    //Execute
+    std::string filename = getTarget() + "_shrubbery";
+
+    std::ofstream outfile (filename.c_str());
+    if (!outfile)
+        throw std::runtime_error("Failed to open file: " + filename);
+    
+    outfile <<
+"            \\/ |    |/\n"
+"         \\/ / \\||/  /_/___/_\n"
+"          \\/   |/ \\/\n"
+"     _\\__\\_\\   |  /_____/_\n"
+"            \\  | /          /\n"
+"   __ _-----`  |{,-----------~\n"
+"             \\ }{\n"
+"              }{{\n"
+"              }}{\n"
+"              {{ }\n"
+"        , -=-~{ .-^- _\n"
+"   ejm        `}\n"
+"               {\n";
 }   
 
-AForm::AForm(AForm const & src)
-    : _fName(src._fName), _isSigned(src._isSigned) ,_signGrade(src._signGrade), _execGrade(src._execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
+    : AForm(src)
 {
 
 }
 
-AForm & AForm::operator=( const AForm & rhs ) 
+ShrubberyCreationForm & ShrubberyCreationForm::operator=( const ShrubberyCreationForm & rhs ) 
 {
     if (this != &rhs) 
     {
@@ -80,8 +99,8 @@ const char* AForm::gradeTooLowException::what() const throw()
  return ("AForm grade too low.");   
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-    :AForm("ShrubberyCreationForm", false, 145, 137), _target(target) 
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
+    :AForm("ShrubberyCreationForm", false, 145, 137, target) 
 {
 
 }

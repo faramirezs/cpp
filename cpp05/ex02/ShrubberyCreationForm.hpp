@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:46:25 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/18 09:49:30 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/19 09:10:35 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@
 # include <stdexcept>
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
+# include <fstream>
 
 class Bureaucrat;
 
 class ShrubberyCreationForm: public AForm
 {
-    private:
-        const std::string _target;
+    // private:
+    //     const std::string _target;
 
     public:
-        void execute(Bureaucrat const & src);
-        const std::string getTarget();
+        void executeAction();
+        // const std::string getTarget();
         
         ShrubberyCreationForm& operator=(AForm const & rhs);
-        ShrubberyCreationForm(const std::string);
+        ShrubberyCreationForm(const std::string & target);
         ShrubberyCreationForm();
-        ShrubberyCreationForm(const std::string, bool, const int, const int);
+        // ShrubberyCreationForm(const std::string, bool, const int, const int);
         ~ShrubberyCreationForm(void);
 
 };

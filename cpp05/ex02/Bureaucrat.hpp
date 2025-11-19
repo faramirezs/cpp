@@ -18,7 +18,7 @@
 # include <stdexcept>
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,7 +31,8 @@ class Bureaucrat
         const std::string & getName() const;
         void incrementGrade();
         void decrementGrade();
-        void signForm(Form & form);
+        void signForm(AForm & form);
+        void executeForm(AForm const & form);
         
         Bureaucrat& operator=(Bureaucrat const & rhs);
         Bureaucrat(Bureaucrat const & src);
