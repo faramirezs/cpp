@@ -22,7 +22,7 @@ void RobotomyRequestForm::executeAction() const
     }
     else
     {
-        std::cout <<"Robotomy failed" <<std::endl;
+        throw std::runtime_error("Robotomy failed");
     }
 }   
 

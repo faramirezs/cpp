@@ -12,16 +12,51 @@
 
 # include "Intern.hpp"
 
-AForm *Intern::makeForm(const std::string & form, const std::string & target)
+struct formMaker
 {
-    
-    return(*(PresidentialPardonForm(target)));
+    std::string name;
+    AForm * (*creator)(const std::string & target);
+};
+
+AForm * Intern::createShrubbery(const std::string & target)
+{
+  return(new ShrubberyCreationForm(target));
 }
 
-Intern::Intern(Intern const & src)
-    : _name(src._name), _grade(src._grade)
+AForm * Intern::createRobotomy(const std::string & target)
 {
+    return(new RobotomyRequestForm(target));
+}
 
+AForm * Intern::createPresidential(const std::string & target)
+{
+    return(new PresidentialPardonForm(target));
+}
+
+AForm *Intern::makeForm(const std::string & form, const std::string & target)
+{
+    formMaker frmArray[3];
+    
+    frmArray[0].name = "shrubbery creation";
+    frmArray[1].name = "robotomy request";
+    frmArray[2].name = "presidential pardon"; 
+    
+    frmArray[0].creator = Intern::createShrubbery;
+    frmArray[1].creator = Intern::createRobotomy;
+    frmArray[2].creator = Intern::createPresidential;
+
+
+    for (size_t i = 0; i < 3; i++)
+    {
+        if(frmArray[i].name==form)
+        {
+            std::cout << "Intern creates " << form << std::endl;
+            return(frmArray[i].creator(target));
+        }
+    }
+
+    std::cerr << "Form not found, try: shrubbery creation, robotomy request or presidential pardon" << std::endl;
+    return NULL;
 }
 
 Intern & Intern::operator=( Intern const & rhs ) 
@@ -30,11 +65,10 @@ Intern & Intern::operator=( Intern const & rhs )
     return *this;
 }
 
-// std::ostream & operator<<(std::ostream & ost, Intern const & bct)
-// {
-//     ost << bct.getName() << ", Intern grade " << bct.getGrade() << "." <<std::endl;
-//     return (ost); 
-// }
+Intern::Intern(Intern const & src)
+{
+    (void)src;
+}
 
 Intern::Intern()
 {

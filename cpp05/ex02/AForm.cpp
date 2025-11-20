@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:44:19 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/19 15:38:24 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:01:04 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void AForm::execute(Bureaucrat const & executor) const
         try
         {
             executeAction();
+            std::cout << executor.getName() << " executed form: " << getFName() << '\n';
         }
         catch(const std::exception& e)
         {
             std::cerr << executor.getName() << " couldn't execute " << getFName() << " because: " << e.what() << '\n';
         }
-        std::cout << executor.getName() << " executed form: " << getFName() << '\n';
     }
 }   
 

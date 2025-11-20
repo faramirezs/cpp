@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:46:46 by alramire          #+#    #+#             */
-/*   Updated: 2025/11/19 17:09:25 by alramire         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:04:27 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,9 @@ int main( void )
         std::cout << rform << std::endl;
         std::cout << mike << std::endl;
         mike.executeForm(rform);
-        std::cout << rform << std::endl;
+        mike.executeForm(rform);
+        mike.executeForm(rform);
+        mike.executeForm(rform);
     }
     catch (std::exception &e)
     {
