@@ -37,20 +37,6 @@ class Intern
         Intern(Intern const & src);
         Intern();
         ~Intern(void);
-
-        // class gradeTooHighException : public std::exception
-        // {
-        // public:
-        //     const char* what() const throw();
-        // };
-
-        // class gradeTooLowException : public std::exception
-        // {
-        // public:
-        //     const char* what() const throw();
-        // };
 };
-
-// std::ostream & operator<<(std::ostream & ost, Intern const & bct);
 
 #endif
