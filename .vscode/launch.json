@@ -8,8 +8,8 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/cpp04/ex03/abst",
-            "args": [],
+            "program": "${workspaceFolder}/cpp06/converter",
+            "args": ["3434"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
@@ -25,7 +25,25 @@
                     "description": "Set Disassembly Flavor to Intel",
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
+                },
+                {
+                    "description": "Load STL pretty printers",
+                    "text": "python import sys; sys.path.insert(0, '/usr/share/gcc/python'); from libstdcxx.v6.printers import register_libstdcxx_printers; register_libstdcxx_printers(None)",
+                    "ignoreFailures": true
                 }
+            ]
+        },
+        {
+            "name": "(lldb) Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/cpp06/converter",
+            "args": ["3434.3434"],
+            "cwd": "${fileDirname}",
+            "terminal": "integrated",
+            "sourceLanguages": ["cpp"],
+            "initCommands": [
+                "settings set target.process.stop-on-sharedlibrary-events false"
             ]
         }
 

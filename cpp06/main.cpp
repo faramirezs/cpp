@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScalarConverter.hpp"
+#include "ScalarConverter.hpp"
+#include <iostream>
 
-int main(int ac, char **av) 
-{   
-	ScalarConverter::
-    return 0;
+int main(int ac, char **av) {
+  if (ac != 2) {
+    std::cerr << "Error" << '\n';
+    return 1;
+  }
+  std::string input;
+  input = av[1];
+  ScalarConverter::convert(input);
+  return 0;
 }

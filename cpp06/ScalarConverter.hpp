@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                          :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                          :+:      :+:
+ * :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,21 +14,28 @@
 #ifndef __SCALARCONVERTER_H__
 #define __SCALARCONVERTER_H__
 
-# include <string>
-# include <iostream>
-# include <stdexcept>
-# include <stdlib.h>
+#include <cerrno> // for errno
+#include <cmath>  // for fabs
+#include <cstdio>
+#include <cstdlib> // for strtod
+#include <iomanip>
+#include <iostream>
+#include <limits> // for numeric_limits
+#include <stdexcept>
+#include <stdlib.h>
+#include <string>
+
 class AForm;
 
-class ScalarConverter
-{
+class ScalarConverter {
+private:
+  ScalarConverter &operator=(ScalarConverter const &rhs);
+  ScalarConverter(ScalarConverter const &src);
+  ScalarConverter();
 
 public:
-        static void convert(char * input);
-        ScalarConverter& operator=(ScalarConverter const & rhs);
-        ScalarConverter(ScalarConverter const & src);
-        ScalarConverter();
-        ~ScalarConverter(void);
+  static void convert(const std::string &input);
+  ~ScalarConverter(void);
 };
 
 #endif
