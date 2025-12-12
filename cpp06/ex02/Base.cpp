@@ -6,7 +6,10 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:57:34 by alramire          #+#    #+#             */
-/*   Updated: 2025/12/09 15:57:35 by alramire         ###   ########.fr       */
+/*   Updated: 2025/12/12 09:50:49 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Base.hpp"
+
+Base::~Base() {};

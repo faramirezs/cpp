@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
 
 class Base {
 
 private:
 public:
+  virtual void identify_self() const = 0;
   virtual ~Base();
 };

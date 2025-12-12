@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Operations.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/12 09:51:13 by alramire          #+#    #+#             */
+/*   Updated: 2025/12/12 09:51:28 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Operations.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -17,6 +29,6 @@ Base *generate() {
     return new C();
 }
 
-void identify(Base *p);
+void identify(Base *p) { p->identify_self(); }
 
-void identify(Base &p);
+void identify(Base &p) { p.identify_self(); }

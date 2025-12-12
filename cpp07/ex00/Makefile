@@ -1,8 +1,8 @@
-NAME	= base
+NAME	= templates 
 
-SRCS	= main.cpp Base.cpp A.cpp B.cpp C.cpp Operations.cpp 
+SRCS	= main.cpp 
 
-HEADERS	= Base.hpp A.hpp B.hpp C.hpp Operations.hpp
+HEADERS	= templates.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

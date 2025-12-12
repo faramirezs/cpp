@@ -10,3 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Base.hpp"
+
+class C : public Base {
+
+public:
+  void identify_self() const;
+};

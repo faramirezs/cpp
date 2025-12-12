@@ -12,8 +12,8 @@
 
 #include "Base.hpp"
 
-Class A : public Base {
+class A : public Base {
 
 public:
-  void identify_self();
-}
+  void identify_self() const;
+};
