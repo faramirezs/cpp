@@ -41,7 +41,7 @@ template <typename T> Array<T> &Array<T>::operator=(const Array<T> &other) {
     return *this;
   T *tmp = new T[other.len]();
 
-  for (unsigned int i = 0; i < len; i++) {
+  for (unsigned int i = 0; i < other.len; i++) {
     tmp[i] = other.data[i];
   }
 
