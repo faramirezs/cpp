@@ -75,6 +75,7 @@ void ScalarConverter::convert(const std::string &input) {
 
   //CHAR
   std::cout << "char: ";
+  //dVal != dval checks for NaN floating-point value that is not equal to itself.
   if (dVal != dVal || dVal == std::numeric_limits<double>::infinity() ||
       dVal == -std::numeric_limits<double>::infinity()) {
     std::cout << "impossible";
@@ -92,7 +93,7 @@ void ScalarConverter::convert(const std::string &input) {
   }
   std::cout << std::endl;
 
-  //INT 
+  //INT
   std::cout << "int: ";
   if (dVal != dVal || dVal == std::numeric_limits<double>::infinity() ||
       dVal == -std::numeric_limits<double>::infinity()) {
@@ -103,19 +104,28 @@ void ScalarConverter::convert(const std::string &input) {
   } else {
     std::cout << static_cast<int>(dVal);
     if (type == STRING)
-      type = INT; 
+      type = INT;
   }
   std::cout << std::endl;
 
   //FLOAT
   std::cout << "float: ";
   float fVal = static_cast<float>(dVal);
-
   std::cout << std::fixed << std::setprecision(1) << fVal << "f" << std::endl;
+  // if (dVal == std::numeric_limits<double>::infinity() ||
+  //     dVal == -std::numeric_limits<double>::infinity()) {
+  //   std::cout << "impossible" << std::endl;
+  // } else if (dVal < std::numeric_limits<float>::lowest() ||
+  //     dVal > std::numeric_limits<float>::max()) {
+  //     std::cout << "impossible" << std::endl;
+  // } else {
+  //   float fVal = static_cast<float>(dVal);
+  //   std::cout << std::fixed << std::setprecision(1) << fVal << "f" << std::endl;
+  // }
 
   //DOUBLE
   if (type == STRING)
-      type = DOUBLE; 
+      type = DOUBLE;
   std::cout << "double: ";
   std::cout << std::fixed << std::setprecision(1) << dVal << std::endl;
   //std::cout << "Initial type: " <<type << std::endl;
