@@ -3,17 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:00:17 by alramire          #+#    #+#             */
-/*   Updated: 2025/12/09 16:00:19 by alramire         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:17:18 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-class C : public Base {
-
-public:
-  void identify_self() const;
-};
+class C : public Base {};

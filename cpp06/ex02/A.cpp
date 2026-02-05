@@ -3,13 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 09:50:16 by alramire          #+#    #+#             */
-/*   Updated: 2025/12/12 09:50:20 by alramire         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:16:48 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "A.hpp"
-
-void A::identify_self() const { std::cout << "I'm A." << std::endl; }
