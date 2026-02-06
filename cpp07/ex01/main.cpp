@@ -29,15 +29,14 @@ int main(void) {
   iter(arr1, 5, printInt);
   std::cout << std::endl << std::endl;
 
-  // ========== Test 3: Const int array with read-only function ==========
+  // ========== Const int array with read-only function ==========
   std::cout << "Const int array, print each element" << std::endl;
   const int arr3[5] = {10, 20, 30, 40, 50};
   std::cout << "Array: ";
   iter(arr3, 5, printInt);
   std::cout << std::endl << std::endl;
 
-  // ========== Test 7: Using template function (explicit instantiation)
-  // ==========
+  // ========== Using template function (explicit instantiation) ==========
   std::cout << "Template function instantiation with integers" << std::endl;
   int arr7[3] = {100, 200, 300};
   std::cout << "Before: ";
