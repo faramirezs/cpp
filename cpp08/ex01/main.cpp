@@ -20,10 +20,52 @@ int main(void) {
   std::cout << std::endl << std::endl;
 
   std::cout << "Assigning values to array" << std::endl;
+  intArray.addNumber(1);
+  std::cout << "Elements after addNumber: ";
   for (unsigned int i = 0; i < intArray.getlen(); ++i) {
-    intArray[i] = i * 10;
+    std::cout << intArray[i] << " ";
   }
-  std::cout << "Elements after assignment: ";
+  std::cout << std::endl << std::endl;
+
+  intArray.addNumber(2);
+  std::cout << "Elements after addNumber: ";
+  for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+    std::cout << intArray[i] << " ";
+  }
+  std::cout << std::endl << std::endl;
+
+  intArray.addNumber(3);
+  std::cout << "Elements after addNumber: ";
+  for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+    std::cout << intArray[i] << " ";
+  }
+  std::cout << std::endl << std::endl;
+
+  intArray.addNumber(4);
+  std::cout << "Elements after addNumber: ";
+  for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+    std::cout << intArray[i] << " ";
+  }
+  std::cout << std::endl << std::endl;
+
+  intArray.addNumber(5);
+  std::cout << "Elements after addNumber: ";
+  for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+    std::cout << intArray[i] << " ";
+  }
+  std::cout << std::endl << std::endl;
+
+  intArray.addNumber(6);
+  std::cout << "Elements after addNumber: ";
+  for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+    std::cout << intArray[i] << " ";
+  }
+  std::cout << std::endl << std::endl;
+
+  // for (unsigned int i = 0; i < intArray.getlen(); ++i) {
+  //   intArray[i] = i * 10;
+  // }
+  std::cout << "Elements after addNumber: ";
   for (unsigned int i = 0; i < intArray.getlen(); ++i) {
     std::cout << intArray[i] << " ";
   }
