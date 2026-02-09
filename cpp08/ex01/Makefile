@@ -1,8 +1,8 @@
-NAME	= array
+NAME	= span
 
 SRCS	= main.cpp 
 
-HEADERS	= Array.hpp
+HEADERS	= Span.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
