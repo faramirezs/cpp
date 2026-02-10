@@ -1,6 +1,6 @@
 NAME	= span
 
-SRCS	= main.cpp 
+SRCS	= main.cpp Span.cpp
 
 HEADERS	= Span.hpp
 

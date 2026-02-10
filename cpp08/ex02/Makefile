@@ -1,8 +1,8 @@
-NAME	= array
+NAME	= mutant
 
 SRCS	= main.cpp 
 
-HEADERS	= Array.hpp
+HEADERS	= MutantStack.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
