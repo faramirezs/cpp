@@ -6,11 +6,11 @@ HEADERS	= easyfind.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CCXX	= g++
+CCXX	= c++
 
 RM	= rm -f
 
-CCXXFLAGS = -g -gdwarf-4 -O0 -Wall -Wextra -Werror -std=c++98
+CCXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME)
 

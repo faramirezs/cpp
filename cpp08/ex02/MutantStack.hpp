@@ -6,16 +6,15 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:29:52 by alramire          #+#    #+#             */
-/*   Updated: 2026/02/10 12:14:28 by alramire         ###   ########.fr       */
+/*   Updated: 2026/02/12 16:02:05 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-#define MUTANTSTACK_HPP
-
+#pragma once
 #include <stack>
 #include <deque>
 #include <iostream>
+#include <algorithm>
 
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container> {
@@ -33,21 +32,11 @@ public:
     }
     ~MutantStack() {}
 
-    // Type aliases (required for STL compatibility)
-
-    // typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-    // typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
-
     // Iterator accessors
     iterator begin() { return this->c.begin(); }
     iterator end() { return this->c.end(); }
     
     const_iterator begin() const { return this->c.begin(); }
     const_iterator end() const { return this->c.end(); }
-    
-    // // Reverse iterators (optional but good practice)
-    // reverse_iterator rbegin() { return this->c.rbegin(); }
-    // reverse_iterator rend() { return this->c.rend(); }
-};
 
-#endif
+};

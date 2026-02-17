@@ -6,21 +6,25 @@
 /*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:17:50 by alramire          #+#    #+#             */
-/*   Updated: 2026/02/10 10:40:21 by alramire         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:06:45 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include <stdexcept>
 #include <vector>
 #include <cstdlib>
+#include <iterator>
+#include <algorithm>
+#include <numeric>
+#include <climits>
 
 class Span {
 
 private:
-  int *data;
+  std::vector<int> data;
   unsigned int len;
-  unsigned int size;
 
 public:
   Span();
@@ -30,10 +34,15 @@ public:
   ~Span();
 
   void addNumber(int num);
-  void addBatch(int *start, int *end);
-  int shortestSpan();
-  int longestSpan();
-  int &operator[](unsigned int);
-  unsigned int getsize();
-  unsigned int getlen();
+  template <typename InputIterator>
+  void addNumber(InputIterator first, InputIterator last) {
+    if (data.size() + static_cast<unsigned int>(std::distance(first, last)) > len) {
+      throw std::out_of_range("Out of bounds.");
+    }
+    data.insert(data.end(), first, last);
+  }
+  unsigned int shortestSpan() const;
+  unsigned int longestSpan() const;
+  unsigned int getSize() const;
+  unsigned int getLen() const;
 };
