@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alramire <alramire@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/13 14:10:41 by alramire          #+#    #+#             */
+/*   Updated: 2025/12/13 14:10:43 by alramire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Array.hpp"
 #include <iostream>
 #include <string>
@@ -97,8 +109,7 @@ int main(void) {
   }
   std::cout << std::endl << std::endl;
 
-  // ========== Test 12: Empty Array Operations ==========
-  std::cout << "Test 12: Empty array operations" << std::endl;
+  std::cout << "Empty array operations" << std::endl;
   Array<int> emptyArray(0);
   std::cout << "Empty array size: " << emptyArray.size() << std::endl;
   try {
@@ -107,7 +118,7 @@ int main(void) {
     std::cout << "Exception for empty array access: " << e.what() << std::endl;
   }
   std::cout << std::endl;
-  
+
   std::cout << "Chained assignment" << std::endl;
   Array<int> a(3), b(2), c(1);
   a[0] = 1;
