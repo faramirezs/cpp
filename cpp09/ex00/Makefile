@@ -16,6 +16,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS) $(HEADERS)
 		$(CCXX) $(CCXXFLAGS) -o $(NAME) $(OBJS)
+		chmod +x $(NAME)
 
 %.o: %.cpp
 		$(CCXX) $(CCXXFLAGS) -c $< -o $@
