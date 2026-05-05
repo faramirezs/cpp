@@ -1,8 +1,8 @@
 NAME    = PmergeMe
 
-SRCS	= main.cpp PmergeMe.cpp test.cpp
+SRCS	= main.cpp PmergeMe.cpp
 
-HEADERS	= PmergeMe.hpp test.hpp
+HEADERS	= PmergeMe.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

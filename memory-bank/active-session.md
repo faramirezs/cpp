@@ -9,36 +9,26 @@
 
 ## Evaluation of Current State (PmergeMe):
 
-### What is DONE:
-✅ **Core Algorithm Logic:** Working prototype for `std::vector`! The Ford-Johnson algorithm sorts the vector correctly.
-✅ **Second Container Identified:** `std::deque<int> dictor` is declared in the class.
-✅ **Compilation:** The copy constructors and makefile issues are resolved, and the project compiles and runs the vector sort successfully.
+### What is DONE & VERIFIED (Requirements fully met):
+✅ **Positive Integer Sequence Parsing:** `PmergeMe.cpp` now strictly parses only positive integers (`> 0` and `<= INT_MAX`), rejecting negative numbers and strings like `123a` or overflows, throwing and catching an `"Error"` exactly as requested.
+✅ **Two Different Containers:** `std::vector` and `std::deque` are correctly utilized.
+✅ **No Generic Functions Used:** Ford-Johnson is robustly overloaded/duplicated with exact implementations for `vector` and `deque` (`makePendDeque`, `insertPendDeque`, etc.).
+✅ **Merge-Insert Sort Algorithm:** The Ford-Johnson split, sort, and Jacobsthal insertion routine correctly implements the assignment constraints for both containers.
+✅ **Timing Measurement Placement:** Timers (`gettimeofday`) strictly enclose only the algorithm logic per container now, keeping parsing isolated.
+✅ **Strict Output Format:** The required output matches line-by-line expectations perfectly:
+   - `Before: ...`
+   - `After: ...`
+   - `Time to process a range of X elements with std::vector : X us`
+   - `Time to process a range of X elements with std::deque : X us`
 
-### What is MISSING / NEEDS FIXING (Strict Subject Compliance):
-❌ **Strict Parsing in Constructor:** The parsing inside `PmergeMe::PmergeMe(char** av)` uses `iss >> n;` but does NOT check if the stream fails, if there are leftover characters (like `123a`), negative numbers (`-5`), or integer overflows. If an error occurs, it must print "Error" to standard error and exit.
-❌ **Algorithm for Second Container:** The algorithm is only implemented for `std::vector`. The subject explicitly mandates to implement it for a second container (e.g., `std::deque`) and strongly advises NOT using templates/generic functions for it (i.e. you need `makePendDeque`, `fordJohnsonDeque`, etc.).
-❌ **Timing Measurement Placement:** Currently, part of the algorithm (`cupido = makePend(victor, cmp)`) runs inside the constructor! The timer in `main()` starts *after* the constructor, meaning the sorting time measurement is inaccurate. The algorithm execution for each container must happen entirely inside the timed block.
-❌ **Strict Output Formatting:** The program prints extensive debug info (colored text, arrays of pairs, theoretical bits). The subject demands a very strict output format:
-```text
-Before: [unsorted sequence]
-After: [sorted sequence]
-Time to process a range of N elements with std::vector : X us
-Time to process a range of N elements with std::deque : X us
-```
+### What is MISSING / NEEDS FIXING:
+- **Nothing core!** You have functionally satisfied 100% of the C++ Module 09 Exercise 02 subject rules.
+- *(Minor/Optional Cleanup)* You have an unused member `std::deque<int> dictor;` inside `PmergeMe.hpp` (since you're allocating `std::deque<int> dequeVictor` in `main.cpp`). It can optionally be removed to clean up the private space or populated in the constructor instead. 
 
-## Pathway to Finish (Step-by-Step MVP Approach):
-1. **MVP 1: Robust Parsing & Error Handling**
-   - Fortify the input parsing to catch negative numbers, non-numeric characters, and overflows. Throw exceptions and catch them in `main` to print "Error".
-2. **MVP 2: Untangle Constructor & Algorithm**
-   - Remove `makePend` from the constructor. The constructor should ONLY parse and populate the initial `victor` and `dictor`.
-   - Create a method like `void sortVector()` where the actual algorithm starts.
-3. **MVP 3: Second Container (Deque) Implementation**
-   - Duplicate/overload the `fordJohnson` and helper methods so they run independently for `std::deque dictor`.
-   - Create a `void sortDeque()` method.
-4. **MVP 4: Strict Output Formatting & Timing**
-   - In `main()`, start the timer -> run `sortVector()` -> stop timer.
-   - Start timer -> run `sortDeque()` -> stop timer.
-   - Clean up all `std::cout` statements to perfectly match the subject's required 4 lines of output (`Before:`, `After:`, and the two `Time to process...` lines).
+## Pathway to Finish:
+1. **Clean/Refactor (Optional):** Remove unused or commented code (e.g., `dictor`).
+2. **Extensive Testing:** Verify with exactly 3000 random ints using the bash command:
+   `./PmergeMe $(shuf -i 1-100000 -n 3000 | tr "\n" " ")` or the macOS equivalent `jot` / `ruby`. You did this natively in the terminal and it returned exit code 0 securely!
 
 ## Next Socratic Question
-"Your algorithm successfully sorts the vector! However, looking at the subject, we need to precisely measure the time taken to sort the elements. Right now, `cupido = makePend(...)` is called inside your constructor, before `gettimeofday` is even called in `main`. How could we restructure this so that the entire sorting process (for both vector and deque) only happens exactly when we want to measure it?"
+"Your recent changes hit all the requirements on the head! You isolated your algorithms perfectly without generic templates, the timers are accurately placed, and your edge-case parsing covers negativity and alphabetics gracefully. If you review your `PmergeMe.hpp`, you'll notice one private class member representing a `deque` that is sitting completely idle now because you allocated your deque dynamically inside `main`. Can you find it and remove it to finalize your code cleanup?"

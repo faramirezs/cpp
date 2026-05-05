@@ -7,11 +7,13 @@
 #include <vector>
 #include <utility>
 #include <sys/time.h>
+#include "Count.hpp"
 
 class PmergeMe
 {
 private:
 	std::vector<int> mainChain;
+	std::deque<int> dictor;
 	std::vector<std::pair<int,int> > pend;
 	std::vector<int> victor;
 public:
@@ -23,24 +25,20 @@ public:
 
 	void printInput();
 
-	// std::vector implementations
+	// Eval versions (no comparison counting)
 	std::vector<std::pair<int,int> > makePend(const std::vector<int>& v);
 	void insertPend(std::vector<int>& newMain,
 				std::vector<std::pair<int,int> > pend, int newStrang);
 	std::vector<int> makeMain(std::vector<std::pair<int,int> > pend);
 	int makeStrang(std::vector<int> v);
 	std::vector<int> createJack(size_t n);
-	void fordJohnson(std::vector<int>&mainChain,
-				std::vector<std::pair<int,int> > pend, int strangler, int count);
+	void fordJohnson(std::vector<int>&mainChain, std::vector<std::pair<int,int> > pend, int strangler, int count);
 
-	// std::deque implementations
-	std::deque<std::pair<int,int> > makePendDeque(const std::deque<int>& v);
-	void insertPendDeque(std::deque<int>& newMain,
-				std::deque<std::pair<int,int> > pend, int newStrang);
-	std::deque<int> makeMainDeque(std::deque<std::pair<int,int> > pend);
-	int makeStrangDeque(std::deque<int> v);
-	void fordJohnsonDeque(std::deque<int>&mainChain,
-				std::deque<std::pair<int,int> > pend, int strangler, int count);
+	// Test versions (with CountingLess)
+	std::vector<std::pair<int,int> > makePend(const std::vector<int>& v, CountingLess<int>& cmp);
+	void insertPend(std::vector<int>& newMain,
+				std::vector<std::pair<int,int> > pend, int newStrang, CountingLess<int>& cmp);
+	void fordJohnson(std::vector<int>&mainChain, std::vector<std::pair<int,int> > pend, int strangler, int count, CountingLess<int>& cmp);
 
 	size_t getVictorSize();
 	int getVictorValue(int index);
