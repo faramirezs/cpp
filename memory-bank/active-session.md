@@ -1,63 +1,36 @@
 <!-- Memory Bank File: Active Session Tracker -->
-<!-- Purpose: Track the current tutoring session state and immediate context -->
-<!-- Update Frequency: During active tutoring sessions -->
-<!-- Cross-references: Links to progress.md and tutoring-insights.md -->
-
 # Active Session Context
 
-**Session Date:** 2025-01-11 (ISO 8601 format: YYYY-MM-DD)
+**Session Date:** 2026-05-05
 **Student Identifier:** alejiri
 
 ## Current Problem/Topic Focus:
-- **Topic:** C++ Module 04 - Exercise 03 (Interfaces & Abstract Classes) - AMateria Interface Implementation
-- **Specific Issue:** Transitioning from concrete inheritance to interface-based design with abstract base classes
+- C++ Module 09 - Exercise 02 (PmergeMe) - Ford-Johnson merge-insert sort algorithm
 
-## Current Code Under Review:
-```cpp
-// COMPLETED: cpp04/ex00 - Basic polymorphism with Animal/Dog/Cat hierarchy
-// ACHIEVED: Virtual function overriding, const-correctness, inheritance chains
-// COMPLETED: cpp03/ex00-ex02 - ClapTrap/ScavTrap/FragTrap inheritance with proper construction/destruction chaining
-// IN PROGRESS: cpp04/ex01 - Brain class with dynamic memory management and deep copy requirements
-// CURRENT FOCUS: Deep copy semantics and memory leak prevention
-```
+## Evaluation of Current State (PmergeMe):
 
-## Student's Current Question/Blocker:
-- ✅ Successfully completed cpp04/ex00 with virtual function polymorphism
-- ✅ Mastered inheritance construction/destruction chaining in cpp03
-- ✅ Understood const member function requirements and virtual function behavior
-- ✅ Debugged segmentation faults through systematic MVP testing approach
-- 🔄 Starting cpp04/ex01: Brain class with dynamic memory allocation and deep copy semantics
-- � Need to understand: private Brain* attributes, deep vs shallow copy, destructor chains with dynamic memory
+### What is DONE:
+✅ **Core Algorithm Logic Prototype:** Working prototype in `main.cpp`.
+✅ **MVP 1 Progress (Restructuring Started):** You've created `PmergeMe.hpp` and `PmergeMe.cpp`. You've moved some attributes into the class (`mainChain`, `d`, `pend`, `victor`, `cupido`) and started implementing the constructor to parse input.
+✅ **Second Container Identified:** You've added `std::deque<int> d` to your class, which is a great choice as your second container!
 
-## Key Points from Last Exchange:
-- **Inheritance Mastery**: Successfully completed cpp03 module with proper constructor/destruction chaining
-- **Virtual Function Understanding**: Mastered virtual function overriding and polymorphic behavior in cpp04/ex00
-- **Debugging Excellence**: Systematically debugged segmentation faults using MVP isolation techniques
-- **Const-correctness Application**: Applied const member functions correctly for polymorphic interfaces
-- **Memory Debugging**: Used step-by-step testing to isolate crash locations and identify root causes
-- **Inheritance Chain Validation**: Verified proper construction/destruction order in derived classes
-- **Polymorphism Implementation**: Successfully implemented Animal/Dog/Cat hierarchy with virtual functions
-- **Problem Isolation Skills**: Learned to test individual components before combining complex functionality
+### What is MISSING / NEEDS FIXING:
+❌ **Compile-Breaking Copy Operations:** `PmergeMe(const PmergeMe &other): s(other.s){}` has an error because `s` doesn't exist in this class. (Copy syntax from old classes often needs a quick update).
+❌ **Strict Parsing in Constructor:** The parsing inside `PmergeMe::PmergeMe(char** av)` uses `iss >> n;` but does NOT check if the stream fails, if there are leftover characters (like `123a`), or if `n <= 0`.
+❌ **Algorithm Transfer Incomplete:** Most of the algorithm (`fordJohnson`, `insertPend`, `createJack`, etc.) is still sitting in `main.cpp`. 
+❌ **Makefile:** Still missing compilation rules to link the new `.cpp` files.
 
-## Next Socratic Question/Guidance Plan:
-- **Next Session Focus**: Implement Brain class with dynamic memory allocation
-- **Key Question**: "What's the difference between shallow copy and deep copy when your class contains a pointer?"
-- **Implementation Strategy**: Build Brain class first, then integrate with Dog/Cat, test deep copy behavior
-- **Memory Management Goal**: Understand RAII principles and prevent memory leaks in inheritance hierarchies
-- **Testing Approach**: Create Animal array, test proper destruction order, verify no memory leaks
+## Pathway to Finish (Step-by-Step MVP Approach):
+1. **MVP 1 (Current Focus): Finish the Structure**
+   - Fix the `PmergeMe` copy constructor and copy assignment operator.
+   - Fortify the input constructor parsing (check for bad characters and negative numbers).
+   - Move the rest of the `vector` sorting functions from `main.cpp` into `PmergeMe` and ensure it runs natively inside a `.sort()` method.
+2. **MVP 2: Clean Output Formatting**
+   - Format `Before:` and `After:` correctly. Remove debug prints.
+3. **MVP 3: Second Container (Deque)**
+   - Adapt the logic to run for `std::deque` as well.
+4. **MVP 4: Timing & Final Integration**
+   - Wrap the execution in the correct timing logs required by the subject.
 
-## Session Notes:
-- Strong progression from cpp02 fixed-point arithmetic through cpp03 inheritance to cpp04 polymorphism
-- Excellent debugging methodology: isolate, test incrementally, verify assumptions
-- Ready for advanced memory management concepts: dynamic allocation, deep copy, RAII
-- Should maintain MVP approach: implement Brain class first, then integration, then deep copy testing
-- Prepared to explore complex destructor chains with dynamic memory cleanup
-- Focus on understanding ownership semantics and copy constructor requirements
-
----
-*This file should be updated after each exchange with the student and cleared when moving to a new problem/topic. Important insights should be moved to → progress.md or → tutoring-insights.md before clearing.*
-
-**Cross-References:**
-- **→ progress.md**: Transfer concept mastery evidence and learning milestones
-- **→ tutoring-insights.md**: Move effective questioning strategies and successful techniques
-- **← student-profile.md**: Reference learning preferences and known strengths when planning questions
+## Next Socratic Question
+"I see you've created `PmergeMe.hpp/cpp` and brought in `victor` and a new `deque`! However, if you look closely at your copy constructor, there's a small copy-paste leftover causing a compilation issue. Before we migrate the rest of the algorithm, what is the best way to handle parsing errors in a C++ constructor if an invalid input like `"123a"` or `"-5"` is encountered?"

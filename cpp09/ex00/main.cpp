@@ -1,33 +1,50 @@
-#include <map>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
+# include "BitcoinExchange.hpp"
 
-void loadCSV(const std::string & filename, std::map<std::string, float> &db){
-	std::ifstream file(filename.c_str());
-	if(!file.is_open()) {
-		std::cerr << "Error: could not open file" << std::endl;
-		return;
-	}
-
-	std::string line;
-	std::getline(file, line);
-
-	while(std::getline(file, line)){
-		std::istringstream ss(line); //treat every
-		std::string date, rateStr;
-
-		if(std::getline(ss, date, ',') && std::getline(ss, rateStr)){
-			float rate = static_cast<float>(std::atof(rateStr.c_str()));
-			db[date] = rate;
+bool isValidAmount(const std::string& amountStr){
+	bool decimal = false;
+	for (size_t i = 0; i < amountStr.length(); i++)
+	{
+		if (i==0 && amountStr[i] == '-')
+			continue;
+		if (amountStr[i] == '.'){
+			if (decimal == false)
+				decimal = true;
+			else
+				return false;
+			continue;
 		}
-
+		if(!isdigit(amountStr[i]))
+			return false;
 	}
+	return true;
 }
 
+bool isValidDate(const std::string& date){
 
-
+	if (date.length() != 10)
+		return false;
+	if ( date[4] != '-')
+		return false;
+	if ( date[7] != '-')
+		return false;
+	for (size_t i = 0; i < 10; i++)
+	{
+		if (i ==4 || i ==7)
+			continue;
+		if(!(isdigit(date[i])))
+			return false;
+	}
+	int month, day;
+	month = atoi(date.substr(5,2).c_str());
+	day = atoi(date.substr(8,2).c_str());
+	if(!(month>= 1 && month <=12 ))
+		return false;
+	if(!(day >= 1 && day <=31 ))
+		return false;
+	if(date < "2009-01-02")
+		return false;
+	return true;
+}
 
 int main(int ac, char** av){
 
@@ -36,17 +53,38 @@ int main(int ac, char** av){
 		return 1;
 	}
 
-	std::map<std::string, float> db;
-	loadCSV(*av, db);
+	std::ifstream file(av[1]);
+	if(!file.is_open()) {
+		std::cerr << "Error: could not open file" << std::endl;
+		return 1;
+	}
+	BitcoinExchange btc;
+	std::string line;
+	std::getline(file, line);
 
-	db["2011-01-03"]= 0.30;
-	db["2012-01-11"]= 7.10;
-	db["2013-06-15"]= 100.0;
+	while(std::getline(file, line)){
+		std::istringstream ss(line);
+		std::string date,separator, amountStr;
 
-	std::cout << db["2012-01-11"] << std::endl;
+		if (ss >> date >> separator >> amountStr) {
+			float amount = static_cast<float>(std::atof(amountStr.c_str()));
 
-	for (std::map<std::string, float>::iterator it = db.begin(); it != db.end(); it++)
-	{
-		std::cout << it->first <<"="<< it->second << std::endl;
+			if(!(isValidDate(date)) ||!(isValidAmount(amountStr))){
+				if(!(isValidDate(date)))
+					std::cerr << "Error: bad input date => " << date <<std::endl;
+				if(!(isValidAmount(amountStr)))
+					std::cerr << "Error: bad input amount => " << amountStr <<std::endl;
+			}
+			else
+				if (amount < 0)
+					std::cerr << "Error: negative number" << std::endl;
+				else
+					if (amount > 1000)
+						std::cerr << "Error: too large a number" << std::endl;
+					else
+						std::cout << date <<" => "<< amount<<" = "<< std::fixed << std::setprecision(2) << amount * btc.getRate(date) << std::endl;
+		}
+		else
+		 std::cerr << "Error: input expecs: date | amount" << std::endl;
 	}
 }
