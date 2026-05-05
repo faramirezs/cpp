@@ -6,20 +6,20 @@ HEADERS	= RPN.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CCXX	= g++
+CXX	= c++
 
 RM	= rm -f
 
-CCXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS) $(HEADERS)
-		$(CCXX) $(CCXXFLAGS) -o $(NAME) $(OBJS)
+$(NAME):	$(OBJS)
+		$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 		chmod +x $(NAME)
 
 %.o: %.cpp
-		$(CCXX) $(CCXXFLAGS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 		$(RM) $(OBJS)

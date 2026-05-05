@@ -33,7 +33,7 @@ int RPN::evaluateRPN(const std::string& expr) {
 				s.push(a * b);
             else if (token[0] == '/') {
                 if (b == 0)
-					throw std::runtime_error("Error: division by zero");
+				throw std::runtime_error("Error");
                 s.push(a / b);
             }
         } else {
@@ -45,5 +45,7 @@ int RPN::evaluateRPN(const std::string& expr) {
     }
     if (s.size() != 1)
         throw std::runtime_error("Error");
-    return s.top();
+    int result = s.top();
+    s.pop(); // clean
+    return result;
 }
