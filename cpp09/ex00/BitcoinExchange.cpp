@@ -37,8 +37,15 @@ void BitcoinExchange::loadCSV(){
 }
 
 float BitcoinExchange::getRate(std::string date){
+	if (db.empty())
+		return 0.0f;
 	std::map<std::string, float>::iterator it = db.lower_bound(date);
-	if (it->first != date && it != db.begin())
+	if (it == db.end()) {
 		--it;
+	} else if (it->first != date) {
+		if (it == db.begin())
+			return it->second;
+		--it;
+	}
 	return it->second;
 }

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -46,3 +47,5 @@ public:
 	int getVictorValue(int index);
 	std::vector<int>& getVictor();
 };
+
+#endif
