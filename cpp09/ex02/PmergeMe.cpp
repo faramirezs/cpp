@@ -1,20 +1,22 @@
 #include "PmergeMe.hpp"
 #include "test.hpp"
+#include <climits>
 
 PmergeMe::PmergeMe(){}
 
 PmergeMe::PmergeMe(char** av){
-
-	int i = 0;
-		for (int j = 1; av[j]; j++) {
-			std::istringstream iss(av[j]);//handle eof
-			int n;
-			iss >> n;// extracts the int from stream
-			victor.push_back(n);//check if worked, else invalid int if needed
+	for (int j = 1; av[j]; j++) {
+		std::istringstream iss(av[j]);
+		long n;
+		if (!(iss >> n) || n <= 0 || n > INT_MAX) {
+			throw std::runtime_error("Error");
 		}
-	comp_count = 0;
-	CountingLess<int> cmp(comp_count);
-	cupido = makePend(victor, cmp);
+		char c;
+		if (iss >> c) {
+			throw std::runtime_error("Error");
+		}
+		victor.push_back(static_cast<int>(n));
+	}
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other) {
@@ -22,11 +24,8 @@ PmergeMe::PmergeMe(const PmergeMe &other) {
 	dictor = other.dictor;
 	pend = other.pend;
 	victor = other.victor;
-	cupido = other.cupido;
-	comp_count = other.comp_count;
 
 }
-
 PmergeMe& PmergeMe::operator=(const PmergeMe &other){
 	if (this == &other)
     	return *this;
@@ -34,19 +33,21 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &other){
 	dictor = other.dictor;
 	pend = other.pend;
 	victor = other.victor;
-	cupido = other.cupido;
-	comp_count = other.comp_count;
 	return *this;
 }
 
 PmergeMe::~PmergeMe() {}
 
-int PmergeMe::getVictorSize(){
+size_t PmergeMe::getVictorSize(){
 	return victor.size();
 }
 
 int PmergeMe::getVictorValue(int index){
 	return victor[index];
+}
+
+std::vector<int>& PmergeMe::getVictor(){
+    return victor;
 }
 
 // TEST FUNCTION //
@@ -66,7 +67,7 @@ int PmergeMe::fordJohnsonTheoretical(int n) {
 
 void PmergeMe::printInput() {
     std::cout << "\nvictor is: ";
-    for (int i = 0; i < victor.size(); ++i) {
+    for (size_t i = 0; i < victor.size(); ++i) {
         std::cout << victor[i];
         if (i < victor.size() - 1) std::cout << " ";
     }
@@ -117,15 +118,15 @@ void PmergeMe::insertPend(std::vector<int>& newMain,
             Loop in pend should start in pen[1] (can be start)
     */
     for (size_t j = 1; j < jack.size(); ++j) {//size_t = 1 because before was inserted pend[0]
-        int start = jack[j] - 1;//j = 1 because
+        size_t start = jack[j] - 1;//j = 1 because
         // pend[0] was inserted
-        int end = jack[j - 1] - 1;
-        if (start >= static_cast<int>(pend.size()))//to avoid jack going beyond pend size
-            start = static_cast<int>(pend.size()) - 1;
+        size_t end = jack[j - 1] - 1;
+        if (start >= pend.size())//to avoid jack going beyond pend size
+            start = pend.size() - 1;
 
         // testJackRange(start, end, j, pend);//TEST
 
-        for (int i = start; i > end && i < static_cast<int>(pend.size()); --i) {//end is the last insertion considering jack
+        for (size_t i = start; i > end && i < pend.size(); --i) {//end is the last insertion considering jack
                 // testCurrentPendInsert(pend, i);//TEST
                 int val = pend[i].first;
                 std::vector<int>::iterator it = std::lower_bound(newMain.begin(),
@@ -162,6 +163,7 @@ std::vector<int> PmergeMe::createJack(size_t n) {
 void    PmergeMe::fordJohnson(std::vector<int>&mainChain, std::vector<std::pair<int,int> > pend, int strangler, int count, CountingLess<int>& cmp) {//TEST
     // 4. recursion part 1. to organize "main chains" from cupido + create pends with pairs
     // if (mainChain.size() <= 1){ //base case to stop recursion
+    (void)strangler;
     if (pend.size() <= 1) { //check this option
         if (!pend.empty()) {
             // std::vector<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), pend[0].first);

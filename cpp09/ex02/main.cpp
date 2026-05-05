@@ -128,9 +128,9 @@ struct timeval start, end;
 
 void printResult(std::vector<int> mainChain) {
     std::cout << BOLD << RESULT << "\nfinal mainChain: " << RESET;
-    for (int i = 0; i < static_cast<int>(mainChain.size()); ++i) {
+    for (size_t i = 0; i < mainChain.size(); ++i) {
         std::cout << mainChain[i];
-    if (i + 1 < static_cast<int>(mainChain.size())) std::cout << " ";
+        if (i + 1 < mainChain.size()) std::cout << " ";
     } std::cout << std::endl;
 }
 
@@ -212,6 +212,7 @@ int main(int argc, char **av) {
     }
     // 2. argv to int
     // std::vector<int> victor;
+	try {
     PmergeMe p(av);
     // int i = 0;
     // for (int j = 1; av[j]; j++) {
@@ -237,8 +238,8 @@ int main(int argc, char **av) {
     int comp_count = 0;//TEST
     CountingLess<int> cmp(comp_count);//TEST
     // std::vector<std::pair<int,int> > cupido = makePend(victor);
-    std::vector<std::pair<int,int> > cupido = p.makePend(victor, cmp);//add cmp TEST
-    int strangler = p.makeStrang(victor);
+    std::vector<std::pair<int,int> > cupido = p.makePend(p.getVictor(), cmp);//add cmp TEST
+    int strangler = p.makeStrang(p.getVictor());
 
     testCupido(cupido); //TEST
     testStrangler(strangler);//TEST
@@ -257,12 +258,16 @@ int main(int argc, char **av) {
     printResult(mainChain);
     gettimeofday(&end, NULL);
 
-    printTime(victor.size(), "std::vector");
+    printTime(p.getVictorSize(), "std::vector");
     printCompare(cmp);//TEST
-    std::cout << "Total Theoretical: " << fordJohnsonTheoretical(victor.size()) << std::endl;
+    std::cout << "Total Theoretical: " << fordJohnsonTheoretical(p.getVictorSize()) << std::endl;
 
-    testComparison(mainChain, victor); // TEST with std::sort
-    return 0;
+    testComparison(mainChain, p.getVictor()); // TEST with std::sort
+		return 0;
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 }
 
 /*  TEST WITH 3000 (creates numbers from 1 to 10000)

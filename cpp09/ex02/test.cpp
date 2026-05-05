@@ -11,7 +11,7 @@ void testComparison(std::vector<int> mainChain, std::vector<int> victor) {
 
 void testCupido(std::vector<std::pair<int,int> >cupido) {
     std::cout << "cupido: ";
-    for (int i = 0; i < cupido.size(); ++i) {
+    for (size_t i = 0; i < cupido.size(); ++i) {
         std::cout << "(" << cupido[i].first << "," << cupido[i].second << ")";
         if (i + 1 < cupido.size()) {
         std::cout << " ";
@@ -41,7 +41,7 @@ void testCurrentPendInsert(std::vector<std::pair<int,int> > pend, int i) {
 
 void testJack(std::vector<int> jack, int count){
     std::cout << JACK << "Jackobsthal" << count << ": " << RESET;
-    for (int i = 0; i < jack.size(); ++i){
+    for (size_t i = 0; i < jack.size(); ++i){
         std::cout << jack[i] << " ";
     }
     std::cout << std::endl;
@@ -53,9 +53,9 @@ void testJackRange(int start, int end, int j, std::vector<std::pair<int,int> > p
 
 void testMainCinRonud(std::vector<int> mainChain, int count) {
     std::cout << BOLD << "\nround " << count << " mainChain: " << RESET;
-    for (int i = 0; i <mainChain.size(); ++i) {
+    for (size_t i = 0; i < mainChain.size(); ++i) {
         std::cout << mainChain[i];
-    if (i + 1 < static_cast<int>(mainChain.size())) std::cout << " ";
+    if (i + 1 < mainChain.size()) std::cout << " ";
     } std::cout << std::endl;
     std::cout << std::endl;
 }

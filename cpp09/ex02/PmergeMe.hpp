@@ -17,8 +17,6 @@ private:
 	std::deque<int> dictor;
 	std::vector<std::pair<int,int> > pend;
 	std::vector<int> victor;
-	std::vector<std::pair<int,int> > cupido;
-	int comp_count;
 public:
 	PmergeMe();
 	PmergeMe(char**av);
@@ -37,7 +35,7 @@ public:
 	int makeStrang(std::vector<int> v);
 	std::vector<int> createJack(size_t n);
 	void fordJohnson(std::vector<int>&mainChain, std::vector<std::pair<int,int> > pend, int strangler, int count, CountingLess<int>& cmp);
-	int getVictorSize();
+	size_t getVictorSize();
 	int getVictorValue(int index);
-	std::vector<int>& getvictor;
+	std::vector<int>& getVictor();
 };
