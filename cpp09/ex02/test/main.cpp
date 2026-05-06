@@ -6,21 +6,16 @@
 #include <algorithm>
 #include <string>
 #include <sys/time.h>
+#include <cmath>
 
 struct timeval start, end;
 
 // Theoretical comparison count for the Ford-Johnson algorithm
 int fordJohnsonTheoretical(int n) {
-    int total = 0;
-    int chainSize = 1;
-    for (int i = 1; i < n; ++i) {
-        int bits = 0;
-        int tmp = chainSize;
-        while (tmp > 0) { bits++; tmp >>= 1; }
-        total += bits;
-        chainSize++;
-    }
-    return total;
+    int sum = 0;
+    for (int k = 1; k <= n; ++k)
+        sum += (int)ceil(log2(3.0 * k / 4.0));
+    return sum;
 }
 
 void printResult(std::vector<int> mainChain) {
@@ -84,7 +79,7 @@ int main(int argc, char **av) {
 
         printTime(p.getVictorSize(), "std::vector");
         printCompare(cmp);
-        std::cout << "Total Theoretical: " << fordJohnsonTheoretical(p.getVictorSize()) << std::endl;
+        std::cout << "Total theoretical: " << fordJohnsonTheoretical(p.getVictorSize()) << std::endl;
 
         testComparison(mainChain, p.getVictor());
         return 0;
