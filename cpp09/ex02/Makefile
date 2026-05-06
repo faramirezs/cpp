@@ -6,7 +6,7 @@ HEADERS	= PmergeMe.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CXX	= C++
+CXX	= c++
 
 RM	= rm -f
 
@@ -14,9 +14,12 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADERS)
 		$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 		chmod +x $(NAME)
+
+%.o: %.cpp $(HEADERS)
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 %.o: %.cpp
 		$(CXX) $(CXXFLAGS) -c $< -o $@
